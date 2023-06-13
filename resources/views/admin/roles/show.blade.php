@@ -70,31 +70,18 @@
                         <input name="display_name" type="text" class="form-control"
                         value="{{ $role->display_name }}">
                     </div>
+                    <div class="col-md-12">
+                        <button type="button" class="btn bg-success btn-labeled"><b><i
+                                    class="icon-reading"></i></b> لیست مجوزها</button>
 
-                    <div class="accordion col-md-12 mt-3 mb-4" id="accordionPermission">
-                        <div class="card">
-                            <div class="card-header p-1" id="headingOne">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-right" type="button" data-toggle="collapse"
-                                        data-target="#collapsePermission" aria-expanded="true" aria-controls="collapseOne">
-                                        مجوز های دسترسی
-                                    </button>
-                                </h2>
+                        <div class="panel panel-body border-top-success text-center">
+                            @foreach ($role->permissions as $permission)
+                            <div class="col-md-3">
+                                <span>{{$permission->display_name}}</span>
                             </div>
-
-                            <div id="collapsePermission" class="collapse show" aria-labelledby="headingOne"
-                                data-parent="#accordionPermission">
-                                <div class="card-body row">
-                                    @foreach ($role->permissions as $permission)
-                                        <div class="col-md-3">
-                                            <span>{{$permission->display_name}}</span>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

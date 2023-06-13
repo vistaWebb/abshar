@@ -15,14 +15,6 @@
     <script type="text/javascript" src="{{ asset('/js/pages/form_select2.js') }}"></script>
     <!-- /theme JS files -->
 
-    <!-- select input JS files -->
-    <script type="text/javascript" src="{{ asset('/js/core/libraries/jquery_ui/interactions.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/js/plugins/forms/selects/select2.min.js') }}"></script>
-
-    <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/js/pages/form_select2.js') }}"></script>
-    <!-- /theme JS files -->
-
     <!-- multiselect form JS files -->
     <script type="text/javascript" src="{{ asset('/js/plugins/forms/styling/uniform.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/plugins/notifications/pnotify.min.js') }}"></script>
@@ -34,7 +26,7 @@
 @endsection
 
 @section('title')
-    edit user
+    show user
 @endsection
 
 @section('content')
@@ -43,8 +35,8 @@
         <div class="breadcrumb-line">
             <ul class="breadcrumb">
                 <li><a href="index-2.html"><i class="icon-home2 position-left"></i> خانه</a></li>
-                <li><a href="form_layout_vertical.html"> ویرایش مشخصات کاربر  </a></li>
-                <li class="active">edit user</li>
+                <li><a href="form_layout_vertical.html"> نمایش مشخصات کاربر </a></li>
+                <li class="active">show user</li>
             </ul>
 
             <ul class="breadcrumb-elements">
@@ -83,46 +75,36 @@
                     @method('put')
                     <div class="panel panel-flat">
                         <div class="panel-heading">
-                            <h5 class="panel-title">edit user</h5>
+                            <h5 class="panel-title">show user</h5>
                         </div>
 
                         <div class="panel-body">
                             <div class="form-group col-md-6">
-                                <label>نام  کاربر<span class="text-danger">*</span> : </label>
+                                <label>نام کاربر : </label>
                                 <input name="name" type="text" class="form-control" value="{{ $user->name }}">
                             </div>
                             <div class="form-group col-md-6">
-                                <label>ایمیل کاربر <span class="text-danger">*</span> : </label>
+                                <label>ایمیل کاربر : </label>
                                 <input name="email" type="email" class="form-control" value="{{ $user->email }}">
                             </div>
                             <div class="form-group col-md-12">
-                                <label> انتخاب نقش کاربر <span class="text-danger">*</span> :</label>
-                                <select name="role" class="select-search">
-                                    <option></option>
-                                    @foreach ($roles as $role)
-                                    <option value="{{ $role->name }}" {{ in_array($role->id , $user->roles->pluck('id')->toArray()) ? 'selected' : '' }}>{{ $role->display_name }}</option>
+                                <label>نقش کاربر  : </label>
+                                @foreach ($user->roles as $role)
+                                <input name="role" type="role" class="form-control" value="{{ $role->display_name }}">
                                 @endforeach
-                                </select>
                             </div>
-
                             <div class="col-md-12">
-                                <button type="button" class="btn bg-teal-400 btn-labeled"><b><i class="icon-reading"></i></b> لیست مجوزها</button>
+                                <button type="button" class="btn bg-success btn-labeled"><b><i
+                                            class="icon-reading"></i></b> لیست مجوزهای اضافه</button>
 
-                                <div class="panel panel-body border-top-primary text-center">
-                                    @foreach ($permissions as $permission)
-                                <div class="form-group form-check col-md-3">
-                                    <input type="checkbox" class="form-check-input"
-                                        id="permission_{{ $permission->id }}" name="{{ $permission->name }}"
-                                        value="{{ $permission->name }}"
-                                        {{ in_array( $permission->id , $user->permissions->pluck('id')->toArray() ) ? 'checked' : '' }}
-                                        >
-                                    <label class="form-check-label mr-3"
-                                        for="permission_{{ $permission->id }}">{{ $permission->display_name }}</label>
-                                </div>
-                                @endforeach
+                                <div class="panel panel-body border-top-success text-center">
+                                    @foreach ($user->permissions as $permission)
+                                        <div class="col-md-3">
+                                            <span>{{ $permission->display_name }}</span>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
-
 
                             <div class="form-group col-md-12">
                                 <label class="display-block">وضعیت:</label>
@@ -141,7 +123,7 @@
                             </div>
 
                             <div class="text-right ">
-                                <button type="submit" class="btn btn-primary">ارسال <i
+                                <button type="submit" class="btn btn-success">ارسال <i
                                         class="icon-arrow-left13 position-right"></i>
                                 </button>
                             </div>

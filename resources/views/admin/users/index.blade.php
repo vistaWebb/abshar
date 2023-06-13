@@ -53,10 +53,6 @@
         <div class="panel panel-flat">
             <div class="panel-heading">
                 <h5 class="panel-title"> لیست کاربران</h5>
-                <div class="heading-elements">
-                    <a href="{{ route('admin.users.create') }}" type="button" class="btn btn-success "><i
-                            class=" icon-stack position-left"></i> افزودن کاربر </a>
-                </div>
             </div>
 
             <div class="table-responsive">
@@ -92,15 +88,9 @@
                                                 <li><a class="btn btn-sm btn-outline-info mr-3"
                                                         href="{{ route('admin.users.edit', ['user' => $user->id]) }}">
                                                         ویرایش </a></i>
-                                                    <form
-                                                        action="{{ route('admin.users.destroy', ['user' => $user->id]) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                <li class="w-100"><button
-                                                        class="btn btn-sm btn-custom text-center w-100">حذف </button>
-                                                <li>
-                                                    </form>
+                                                <li><a class="btn btn-sm btn-outline-info mr-3"
+                                                        href="{{ route('admin.users.show', ['user' => $user->id]) }}">
+                                                        نمایش </a></i>
                                             </ul>
                                         </li>
                                     </ul>

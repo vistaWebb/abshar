@@ -25,8 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::all();
-        return view('admin.users.create' , compact('roles'));
+        //
     }
 
     /**
@@ -34,28 +33,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'name'=>'required',
-        //     'email'=>'required',
-        //     'is_active'=>'required'
-        // ]);
-        // Users::create([
-        //     'name'=>$request->name,
-        //     'email'=>$request->email,
-        //     'is_active'=>$request->is_active,
-        //     'description'=>$request->description
-        // ]);
-
-        // // alert()->success('با موفقیت انجام شد','دسته بندی با موفقیت اضافه شد');
-        // return redirect()->route('admin.users.index');
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(User $user)
     {
-        //
+        $roles = Role::all();
+        $permissions = Permission::all();
+        return view('admin.users.show' , compact('user' , 'roles' , 'permissions'));
     }
 
     /**
