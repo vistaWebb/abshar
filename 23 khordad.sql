@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2023 at 08:06 PM
+-- Generation Time: Jun 13, 2023 at 06:37 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -160,21 +160,20 @@ CREATE TABLE `model_has_permissions` (
 --
 
 INSERT INTO `model_has_permissions` (`permission_id`, `model_type`, `model_id`) VALUES
+(5, 'App\\Models\\User', 4),
 (5, 'App\\Models\\User', 5),
-(5, 'App\\Models\\Role', 14),
 (5, 'App\\Models\\Role', 15),
 (5, 'App\\Models\\Role', 16),
-(6, 'App\\Models\\User', 4),
+(6, 'App\\Models\\User', 1),
 (6, 'App\\Models\\User', 5),
-(6, 'App\\Models\\Role', 14),
 (6, 'App\\Models\\Role', 15),
 (6, 'App\\Models\\Role', 16),
 (7, 'App\\Models\\User', 5),
-(7, 'App\\Models\\Role', 14),
 (7, 'App\\Models\\Role', 15),
 (7, 'App\\Models\\Role', 16),
 (8, 'App\\Models\\Role', 14),
 (8, 'App\\Models\\Role', 16),
+(9, 'App\\Models\\User', 2),
 (9, 'App\\Models\\Role', 14),
 (9, 'App\\Models\\Role', 16),
 (10, 'App\\Models\\Role', 14),
@@ -198,8 +197,10 @@ CREATE TABLE `model_has_roles` (
 --
 
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
+(14, 'App\\Models\\User', 1),
+(14, 'App\\Models\\User', 4),
 (14, 'App\\Models\\User', 5),
-(15, 'App\\Models\\User', 4);
+(15, 'App\\Models\\User', 2);
 
 -- --------------------------------------------------------
 
