@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Order;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,19 +15,19 @@ class CharityController extends Controller
      */
     public function index()
     {
-        $charities = Transaction::where('category_id' , 3)->get();
+        $charities = Order::where('category_id' , 3)->get();
 
         $vWeek = verta()->subWeek();
         $lastWeek =Verta::parse($vWeek)->datetime();
-        $week = Transaction::where('category_id' , 3)->where('created_at' , '>' , $lastWeek)->get();
+        $week = Order::where('category_id' , 3)->where('created_at' , '>' , $lastWeek)->get();
 
         $vMonth = verta()->subMonth();
         $lastMonth =Verta::parse($vMonth)->datetime();
-        $month = Transaction::where('category_id' , 3)->where('created_at' , '>' , $lastMonth)->get();
+        $month = Order::where('category_id' , 3)->where('created_at' , '>' , $lastMonth)->get();
 
         $vYear = verta()->subYear();
         $lastYear =Verta::parse($vYear)->datetime();
-        $year = Transaction::where('category_id' , 3)->where('created_at' , '>' , $lastYear)->get();
+        $year = Order::where('category_id' , 3)->where('created_at' , '>' , $lastYear)->get();
 
         $sumWeek = 0 ;
         foreach ($week as $w) {

@@ -4,12 +4,13 @@ namespace App\PaymentGateway;
 
 class Zarinpal extends Payment
 {
-    public function send($f_name , $l_name ,$email , $phone , $category_id , $donation_id , $amount , $payment_method)
+    public function send($amount ,$description , $order)
     {
         $data = [
             'MerchantID' => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
             'Amount' => $amount,
             'CallbackURL' => route('home.payment_verify', ['gatewayName' => 'zarinpal']),
+            'Description' => $description
         ];
 
         $jsonData = json_encode($data);
@@ -24,17 +25,18 @@ class Zarinpal extends Payment
         $result = curl_exec($ch);
         $err = curl_error($ch);
         $result = json_decode($result, true);
+
         curl_close($ch);
+
         if ($err) {
             return ['error' => 'cURL Error #:' . $err];
         } else {
             if ($result["Status"] == 100) {
 
-                $createOrder = parent::createOrder($f_name , $l_name ,$email , $phone , $category_id , $donation_id , $amount, $result["Authority"], 'zarinpal');
-                if (array_key_exists('error', $createOrder)) {
-                    return $createOrder;
+                $createTransaction = parent::createTransaction($amount, $result["Authority"], 'zarinpal' , $order);
+                if (array_key_exists('error', $createTransaction)) {
+                    return $createTransaction;
                 }
-
                 return ['success' => 'https://sandbox.zarinpal.com/pg/StartPay/' . $result["Authority"]];
             } else {
                 return ['error' => 'ERR: ' . $result["Status"]];

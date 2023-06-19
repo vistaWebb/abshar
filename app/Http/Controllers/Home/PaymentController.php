@@ -17,20 +17,85 @@ use Illuminate\Support\Facades\Validator;
 
 class PaymentController extends Controller
 {
+    // public function payment(Request $request)
+    // {
+    //     $validator = Validator::make($request->all(), [
+    //         'amount' => 'required',
+    //         'gateway_name' => 'required',
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         // alert()->error('انتخاب آدرس تحویل سفارش الزامی می باشد', 'دقت کنید')->persistent('حله');
+    //         return redirect()->back();
+    //     }
+
+    //     $checkCart = $this->checkCart();
+    //     if (array_key_exists('error', $checkCart)) {
+    //         alert()->error($checkCart['error'], 'دقت کنید');
+    //         return redirect()->route('home.index');
+    //     }
+
+    //     $amounts = $this->getAmounts();
+    //     if (array_key_exists('error', $amounts)) {
+    //         alert()->error($amounts['error'], 'دقت کنید');
+    //         return redirect()->route('home.index');
+    //     }
+
+    //     if($request->payment_method == 'pay') {
+    //         $payGateway = new Pay();
+    //         $payGatewayResult = $payGateway->send($amounts, $request->address_id);
+    //         if (array_key_exists('error', $payGatewayResult)) {
+    //             alert()->error($payGatewayResult['error'], 'دقت کنید');
+    //             return redirect()->back();
+    //         }else{
+    //             return redirect()->to($payGatewayResult['success']);
+    //         }
+    //     }
+
+    //     if($request->payment_method == 'zarinpal') {
+    //         $zarinpalGateway = new Zarinpal();
+    //         $zarinpalGatewayresult = $zarinpalGateway->send($amounts , 'تست' , $request->address_id);
+    //         if (array_key_exists('error', $zarinpalGatewayresult)) {
+    //             alert()->error($zarinpalGatewayresult['error'], 'دقت کنید');
+    //             return redirect()->back();
+    //         }else{
+    //             // dd($zarinpalGatewayresult['success']);
+    //             return redirect()->to($zarinpalGatewayresult['success']);
+    //         }
+    //     }
+
+    //     alert()->error('درگاه انتخابی معتبر نمی باشد', 'دقت کنید');
+    //     return redirect()->back();
+    // }
     public function payment(Request $request)
     {
-        // dd($request->all());
         $validator = Validator::make($request->all(), [
             'amount' => 'required',
-            'payment_method' => 'required',
+            'gateway_name' => 'required',
         ]);
 
         if ($validator->fails()) {
-            // alert()->error('انتخاب آدرس تحویل سفارش الزامی می باشد', 'دقت کنید')->persistent('حله');
+            alert()
+                ->error('موارد ضروری را کامل نمایید ', 'دقت کنید')
+                ->persistent('حله');
             return redirect()->back();
         }
 
-        if ($request->payment_method == 'melli') {
+        $order = Order::create([
+            'f_name' => $request->f_name,
+            'l_name' => $request->l_name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'category_id' => $request->category_id,
+            'donation_id' => $request->donation_id,
+            'amount' => $request->amount,
+            'gateway_name' => $request->gateway_name,
+            'token' => $request->_token,
+        ]);
+        session()->put('amount', ['id' => $order->id,'token' => $order->token, 'amount' => $order->amount]);
+
+        $amount=$request->amount;
+        if ($request->gateway_name == 'melli') {
             $key = 'ODU0MDI2MjRkNThjZmE0Yjk4ZGEwMzYz';
             $MerchantId = '755';
             $TerminalId = 'R4XOUVSM';
@@ -52,16 +117,16 @@ class PaymentController extends Controller
                 die($arrres->Description);
             }
         }
-        if ($request->payment_method == 'mellat') {
+        if ($request->gateway_name == 'mellat') {
         }
-        if ($request->payment_method == 'saman') {
+        if ($request->gateway_name == 'saman') {
         }
-        if ($request->payment_method == 'parsian') {
+        if ($request->gateway_name == 'parsian') {
         }
 
-        if ($request->payment_method == 'pay') {
+        if ($request->gateway_name == 'pay') {
             $payGateway = new Pay();
-            $payGatewayResult = $payGateway->send($amounts, $request->address_id);
+            $payGatewayResult = $payGateway->send($amount, $request->address_id);
             if (array_key_exists('error', $payGatewayResult)) {
                 alert()->error($payGatewayResult['error'], 'دقت کنید');
                 return redirect()->back();
@@ -70,25 +135,26 @@ class PaymentController extends Controller
             }
         }
 
-        if ($request->payment_method == 'zarinpal') {
+        if ($request->gateway_name == 'zarinpal') {
             $zarinpalGateway = new Zarinpal();
-            $zarinpalGatewayresult = $zarinpalGateway->send($request->f_name , $request->l_name , $request->email ,
-                                                            $request->phone , $request->category_id ,
-                                                            $request->amount , $request->payment_method);
+            $zarinpalGatewayresult = $zarinpalGateway->send($request->amount, 'تست', $order);
             if (array_key_exists('error', $zarinpalGatewayresult)) {
-                // alert()->error($zarinpalGatewayresult['error'], 'دقت کنید');
+                alert()->error($zarinpalGatewayresult['error'], 'دقت کنید');
                 return redirect()->back();
             } else {
+                alert()->success($zarinpalGatewayresult['success'], 'دقت کنید');
                 return redirect()->to($zarinpalGatewayresult['success']);
             }
         }
 
-        // alert()->error('درگاه انتخابی معتبر نمی باشد', 'دقت کنید');
+        alert()->error('درگاه انتخابی معتبر نمی باشد', 'دقت کنید');
         return redirect()->back();
     }
 
     public function paymentVerify(Request $request)
     {
+        $amount = session()->get('amount.amount');
+
         if ($request->gatewayName == 'melli') {
             $key = '1234567890123456789012345678901234567890';
             $OrderId = $request->OrderId;
@@ -124,16 +190,15 @@ class PaymentController extends Controller
             $zarinpalGateway = new Zarinpal();
             $zarinpalGatewayResult = $zarinpalGateway->verify($request->Authority, $amount);
             if (array_key_exists('error', $zarinpalGatewayResult)) {
-                // alert()->error($zarinpalGatewayResult['error'], 'دقت کنید');
+                alert()->error($zarinpalGatewayResult['error'], 'دقت کنید');
                 return redirect()->back();
             } else {
-                // alert()->success($zarinpalGatewayResult['success'], 'دقت کنید');
+                alert()->success($zarinpalGatewayResult['success'], 'دقت کنید');
                 return redirect()->route('home.index');
             }
         }
 
-        // alert()->error('مسیر بازگشت از درگاه انتخابی معتبر نمی باشد', 'دقت کنید');
+        alert()->error('مسیر بازگشت از درگاه انتخابی معتبر نمی باشد', 'دقت کنید');
         return redirect()->route('checkout.index');
     }
-
 }

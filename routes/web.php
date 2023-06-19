@@ -3,11 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\AuthController;
 use App\Http\Controllers\Home\CartController;
+use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\FitrahController;
 use App\Http\Controllers\Home\PaymentController;
 use App\Http\Controllers\Admin\CharityController;
+use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DonationController;
 use App\Http\Controllers\Admin\ExpiationController;
@@ -41,6 +44,8 @@ Route::prefix('admin_panel/management')->name('admin.')->group(function(){
     Route::resource('transactions', TransactionController::class);
     Route::resource('permissions', PermissionController::class);
     Route::resource('roles', RoleController::class);
+    Route::resource('comments', CommentController::class);
+    Route::resource('orders', OrderController::class);
 
 });
 
@@ -50,4 +55,6 @@ Route::get('/checkout' , [CartController::class , 'index'])->name('checkout.inde
 Route::post('/payment' , [PaymentController::class , 'payment'])->name('home.payment');
 Route::get('/payment-verify' , [PaymentController::class , 'paymentVerify'])->name('home.payment_verify');
 
+//home
+Route::get('/' , [HomeController::class , 'index'])->name('home.index');
 

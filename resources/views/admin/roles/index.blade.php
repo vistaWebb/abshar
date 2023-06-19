@@ -7,6 +7,9 @@
 
     <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/pages/form_layouts.js') }}"></script>
+
+	<script type="text/javascript" src="{{asset('/js/pages/animations_css3.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('/js/core/app.js')}}"></script>
     <!-- /theme JS files -->
 @endsection
 

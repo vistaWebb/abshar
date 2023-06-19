@@ -3,9 +3,10 @@
 @section('script')
     <!-- Theme JS files -->
     <script type="text/javascript" src="{{ asset('/js/plugins/tables/footable/footable.min.js') }}"></script>
-
-    <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/pages/table_responsive.js') }}"></script>
+
+	<script type="text/javascript" src="{{asset('/js/pages/animations_css3.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('/js/core/app.js')}}"></script>
     <!-- /theme JS files -->
     <!-- select input JS files -->
     <script type="text/javascript" src="{{ asset('/js/core/libraries/jquery_ui/interactions.min.js') }}"></script>
@@ -51,25 +52,6 @@
                 <li><a href="form_layout_vertical.html"> ویرایش گروه کاربری </a></li>
                 <li class="active">edit role</li>
             </ul>
-
-            <ul class="breadcrumb-elements">
-                <li><a href="#"><i class="icon-comment-discussion position-left"></i>پشتیبانی</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="icon-gear position-left"></i>
-                        تنظیمات
-                        <span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a href="#"><i class="icon-user-lock"></i> Account security</a></li>
-                        <li><a href="#"><i class="icon-statistics"></i> Analytics</a></li>
-                        <li><a href="#"><i class="icon-accessibility"></i> Accessibility</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#"><i class="icon-gear"></i> All settings</a></li>
-                    </ul>
-                </li>
-            </ul>
         </div>
     </div>
     <!-- /page header -->
@@ -88,7 +70,7 @@
                     @method('put')
                     <div class="panel panel-flat">
                         <div class="panel-heading">
-                            <h5 class="panel-title">edit role</h5>
+                            <h5 class="panel-title"> ویرایش گروه کاربری</h5>
                         </div>
 
                         <div class="panel-body">

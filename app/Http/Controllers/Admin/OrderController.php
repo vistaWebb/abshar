@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Transaction;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class TransactionController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $transactions = Transaction::latest()->paginate(10);
-        return view('admin.transactions.index' , compact('transactions'));
+        $orders = Order::latest()->paginate(10);
+        return view('admin.orders.index' , compact('orders'));
     }
 
     /**

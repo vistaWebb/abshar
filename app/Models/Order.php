@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Category;
+use App\Models\Transaction;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Order extends Model
 {
@@ -11,4 +13,32 @@ class Order extends Model
 
     protected $table = "orders";
     protected $guarded = [];
+
+    public function getStatusAttribute($status)
+    {
+        switch($status){
+            case '0' :
+                $status = 'ناموفق';
+            break;
+            case '1':
+                $status = 'موفق';
+            break;
+        }
+        return $status;
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    // public function transaction()
+    // {
+    //     return $this->belongsTo(Transaction::class , 'order_id');
+    // }
+    public function transaction()
+{
+    return $this->belongsTo(Transaction::class , 'order_id');
+}
+
 }

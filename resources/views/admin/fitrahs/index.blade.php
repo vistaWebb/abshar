@@ -7,6 +7,9 @@
 
     <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/pages/form_layouts.js') }}"></script>
+
+	<script type="text/javascript" src="{{asset('/js/pages/animations_css3.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('/js/core/app.js')}}"></script>
     <!-- /theme JS files -->
 @endsection
 
@@ -22,25 +25,6 @@
                 <li><a href="index-2.html"><i class="icon-home2 position-left"></i> خانه</a></li>
                 <li><a href="form_layout_vertical.html"> لیست فطریه ها </a></li>
                 <li class="active">list of fitrahs</li>
-            </ul>
-
-            <ul class="breadcrumb-elements">
-                <li><a href="#"><i class="icon-comment-discussion position-left"></i>پشتیبانی</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="icon-gear position-left"></i>
-                        تنظیمات
-                        <span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a href="#"><i class="icon-user-lock"></i> Account security</a></li>
-                        <li><a href="#"><i class="icon-statistics"></i> Analytics</a></li>
-                        <li><a href="#"><i class="icon-accessibility"></i> Accessibility</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#"><i class="icon-gear"></i> All settings</a></li>
-                    </ul>
-                </li>
             </ul>
         </div>
     </div>
@@ -114,7 +98,6 @@
                         <tr>
                             <th> نام خیّر</th>
                             <th> مبلغ </th>
-                            <th> ref_id</th>
                             <th>تاریخ واریزی </th>
                             <th>توضیحات</th>
                         </tr>
@@ -122,9 +105,8 @@
                     <tbody>
                         @foreach ($fitrahs as $fitrah)
                             <tr>
-                                <td>{{ $fitrah->user->name }}</td>
+                                <td>{{ $fitrah->f_name ? $fitrah->f_name : $fitrah->phone }}</td>
                                 <td>{{ number_format($fitrah->amount) }}</td>
-                                <td>{{ $fitrah->ref_id }}</td>
                                 <td>{{ verta($fitrah->created_at) }}</td>
                                 <td>{{ $fitrah->description }}</td>
                             </tr>

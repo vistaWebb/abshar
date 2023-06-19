@@ -7,6 +7,9 @@
 
     <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/pages/form_layouts.js') }}"></script>
+
+	<script type="text/javascript" src="{{asset('/js/pages/animations_css3.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('/js/core/app.js')}}"></script>
     <!-- /theme JS files -->
 @endsection
 
@@ -23,25 +26,6 @@
                 <li><a href="form_layout_vertical.html"> لیست گروه کاربری ها </a></li>
                 <li class="active">list of roles</li>
             </ul>
-
-            <ul class="breadcrumb-elements">
-                <li><a href="#"><i class="icon-comment-discussion position-left"></i>پشتیبانی</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="icon-gear position-left"></i>
-                        تنظیمات
-                        <span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a href="#"><i class="icon-user-lock"></i> Account security</a></li>
-                        <li><a href="#"><i class="icon-statistics"></i> Analytics</a></li>
-                        <li><a href="#"><i class="icon-accessibility"></i> Accessibility</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#"><i class="icon-gear"></i> All settings</a></li>
-                    </ul>
-                </li>
-            </ul>
         </div>
     </div>
     <!-- /page header -->
@@ -55,18 +39,14 @@
                 <h5 class="panel-title"> مشخصات گروه کاربری </h5>
             </div>
             <div class="panel panel-flat">
-                <div class="panel-heading">
-                    <h5 class="panel-title">create role</h5>
-                </div>
-
                 <div class="panel-body">
                     <div class="form-group col-md-6">
-                        <label>نام <span class="text-danger">*</span> : </label>
+                        <label>نام  : </label>
                         <input name="name" type="text" class="form-control"
                         value="{{ $role->name }}">
                     </div>
                     <div class="form-group col-md-6">
-                        <label>نام نمایشی <span class="text-danger">*</span> : </label>
+                        <label>نام نمایشی  : </label>
                         <input name="display_name" type="text" class="form-control"
                         value="{{ $role->display_name }}">
                     </div>

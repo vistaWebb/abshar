@@ -20,6 +20,8 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
 
+            $table->string('token')->nullable();
+
             $table->string('f_name')->nullable();
             $table->string('l_name')->nullable();
             $table->string('phone')->nullable();

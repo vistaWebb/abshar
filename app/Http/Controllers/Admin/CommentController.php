@@ -1,22 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Home;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Category;
-use App\Models\Donation;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class CartController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $categories = Category::all();
-        $donations = Donation::all();
-        return view('home.cart.checkout' , compact('categories' , 'donations'));
+        $comments = Comment::latest()->paginate(10);
+        return view('admin.comments.index', compact('comments'));
     }
 
     /**

@@ -133,13 +133,23 @@
                                         </div>
 
                                         <div class="form-group col-md-12">
+                                            <label>انتخاب دونیت  :</label>
+                                            <select name="donation_id" class="select">
+                                                <option></option>
+                                                @foreach ($donations as $donation)
+                                                <option value="{{ $donation->id }}">{{ $donation->name }}</option>
+                                            @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-12">
                                             <label>مبلغ اهدا <span class="text-danger">*</span>  :</label>
                                             <input name="amount" type="text" class="form-control"
                                                 placeholder="میزان مبلغ نباید کمتر از 1000تومان باشد">
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label>درگاه پرداخت :</label>
-                                            <select name="payment_method" class="select">
+                                            <select name="gateway_name" class="select">
                                                 <option value="zarinpal"> درگاه زرین پال</option>
                                                 <option value="pay"> درگاه پی</option>
                                                 <option value="melli">بانک ملی</option>
@@ -180,6 +190,7 @@
 
     </div>
     <!-- /page container -->
+    @include('sweetalert::alert')
 
 </body>
 

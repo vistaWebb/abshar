@@ -25,6 +25,11 @@
     <script type="text/javascript" src="{{ asset('/js/plugins/loaders/blockui.min.js') }}"></script>
     <!-- /core JS files -->
 
+    	<!-- Theme JS files -->
+	<script type="text/javascript" src="{{asset('/js/core/app.js')}}"></script>
+	<script type="text/javascript" src="{{asset('/js/pages/animations_css3.js')}}"></script>
+	<!-- /theme JS files -->
+
     @yield('script')
 
 </head>
@@ -60,6 +65,7 @@
 
     </div>
     <!-- /page container -->
+    @include('sweetalert::alert')
 
 </body>
 

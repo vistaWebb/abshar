@@ -7,11 +7,14 @@
 
     <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/pages/form_layouts.js') }}"></script>
+
+	<script type="text/javascript" src="{{asset('/js/pages/animations_css3.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('/js/core/app.js')}}"></script>
     <!-- /theme JS files -->
 @endsection
 
 @section('title')
-    list of transaction
+    list of order
 @endsection
 
 @section('content')
@@ -21,26 +24,7 @@
             <ul class="breadcrumb">
                 <li><a href="index-2.html"><i class="icon-home2 position-left"></i> خانه</a></li>
                 <li><a href="form_layout_vertical.html"> لیست تراکنش ها </a></li>
-                <li class="active">list of transactions</li>
-            </ul>
-
-            <ul class="breadcrumb-elements">
-                <li><a href="#"><i class="icon-comment-discussion position-left"></i>پشتیبانی</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="icon-gear position-left"></i>
-                        تنظیمات
-                        <span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a href="#"><i class="icon-user-lock"></i> Account security</a></li>
-                        <li><a href="#"><i class="icon-statistics"></i> Analytics</a></li>
-                        <li><a href="#"><i class="icon-accessibility"></i> Accessibility</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#"><i class="icon-gear"></i> All settings</a></li>
-                    </ul>
-                </li>
+                <li class="active">list of orders</li>
             </ul>
         </div>
     </div>
@@ -63,25 +47,25 @@
                             <th> پروژه </th>
                             <th> مبلغ </th>
                             <th> درگاه پرداخت </th>
-                            <th> ref_id</th>
+                            {{-- <th> ref_id</th> --}}
                             <th> وضعیت </th>
                             <th>تاریخ واریزی </th>
                             <th>توضیحات</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($transactions as $transaction)
+                        @foreach ($orders as $order)
                             <tr>
-                                <td>{{ $transaction->user->name }}</td>
-                                <td>{{ $transaction->category->name }}</td>
-                                <td>{{ number_format($transaction->amount) }}</td>
-                                <td>{{ $transaction->gateway_name }}</td>
-                                <td>{{ $transaction->ref_id }}</td>
+                                <td>{{ $order->f_name ? $order->f_name : $order->phone}}</td>
+                                <td>{{ $order->category->name }}</td>
+                                <td>{{ number_format($order->amount) }}</td>
+                                <td>{{ $order->gateway_name }}</td>
+                                {{-- <td>{{ $order->transaction->id}}</td> --}}
                                 <td><span
-                                    class="{{ $transaction->getRawOriginal('status') ? 'label label-success' : 'label label-default' }}">{{ $transaction->status }}</span>
+                                    class="{{ $order->getRawOriginal('status') ? 'label label-success' : 'label label-default' }}">{{ $order->status }}</span>
                                 </td>
-                                <td>{{ verta($transaction->created_at) }}</td>
-                                <td>{{ $transaction->description }}</td>
+                                <td>{{ verta($order->created_at) }}</td>
+                                <td>{{ $order->description }}</td>
                             </tr>
                         @endforeach
                     </tbody>

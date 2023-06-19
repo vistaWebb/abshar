@@ -2,21 +2,17 @@
 
 namespace App\Http\Controllers\Home;
 
-use App\Models\Category;
-use App\Models\Donation;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-class CartController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $categories = Category::all();
-        $donations = Donation::all();
-        return view('home.cart.checkout' , compact('categories' , 'donations'));
+        //
     }
 
     /**

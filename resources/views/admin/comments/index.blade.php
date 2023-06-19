@@ -14,7 +14,7 @@
 @endsection
 
 @section('title')
-    list of permission
+    list of comment
 @endsection
 
 @section('content')
@@ -23,8 +23,8 @@
         <div class="breadcrumb-line">
             <ul class="breadcrumb">
                 <li><a href="index-2.html"><i class="icon-home2 position-left"></i> خانه</a></li>
-                <li><a href="form_layout_vertical.html"> لیست مجوز ها </a></li>
-                <li class="active">list of permissions</li>
+                <li><a href="form_layout_vertical.html"> لیست کامنت  ها </a></li>
+                <li class="active">list of comments</li>
             </ul>
         </div>
     </div>
@@ -36,41 +36,28 @@
         <!-- Basic responsive table -->
         <div class="panel panel-flat">
             <div class="panel-heading">
-                <h5 class="panel-title"> لیست مجوز ها</h5>
-                <div class="heading-elements">
-                    <a href="{{ route('admin.permissions.create') }}" type="button" class="btn btn-success "><i
-                            class=" icon-stack position-left"></i> افزودن مجوز </a>
-                </div>
+                <h5 class="panel-title"> لیست کامنت  ها</h5>
             </div>
-
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
                             <th> نام </th>
-                            <th> نام نمایشی </th>
-                            <th class="text-center" style="width: 30px;"><i class="icon-menu-open2"></i></th>
+                            <th> ایمیل   </th>
+                            <th>عنوان پیام  </th>
+                            <th>متن پیام </th>
+                            <th>زمان ارسال  </th>
+
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($permissions as $permission)
+                        @foreach ($comments as $comment)
                             <tr>
-                                <td>{{ $permission->name }}</td>
-                                <td>{{ $permission->display_name }}</td>
-                                <td class="text-center">
-                                    <ul class="icons-list">
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                <i class="icon-menu9"></i>
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-menu-right">
-                                                <li><a class="btn btn-sm btn-outline-info mr-3"
-                                                        href="{{ route('admin.permissions.edit', ['permission' => $permission->id]) }}">
-                                                        ویرایش </a></i>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </td>
+                                <td>{{ $comment->name ? $comment->name : ''}}</td>
+                                <td>{{ $comment->email ? $comment->email : ''}}</td>
+                                <td>{{ $comment->subject }}</td>
+                                <td>{{ $comment->text }}</td>
+                                <td>{{ $comment->created_at }}</td>
                             </tr>
                         @endforeach
                     </tbody>

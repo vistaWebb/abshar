@@ -49,7 +49,7 @@ class DonationController extends Controller
             'description'=>$request->description
         ]);
 
-        // alert()->success('با موفقیت انجام شد','دسته بندی با موفقیت اضافه شد');
+        alert()->success('با موفقیت انجام شد','دسته بندی با موفقیت اضافه شد');
         return redirect()->route('admin.donations.index');
     }
 
