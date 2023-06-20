@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2023 at 07:01 PM
+-- Generation Time: Jun 20, 2023 at 10:43 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -55,10 +55,10 @@ INSERT INTO `categories` (`id`, `parent_id`, `name`, `slug`, `description`, `is_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contact_us`
+-- Table structure for table `comments`
 --
 
-CREATE TABLE `contact_us` (
+CREATE TABLE `comments` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -68,6 +68,15 @@ CREATE TABLE `contact_us` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `name`, `email`, `subject`, `text`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'zahra', 'zahra@gmail.com', 'مشاوره', 'برای واریز مبلغ به شماره حساب باید چکار کنم ', NULL, '2023-06-08 05:53:31', NULL),
+(2, 'علی', 'ali$gmail', 'سلام ', 'درخواست راهنمایی جهت واریز ', NULL, '2023-06-18 05:52:29', NULL),
+(3, 'مهدی', 'mahdi@yahoo.com', 'واریز مبلغ 4000000 برای دونیت خرید ویلچر', 'واریز مبلغ 4000000 برای دونیت خرید ویلچر از چه طریق کارت به کارت هم امکان پذیر هست؟', NULL, '2023-06-12 07:32:17', NULL);
 
 -- --------------------------------------------------------
 
@@ -96,7 +105,9 @@ CREATE TABLE `donations` (
 --
 
 INSERT INTO `donations` (`id`, `name`, `total_amount`, `category_id`, `collected_amount`, `remaining_amount`, `start_date`, `end_date`, `is_active`, `description`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'پروژه اول', 50000000, 5, 0, 50000000, '2023-06-09', '2024-06-09', 1, NULL, NULL, '2023-06-09 05:24:38', '2023-06-09 16:53:09');
+(1, 'لوازم التحریر', 500000, 5, 200000, 300000, '2023-06-09', '2024-06-09', 1, NULL, NULL, '2023-06-09 05:24:38', '2023-06-09 16:53:09'),
+(2, 'عینک', 2000000, 6, 100000, 1900000, '2023-06-18', '2024-06-18', 1, NULL, NULL, '2023-06-18 07:12:06', '2023-06-18 13:21:53'),
+(3, 'صندلی چرخدار', 30000000, 5, 5000000, 25000000, '2023-06-01', NULL, 1, 'خریداری صندلی چرخدار', NULL, '2023-06-02 16:26:40', NULL);
 
 -- --------------------------------------------------------
 
@@ -144,7 +155,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (11, '2023_06_10_134502_create_permission_tables', 3),
 (12, '2023_06_14_122354_create_orders_table', 4),
 (13, '2023_06_14_122917_create_orders_table', 5),
-(14, '2023_06_14_181811_create_orders_table', 6);
+(14, '2023_06_14_181811_create_orders_table', 6),
+(15, '2023_06_17_125046_create_transactions_table', 7),
+(16, '2023_06_18_164407_create_orders_table', 8),
+(17, '2023_06_18_192124_create_comments_table', 9),
+(18, '2023_06_18_192537_create_comments_table', 10);
 
 -- --------------------------------------------------------
 
@@ -177,6 +192,7 @@ INSERT INTO `model_has_permissions` (`permission_id`, `model_type`, `model_id`) 
 (8, 'App\\Models\\Role', 14),
 (8, 'App\\Models\\Role', 16),
 (9, 'App\\Models\\User', 2),
+(9, 'App\\Models\\User', 5),
 (9, 'App\\Models\\Role', 14),
 (9, 'App\\Models\\Role', 16),
 (10, 'App\\Models\\Role', 14),
@@ -202,8 +218,8 @@ CREATE TABLE `model_has_roles` (
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (14, 'App\\Models\\User', 1),
 (14, 'App\\Models\\User', 4),
-(14, 'App\\Models\\User', 5),
-(15, 'App\\Models\\User', 2);
+(15, 'App\\Models\\User', 2),
+(15, 'App\\Models\\User', 5);
 
 -- --------------------------------------------------------
 
@@ -231,6 +247,7 @@ CREATE TABLE `orders` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `donation_id` bigint(20) UNSIGNED DEFAULT NULL,
   `category_id` bigint(20) UNSIGNED NOT NULL,
+  `token` varchar(255) DEFAULT NULL,
   `f_name` varchar(255) DEFAULT NULL,
   `l_name` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
@@ -248,18 +265,14 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `donation_id`, `category_id`, `f_name`, `l_name`, `phone`, `email`, `status`, `amount`, `gateway_name`, `payment_status`, `description`, `created_at`, `updated_at`) VALUES
-(1, NULL, 1, 'zahra', 'abedizadeh', '09367021936', 'abedizadeh009@gmail.com', 0, 10000, 'zarinpal', 0, NULL, '2023-06-14 13:59:01', '2023-06-14 13:59:01'),
-(2, NULL, 1, 'zahra', 'abedizadeh', '09367021936', 'abedizadeh009@gmail.com', 0, 10000, 'zarinpal', 0, NULL, '2023-06-17 07:02:28', '2023-06-17 07:02:28'),
-(3, NULL, 1, 'zahra', 'abedizadeh', '09367021936', 'abedizadeh009@gmail.com', 0, 50000, 'zarinpal', 0, NULL, '2023-06-17 07:05:22', '2023-06-17 07:05:22'),
-(4, NULL, 1, 'zahra', 'abedizadeh', '09367021936', 'abedizadeh009@gmail.com', 0, 10000, 'zarinpal', 0, NULL, '2023-06-17 07:06:28', '2023-06-17 07:06:28'),
-(5, NULL, 1, 'zahra', 'abedizadeh', '09367021936', 'abedizadeh009@gmail.com', 0, 10000, 'zarinpal', 0, NULL, '2023-06-17 07:09:57', '2023-06-17 07:09:57'),
-(6, NULL, 1, 'zahra', 'abedizadeh', '09367021936', 'abedizadeh009@gmail.com', 0, 8810000, 'zarinpal', 0, NULL, '2023-06-17 07:18:07', '2023-06-17 07:18:07'),
-(7, NULL, 1, 'zahra', 'abedizadeh', '09367021936', 'abedizadeh009@gmail.com', 0, 8810000, 'zarinpal', 0, NULL, '2023-06-17 07:23:53', '2023-06-17 07:23:53'),
-(8, NULL, 1, 'zahra', 'abedizadeh', '09367021936', 'abedizadeh009@gmail.com', 0, 6000000, 'zarinpal', 0, NULL, '2023-06-17 07:28:51', '2023-06-17 07:28:51'),
-(9, NULL, 1, 'zahra', 'abedizadeh', '09367021936', 'abedizadeh009@gmail.com', 0, 6000000, 'zarinpal', 0, NULL, '2023-06-17 07:31:19', '2023-06-17 07:31:19'),
-(10, NULL, 1, 'zahra', 'abedizadeh', '09367021936', 'abedizadeh009@gmail.com', 0, 6000000, 'zarinpal', 0, NULL, '2023-06-17 08:37:52', '2023-06-17 08:37:52'),
-(11, NULL, 1, NULL, NULL, '09336344816', NULL, 0, 44410000, 'zarinpal', 0, NULL, '2023-06-17 08:47:46', '2023-06-17 08:47:46');
+INSERT INTO `orders` (`id`, `donation_id`, `category_id`, `token`, `f_name`, `l_name`, `phone`, `email`, `status`, `amount`, `gateway_name`, `payment_status`, `description`, `created_at`, `updated_at`) VALUES
+(1, NULL, 1, 'jAFvoVwk4rnYm9fQaCIRoTwkYuGjuCRfhX5HNdIg', 'zahra', 'abedizadeh', '09367021936', 'abedizadeh009@gmail.com', 1, 6000000, 'zarinpal', 1, 'پرداخت مسجد امام جواد به منظور فطریه', '2023-06-18 12:52:52', '2023-06-18 12:52:56'),
+(2, NULL, 1, 'jAFvoVwk4rnYm9fQaCIRoTwkYuGjuCRfhX5HNdIg', 'zahra', 'abedizadeh', '09367021936', 'abedizadeh009@gmail.com', 1, 270000, 'zarinpal', 1, 'پرداخت مسجد امام جواد به منظور فطریه', '2023-06-18 12:53:28', '2023-06-18 12:53:32'),
+(3, NULL, 2, 'jAFvoVwk4rnYm9fQaCIRoTwkYuGjuCRfhX5HNdIg', 'zahra', 'abedizadeh', '09367021936', 'abedizadeh009@gmail.com', 1, 270000, 'zarinpal', 1, 'پرداخت مسجد امام جواد به منظور کفاره', '2023-06-18 12:54:59', '2023-06-18 12:55:03'),
+(4, NULL, 3, 'jAFvoVwk4rnYm9fQaCIRoTwkYuGjuCRfhX5HNdIg', NULL, NULL, '09336344816', NULL, 1, 6000000, 'zarinpal', 1, 'پرداخت مبلغ کمک جهت صدقه', '2023-06-18 12:55:26', '2023-06-18 12:55:29'),
+(5, 1, 6, 'wAppGUUlFWAesmn9IBsP6rO84ZvLacUYVutFbEei', NULL, NULL, '09336344816', NULL, 0, 50000, 'zarinpal', 0, 'پرداخت مبلغ کمک جهت تهیه لوازم التحریر', '2023-05-23 15:47:56', '2023-06-19 15:47:56'),
+(6, NULL, 5, '34567', 'ali', 'ali', '0976532457', 'ali@gmail.com', 1, 5600000, 'zarinpal', 1, 'پرداخت مبلغ کمک جهت خرید ویلچر', '2022-07-16 15:48:17', NULL),
+(7, 1, 4, '969056', 'mahdi', 'mahdi', '09772846975', 'mahdi@email.com', 1, 300000, 'zarinpal', 1, 'پرداخت برای کمک به ایتام ', '2023-04-11 15:55:35', NULL);
 
 -- --------------------------------------------------------
 
@@ -357,6 +370,37 @@ CREATE TABLE `role_has_permissions` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `transactions`
+--
+
+CREATE TABLE `transactions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `order_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `amount` int(11) NOT NULL,
+  `ref_id` varchar(255) DEFAULT NULL,
+  `token` varchar(255) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `gateway_name` varchar(255) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 0,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`id`, `user_id`, `order_id`, `amount`, `ref_id`, `token`, `description`, `gateway_name`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, NULL, 1, 6000000, '12345678', '000000000000000000000000000001138996', NULL, 'zarinpal', 1, NULL, '2023-06-18 12:52:53', '2023-06-18 12:52:56'),
+(2, NULL, 2, 270000, '12345678', '000000000000000000000000000001138997', NULL, 'zarinpal', 1, NULL, '2023-06-18 12:53:28', '2023-06-18 12:53:32'),
+(3, NULL, 3, 270000, '12345678', '000000000000000000000000000001138998', NULL, 'zarinpal', 1, NULL, '2023-06-18 12:55:00', '2023-06-18 12:55:03'),
+(4, NULL, 4, 6000000, '12345678', '000000000000000000000000000001138999', NULL, 'zarinpal', 1, NULL, '2023-06-18 12:55:26', '2023-06-18 12:55:29');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -390,7 +434,8 @@ INSERT INTO `users` (`id`, `name`, `f_name`, `l_name`, `phone`, `city`, `postal_
 (2, 'زهرا', NULL, NULL, NULL, NULL, NULL, NULL, 'zahraabedizadeh@yahoo.com', NULL, '$2y$10$2daEfF2qWki04xAjkkDhNO9gT6GsDtuhnBEdorURXihrY7h1qQUve', NULL, NULL, NULL, 1, NULL, '2023-06-10 06:50:34', '2023-06-10 06:50:34'),
 (3, 'zahra', NULL, NULL, NULL, NULL, NULL, NULL, 'zahra@yahoo.com', NULL, '$2y$10$YpmN6FGUzGP8UjvglI407.R/Khps4FrH6ODba/kpylOrMq5QxIS7e', NULL, NULL, NULL, 1, NULL, '2023-06-10 07:09:39', '2023-06-10 07:09:39'),
 (4, 'زهرا', NULL, NULL, NULL, NULL, NULL, NULL, 'zahraabedi@yahoo.com', NULL, '$2y$10$FfEZKV0pmYb92umzbq04p.IRRxEmgKJgx/J6Ylsd745uFwNUHba0q', NULL, NULL, NULL, 1, NULL, '2023-06-10 07:23:53', '2023-06-10 07:23:53'),
-(5, 'zahra', NULL, NULL, NULL, NULL, NULL, NULL, 'zahra@gmail.com', NULL, '$2y$10$lxWN9BabT1gUoW7kVrdSGukBKjON0litQiapI0P7frj6nd2rCmbGO', NULL, NULL, NULL, 1, NULL, '2023-06-10 07:35:04', '2023-06-10 07:35:04');
+(5, 'zahra', NULL, NULL, NULL, NULL, NULL, NULL, 'zahra@gmail.com', NULL, '$2y$10$lxWN9BabT1gUoW7kVrdSGukBKjON0litQiapI0P7frj6nd2rCmbGO', NULL, NULL, NULL, 1, NULL, '2023-06-10 07:35:04', '2023-06-10 07:35:04'),
+(6, 'زهرا', NULL, NULL, NULL, NULL, NULL, NULL, 'zahraa@yahoo.com', NULL, '$2y$10$VK8I3OdJyUq68o6VZWyX1.13pKheqzPEmHUC5IT5EZpgxKEd5CS/e', NULL, NULL, NULL, 1, NULL, '2023-06-19 06:25:27', '2023-06-19 06:25:27');
 
 --
 -- Indexes for dumped tables
@@ -404,9 +449,9 @@ ALTER TABLE `categories`
   ADD UNIQUE KEY `categories_slug_unique` (`slug`);
 
 --
--- Indexes for table `contact_us`
+-- Indexes for table `comments`
 --
-ALTER TABLE `contact_us`
+ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -493,6 +538,14 @@ ALTER TABLE `role_has_permissions`
   ADD KEY `role_has_permissions_role_id_foreign` (`role_id`);
 
 --
+-- Indexes for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `transactions_user_id_foreign` (`user_id`),
+  ADD KEY `transactions_order_id_foreign` (`order_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -510,16 +563,16 @@ ALTER TABLE `categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `contact_us`
+-- AUTO_INCREMENT for table `comments`
 --
-ALTER TABLE `contact_us`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `comments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `donations`
 --
 ALTER TABLE `donations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -531,7 +584,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -543,7 +596,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -564,10 +617,16 @@ ALTER TABLE `roles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
+-- AUTO_INCREMENT for table `transactions`
+--
+ALTER TABLE `transactions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
@@ -604,6 +663,13 @@ ALTER TABLE `orders`
 ALTER TABLE `role_has_permissions`
   ADD CONSTRAINT `role_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD CONSTRAINT `transactions_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `transactions_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
