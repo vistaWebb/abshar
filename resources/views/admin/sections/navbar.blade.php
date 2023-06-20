@@ -64,7 +64,7 @@
 
                 <li class="dropdown dropdown-user">
                     <a class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="assets/images/placeholder.jpg" alt="">
+                        <img src="{{asset('/images/user_image.png')}}" alt="">
                         <span>محمد</span>
                         <i class="caret"></i>
                     </a>

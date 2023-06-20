@@ -71,7 +71,9 @@
                                 @else
                                     {{$category->parent->name }}
                                 @endif</td>
-                                <td><i class="{{ $category->icon }}"></i></td>
+                                <td><a href="#"
+                                    class="btn border-teal text-teal btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i
+                                        class="{{ $category->icon }}"></i></a></td>
                                 <td><span
                                         class="{{ $category->getRawOriginal('is_active') ? 'label label-success' : 'label label-default' }}">{{ $category->is_active }}</span>
                                 </td>

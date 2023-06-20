@@ -5,24 +5,25 @@
     <script type="text/javascript" src="{{ asset('/js/plugins/tables/datatables/datatables.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/plugins/forms/selects/select2.min.js') }}"></script>
 
-    <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/pages/datatables_advanced.js') }}"></script>
 
-	<script type="text/javascript" src="{{asset('/js/pages/animations_css3.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('/js/core/app.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('/js/pages/animations_css3.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <!-- /theme JS files -->
 
     <!-- Theme JS files -->
-    <script type="text/javascript" src="{{asset('/js/plugins/visualization/d3/d3.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('/js/plugins/visualization/d3/d3_tooltip.js')}}"></script>
-    <script type="text/javascript" src="{{asset('/js/plugins/forms/styling/switchery.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('/js/plugins/forms/styling/uniform.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('/js/plugins/forms/selects/bootstrap_multiselect.js')}}"></script>
-    <script type="text/javascript" src="{{asset('/js/plugins/ui/moment/moment.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('/js/plugins/pickers/daterangepicker.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('/js/plugins/visualization/d3/d3.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/plugins/visualization/d3/d3_tooltip.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/plugins/forms/styling/switchery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/plugins/forms/styling/uniform.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/plugins/forms/selects/bootstrap_multiselect.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/plugins/ui/moment/moment.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/plugins/pickers/daterangepicker.js') }}"></script>
 
-    <script type="text/javascript" src="{{asset('/js/core/app.js')}}"></script>
-    <script type="text/javascript" src="{{asset('/js/pages/%c3%99%c2%85%c3%9b%c2%8c%c3%98%c2%b2%20%c3%9a%c2%a9%c3%98%c2%a7%c3%98%c2%b1%c3%98%c2%a8%c3%98%c2%b1%c3%9b%c2%8c.html')}}"></script>
+    <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
+    <script type="text/javascript"
+        src="{{ asset('/js/pages/%c3%99%c2%85%c3%9b%c2%8c%c3%98%c2%b2%20%c3%9a%c2%a9%c3%98%c2%a7%c3%98%c2%b1%c3%98%c2%a8%c3%98%c2%b1%c3%9b%c2%8c.html') }}">
+    </script>
     <!-- /theme JS files -->
 @endsection
 
@@ -39,26 +40,6 @@
                 <li><a href="index-2.html"><i class="icon-home2 position-left"></i> خانه</a></li>
                 <li class="active">میز کاربری</li>
             </ul>
-
-            <ul class="breadcrumb-elements">
-                <li><a href="#"><i class="icon-comment-discussion position-left"></i>پشتیبانی</a>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="icon-gear position-left"></i>
-                        تنظیمات
-                        <span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a href="#"><i class="icon-user-lock"></i> Account security</a></li>
-                        <li><a href="#"><i class="icon-statistics"></i> Analytics</a></li>
-                        <li><a href="#"><i class="icon-accessibility"></i> Accessibility</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#"><i class="icon-gear"></i> All settings</a></li>
-                    </ul>
-                </li>
-            </ul>
         </div>
     </div>
     <!-- /page header -->
@@ -70,21 +51,10 @@
         <!-- اصلی charts -->
         <div class="row">
             <div class="col-lg-7">
-
-                <!-- منابع ترافیک -->
+                <!-- موجودی صندوق ها   -->
                 <div class="panel panel-flat">
                     <div class="panel-heading">
-                        <h6 class="panel-title">منابع ترافیک</h6>
-                        <div class="heading-elements">
-                            <form class="heading-form" action="#">
-                                <div class="form-group">
-                                    <label class="checkbox-inline checkbox-switchery checkbox-right switchery-xs">
-                                        <input type="checkbox" class="switch" checked="checked">
-                                        Live update:
-                                    </label>
-                                </div>
-                            </form>
-                        </div>
+                        <h6 class="panel-title"> موجودی صندوق ها </h6>
                     </div>
 
                     <div class="container-fluid">
@@ -94,11 +64,11 @@
                                     <li>
                                         <a href="#"
                                             class="btn border-teal text-teal btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i
-                                                class="icon-plus3"></i></a>
+                                                class=" icon-coin-dollar"></i></a>
                                     </li>
                                     <li class="text-left">
-                                        <div class="text-semibold">کاربران جدید</div>
-                                        <div class="text-muted">2,349 avg</div>
+                                        <div class="text-semibold">فطریه </div>
+                                        <div class="text-muted">{{ number_format($fitrahs) }}</div>
                                     </li>
                                 </ul>
 
@@ -112,11 +82,11 @@
                                     <li>
                                         <a href="#"
                                             class="btn border-warning-400 text-warning-400 btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i
-                                                class="icon-watch2"></i></a>
+                                                class=" icon-cash4"></i></a>
                                     </li>
                                     <li class="text-left">
-                                        <div class="text-semibold">سکشن های جدید</div>
-                                        <div class="text-muted">08:20 avg</div>
+                                        <div class="text-semibold">کفاره </div>
+                                        <div class="text-muted">{{ number_format($charities) }}</div>
                                     </li>
                                 </ul>
 
@@ -130,13 +100,11 @@
                                     <li>
                                         <a href="#"
                                             class="btn border-indigo-400 text-indigo-400 btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i
-                                                class="icon-people"></i></a>
+                                                class="icon-umbrella"></i></a>
                                     </li>
                                     <li class="text-left">
-                                        <div class="text-semibold">مجموع آنلاین ها</div>
-                                        <div class="text-muted"><span
-                                                class="status-mark border-success position-left"></span>
-                                            5,378 avg</div>
+                                        <div class="text-semibold"> صدقه</div>
+                                        <div class="text-muted">{{ number_format($expiations) }} </div>
                                     </li>
                                 </ul>
 
@@ -150,56 +118,49 @@
                     <div class="chart position-relative" id="traffic-sources"></div>
                 </div>
                 <!-- /traffic sources -->
-
             </div>
 
             <div class="col-lg-5">
-
                 <!-- Sales stats -->
                 <div class="panel panel-flat">
                     <div class="panel-heading">
-                        <h6 class="panel-title">وضعیت فروش</h6>
-                        <div class="heading-elements">
-                            <form class="heading-form" action="#">
-                                <div class="form-group">
-                                    <select class="change-date select-sm" id="select_date">
-                                        <optgroup label="<i class='icon-watch pull-right'></i> Time period">
-                                            <option value="val1">June, 29 - July, 5</option>
-                                            <option value="val2">June, 22 - June 28</option>
-                                            <option value="val3" selected="selected">June, 15 - June, 21
-                                            </option>
-                                            <option value="val4">June, 8 - June, 14</option>
-                                        </optgroup>
-                                    </select>
-                                </div>
-                            </form>
-                        </div>
+                        <h6 class="panel-title">موجودی کل </h6>
                     </div>
 
                     <div class="container-fluid">
                         <div class="row text-center">
                             <div class="col-md-4">
                                 <div class="content-group">
-                                    <h5 class="text-semibold no-margin"><i
-                                            class="icon-calendar5 position-left text-slate"></i> 5,689</h5>
-                                    <span class="text-muted text-size-small">سفارش هفتگی</span>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="content-group">
-                                    <h5 class="text-semibold no-margin"><i
-                                            class="icon-calendar52 position-left text-slate"></i> 32,568
+                                    <h5 class="text-semibold no-margin">
+                                        <a href="#"
+                                            class="btn border-success text-success btn-flat btn-rounded btn-icon btn-xs"><i
+                                                class="icon-calendar5 "></i></a>
+                                        {{ number_format($sumWeek) }}
                                     </h5>
-                                    <span class="text-muted text-size-small">سفارش ماهانه</span>
+                                    <span class="text-muted text-size-small">هفته اخیر </span>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="content-group">
-                                    <h5 class="text-semibold no-margin"><i
-                                            class="icon-cash3 position-left text-slate"></i> $23,464</h5>
-                                    <span class="text-muted text-size-small">میانگین فروش</span>
+                                    <h5 class="text-semibold no-margin"> <a href="#"
+                                            class="btn border-danger text-danger btn-flat btn-rounded btn-icon btn-xs"><i
+                                                class="icon-calendar52 "></i></a>
+                                        {{ number_format($sumMonth) }}
+                                    </h5>
+                                    <span class="text-muted text-size-small">ماه اخیر </span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="content-group">
+                                    <h5 class="text-semibold no-margin">
+                                        <a href="#"
+                                            class="btn border-indigo text-indigo btn-flat btn-rounded btn-icon btn-xs"><i
+                                                class="icon-cash3 "></i></a>
+                                        {{ number_format($sumYear) }}
+                                    </h5>
+                                    <span class="text-muted text-size-small">سال اخیر </span>
                                 </div>
                             </div>
                         </div>
@@ -209,425 +170,61 @@
                     <div class="chart" id="monthly-sales-stats"></div>
                 </div>
                 <!-- /sales stats -->
-
             </div>
         </div>
         <!-- /main charts -->
 
-
         <!-- میز کاربری content -->
         <div class="row">
             <div class="col-lg-8">
-
-                <!-- کمپین های بازاریابی -->
+                <!-- وضعیت دونیت ها-->
                 <div class="panel panel-flat">
                     <div class="panel-heading">
-                        <h6 class="panel-title">کمپین های بازاریابی</h6>
-                        <div class="heading-elements">
-                            <span class="label bg-success heading-text">28 active</span>
-                            <ul class="icons-list">
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                            class="icon-menu7"></i> <span class="caret"></span></a>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="#"><i class="icon-sync"></i> Update data</a>
-                                        </li>
-                                        <li><a href="#"><i class="icon-list-unordered"></i> Detailed
-                                                log</a></li>
-                                        <li><a href="#"><i class="icon-pie5"></i> آمار</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#"><i class="icon-cross3"></i> Clear list</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="table-responsive">
-                        <table class="table table-lg text-nowrap">
-                            <tbody>
-                                <tr>
-                                    <td class="col-md-5">
-                                        <div class="media-left">
-                                            <div class="chart" id="campaigns-donut"></div>
-                                        </div>
-
-                                        <div class="media-left">
-                                            <h5 class="text-semibold no-margin">38,289 <small
-                                                    class="text-success text-size-base"><i class="icon-arrow-up12"></i>
-                                                    (+16.2%)</small></h5>
-                                            <ul class="list-inline list-inline-condensed no-margin">
-                                                <li>
-                                                    <span class="status-mark border-success"></span>
-                                                </li>
-                                                <li>
-                                                    <span class="text-muted">May 12, 12:30 am</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </td>
-
-                                    <td class="col-md-5">
-                                        <div class="media-left">
-                                            <div class="chart" id="campaign-status-pie"></div>
-                                        </div>
-
-                                        <div class="media-left">
-                                            <h5 class="text-semibold no-margin">2,458 <small
-                                                    class="text-danger text-size-base"><i class="icon-arrow-down12"></i>
-                                                    (- 4.9%)</small>
-                                            </h5>
-                                            <ul class="list-inline list-inline-condensed no-margin">
-                                                <li>
-                                                    <span class="status-mark border-danger"></span>
-                                                </li>
-                                                <li>
-                                                    <span class="text-muted">Jun 4, 4:00 am</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </td>
-
-                                    <td class="text-right col-md-2">
-                                        <a href="#" class="btn bg-indigo-300"><i
-                                                class="icon-statistics position-left"></i> View report</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <h6 class="panel-title"> وضعیت دونیت ها</h6>
                     </div>
 
                     <div class="table-responsive">
                         <table class="table text-nowrap">
                             <thead>
                                 <tr>
-                                    <th>Campaign</th>
-                                    <th class="col-md-2">Client</th>
-                                    <th class="col-md-2">Changes</th>
-                                    <th class="col-md-2">Budget</th>
-                                    <th class="col-md-2">Status</th>
-                                    <th class="text-center" style="width: 20px;"><i class="icon-arrow-down12"></i></th>
+                                    <th>دونیت</th>
+                                    <th class="col-md-2">دسته بندی</th>
+                                    <th class="col-md-2">مبلغ جمع اوری شده</th>
+                                    <th class="col-md-2">مبلغ باقیمانده</th>
+                                    <th class="col-md-2">وضعیت</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="active border-double">
-                                    <td colspan="5">امروز</td>
-                                    <td class="text-right">
-                                        <span class="progress-meter" id="today-progress" data-progress="30"></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="media-left media-middle">
-                                            <a href="#"><img src="assets/images/brands/facebook.png"
-                                                    class="img-circle img-xs" alt=""></a>
-                                        </div>
-                                        <div class="media-left">
-                                            <div class=""><a href="#"
-                                                    class="text-default text-semibold">Facebook</a></div>
-                                            <div class="text-muted text-size-small">
+                                @foreach ($donations as $donation)
+                                    <tr>
+                                        <td>
+                                            <div class="media-left media-middle">
+                                                <a href="#"><img src="{{ asset('/images/placeholder.jpg') }}"
+                                                        class="img-circle img-xs" alt=""></a>
+                                            </div>
+                                            <div class="media-left">
+                                                <div class=""><a href="#"
+                                                        class="text-default text-semibold">{{ $donation->name }}</a></div>
+                                                {{-- <div class="text-muted text-size-small">
                                                 <span class="status-mark border-blue position-left"></span>
                                                 02:00 - 03:00
+                                            </div> --}}
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td><span class="text-muted">Mintlime</span></td>
-                                    <td><span class="text-success-600"><i class="icon-stats-growth2 position-left"></i>
-                                            2.43%</span>
-                                    </td>
-                                    <td>
-                                        <h6 class="text-semibold">$5,489</h6>
-                                    </td>
-                                    <td><span class="label bg-blue">Active</span></td>
-                                    <td class="text-center">
-                                        <ul class="icons-list">
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                                        class="icon-menu7"></i></a>
-                                                <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li><a href="#"><i class="icon-file-stats"></i>
-                                                            View statement</a></li>
-                                                    <li><a href="#"><i class="icon-file-text2"></i>
-                                                            Edit campaign</a></li>
-                                                    <li><a href="#"><i class="icon-file-locked"></i>
-                                                            Disable campaign</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#"><i class="icon-gear"></i>
-                                                            تنظیمات</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="media-left media-middle">
-                                            <a href="#"><img src="assets/images/brands/youtube.png"
-                                                    class="img-circle img-xs" alt=""></a>
-                                        </div>
-                                        <div class="media-left">
-                                            <div class=""><a href="#"
-                                                    class="text-default text-semibold">Youtube videos</a>
-                                            </div>
-                                            <div class="text-muted text-size-small">
-                                                <span class="status-mark border-danger position-left"></span>
-                                                13:00 - 14:00
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><span class="text-muted">CDsoft</span></td>
-                                    <td><span class="text-success-600"><i class="icon-stats-growth2 position-left"></i>
-                                            3.12%</span>
-                                    </td>
-                                    <td>
-                                        <h6 class="text-semibold">$2,592</h6>
-                                    </td>
-                                    <td><span class="label bg-danger">Closed</span></td>
-                                    <td class="text-center">
-                                        <ul class="icons-list">
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                                        class="icon-menu7"></i></a>
-                                                <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li><a href="#"><i class="icon-file-stats"></i> View
-                                                            statement</a></li>
-                                                    <li><a href="#"><i class="icon-file-text2"></i> Edit
-                                                            campaign</a></li>
-                                                    <li><a href="#"><i class="icon-file-locked"></i> Disable
-                                                            campaign</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#"><i class="icon-gear"></i>
-                                                            تنظیمات</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="media-left media-middle">
-                                            <a href="#"><img src="assets/images/brands/spotify.png"
-                                                    class="img-circle img-xs" alt=""></a>
-                                        </div>
-                                        <div class="media-left">
-                                            <div class=""><a href="#"
-                                                    class="text-default text-semibold">Spotify ads</a>
-                                            </div>
-                                            <div class="text-muted text-size-small">
-                                                <span class="status-mark border-grey-400 position-left"></span>
-                                                10:00 - 11:00
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><span class="text-muted">Diligence</span></td>
-                                    <td><span class="text-danger"><i class="icon-stats-decline2 position-left"></i> -
-                                            8.02%</span></td>
-                                    <td>
-                                        <h6 class="text-semibold">$1,268</h6>
-                                    </td>
-                                    <td><span class="label bg-grey-400">Hold</span></td>
-                                    <td class="text-center">
-                                        <ul class="icons-list">
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                                        class="icon-menu7"></i></a>
-                                                <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li><a href="#"><i class="icon-file-stats"></i> View
-                                                            statement</a></li>
-                                                    <li><a href="#"><i class="icon-file-text2"></i> Edit
-                                                            campaign</a></li>
-                                                    <li><a href="#"><i class="icon-file-locked"></i> Disable
-                                                            campaign</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#"><i class="icon-gear"></i>
-                                                            تنظیمات</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="media-left media-middle">
-                                            <a href="#"><img src="assets/images/brands/twitter.png"
-                                                    class="img-circle img-xs" alt=""></a>
-                                        </div>
-                                        <div class="media-left">
-                                            <div class=""><a href="#"
-                                                    class="text-default text-semibold">Twitter ads</a>
-                                            </div>
-                                            <div class="text-muted text-size-small">
-                                                <span class="status-mark border-grey-400 position-left"></span>
-                                                04:00 - 05:00
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><span class="text-muted">Deluxe</span></td>
-                                    <td><span class="text-success-600"><i class="icon-stats-growth2 position-left"></i>
-                                            2.78%</span>
-                                    </td>
-                                    <td>
-                                        <h6 class="text-semibold">$7,467</h6>
-                                    </td>
-                                    <td><span class="label bg-grey-400">Hold</span></td>
-                                    <td class="text-center">
-                                        <ul class="icons-list">
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                                        class="icon-menu7"></i></a>
-                                                <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li><a href="#"><i class="icon-file-stats"></i> View
-                                                            statement</a></li>
-                                                    <li><a href="#"><i class="icon-file-text2"></i> Edit
-                                                            campaign</a></li>
-                                                    <li><a href="#"><i class="icon-file-locked"></i> Disable
-                                                            campaign</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#"><i class="icon-gear"></i>
-                                                            تنظیمات</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td><span class="text-muted">{{ $donation->category->name }}</span></td>
+                                        <td><span class="text-success-600"><i
+                                                    class="icon-stats-growth2 position-left"></i>
+                                                {{ number_format($donation->collected_amount) }}</span>
+                                        </td>
+                                        <td>
+                                            <h6 class="text-danger-600">{{ number_format($donation->remaining_amount) }}
+                                            </h6>
+                                        </td>
+                                        <td><span class="label bg-success">{{ $donation->is_active }}</span></td>
 
-                                <tr class="active border-double">
-                                    <td colspan="5">دیروز</td>
-                                    <td class="text-right">
-                                        <span class="progress-meter" id="yesterday-progress" data-progress="65"></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="media-left media-middle">
-                                            <a href="#"><img src="assets/images/brands/bing.png"
-                                                    class="img-circle img-xs" alt=""></a>
-                                        </div>
-                                        <div class="media-left">
-                                            <div class=""><a href="#" class="text-default text-semibold">Bing
-                                                    campaign</a>
-                                            </div>
-                                            <div class="text-muted text-size-small">
-                                                <span class="status-mark border-success position-left"></span>
-                                                15:00 - 16:00
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><span class="text-muted">Metrics</span></td>
-                                    <td><span class="text-danger"><i class="icon-stats-decline2 position-left"></i> -
-                                            5.78%</span></td>
-                                    <td>
-                                        <h6 class="text-semibold">$970</h6>
-                                    </td>
-                                    <td><span class="label bg-success-400">Pending</span></td>
-                                    <td class="text-center">
-                                        <ul class="icons-list">
-                                            <li class="dropup">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                                        class="icon-menu7"></i></a>
-                                                <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li><a href="#"><i class="icon-file-stats"></i> View
-                                                            statement</a></li>
-                                                    <li><a href="#"><i class="icon-file-text2"></i> Edit
-                                                            campaign</a></li>
-                                                    <li><a href="#"><i class="icon-file-locked"></i> Disable
-                                                            campaign</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#"><i class="icon-gear"></i>
-                                                            تنظیمات</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="media-left media-middle">
-                                            <a href="#"><img src="assets/images/brands/amazon.png"
-                                                    class="img-circle img-xs" alt=""></a>
-                                        </div>
-                                        <div class="media-left">
-                                            <div class=""><a href="#"
-                                                    class="text-default text-semibold">Amazon ads</a>
-                                            </div>
-                                            <div class="text-muted text-size-small">
-                                                <span class="status-mark border-danger position-left"></span>
-                                                18:00 - 19:00
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><span class="text-muted">Blueish</span></td>
-                                    <td><span class="text-success-600"><i class="icon-stats-growth2 position-left"></i>
-                                            6.79%</span>
-                                    </td>
-                                    <td>
-                                        <h6 class="text-semibold">$1,540</h6>
-                                    </td>
-                                    <td><span class="label bg-blue">Active</span></td>
-                                    <td class="text-center">
-                                        <ul class="icons-list">
-                                            <li class="dropup">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                                        class="icon-menu7"></i></a>
-                                                <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li><a href="#"><i class="icon-file-stats"></i> View
-                                                            statement</a></li>
-                                                    <li><a href="#"><i class="icon-file-text2"></i> Edit
-                                                            campaign</a></li>
-                                                    <li><a href="#"><i class="icon-file-locked"></i> Disable
-                                                            campaign</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#"><i class="icon-gear"></i>
-                                                            تنظیمات</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="media-left media-middle">
-                                            <a href="#"><img src="assets/images/brands/dribbble.png"
-                                                    class="img-circle img-xs" alt=""></a>
-                                        </div>
-                                        <div class="media-left">
-                                            <div class=""><a href="#"
-                                                    class="text-default text-semibold">Dribbble ads</a>
-                                            </div>
-                                            <div class="text-muted text-size-small">
-                                                <span class="status-mark border-blue position-left"></span>
-                                                20:00 - 21:00
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td><span class="text-muted">Teamable</span></td>
-                                    <td><span class="text-danger"><i class="icon-stats-decline2 position-left"></i>
-                                            9.83%</span></td>
-                                    <td>
-                                        <h6 class="text-semibold">$8,350</h6>
-                                    </td>
-                                    <td><span class="label bg-danger">Closed</span></td>
-                                    <td class="text-center">
-                                        <ul class="icons-list">
-                                            <li class="dropup">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                                        class="icon-menu7"></i></a>
-                                                <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li><a href="#"><i class="icon-file-stats"></i> View
-                                                            statement</a></li>
-                                                    <li><a href="#"><i class="icon-file-text2"></i> Edit
-                                                            campaign</a></li>
-                                                    <li><a href="#"><i class="icon-file-locked"></i> Disable
-                                                            campaign</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#"><i class="icon-gear"></i>
-                                                            تنظیمات</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
+                                    </tr>
+                                @endforeach
+
                             </tbody>
                         </table>
                     </div>
@@ -643,12 +240,12 @@
                         <div class="panel bg-teal-400">
                             <div class="panel-body">
                                 <div class="heading-elements">
-                                    <span class="heading-text badge bg-teal-800">+53,6%</span>
+                                    <span class="heading-text badge bg-teal-800">+6%</span>
                                 </div>
 
-                                <h3 class="no-margin">3,450</h3>
-                                Members online
-                                <div class="text-muted text-size-small">489 avg</div>
+                                <h3 class="no-margin">5320225</h3>
+                                افراد تحت سرپرستی
+                                <div class="text-muted text-size-small"> 25 نفر در این ماه </div>
                             </div>
 
                             <div class="container-fluid">
@@ -665,27 +262,12 @@
                         <div class="panel bg-pink-400">
                             <div class="panel-body">
                                 <div class="heading-elements">
-                                    <ul class="icons-list">
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                                    class="icon-cog3"></i> <span class="caret"></span></a>
-                                            <ul class="dropdown-menu dropdown-menu-right">
-                                                <li><a href="#"><i class="icon-sync"></i> Update
-                                                        data</a></li>
-                                                <li><a href="#"><i class="icon-list-unordered"></i> Detailed
-                                                        log</a></li>
-                                                <li><a href="#"><i class="icon-pie5"></i> آمار</a>
-                                                </li>
-                                                <li><a href="#"><i class="icon-cross3"></i> Clear
-                                                        list</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
+                                    <span class="heading-text badge bg-danger-800">+8%</span>
                                 </div>
 
-                                <h3 class="no-margin">49.4%</h3>
-                                Current server load
-                                <div class="text-muted text-size-small">34.6% avg</div>
+                                <h3 class="no-margin">546,545,000</h3>
+                                موجودی صندوق
+                                <div class="text-muted text-size-small">32,847,000 افزایش موجودی</div>
                             </div>
 
                             <div class="chart" id="server-load"></div>
@@ -700,14 +282,11 @@
                         <div class="panel bg-blue-400">
                             <div class="panel-body">
                                 <div class="heading-elements">
-                                    <ul class="icons-list">
-                                        <li><a data-action="reload"></a></li>
-                                    </ul>
+                                    <span class="heading-text badge bg-indigo-800">+2/8%</span>
                                 </div>
-
-                                <h3 class="no-margin">$18,390</h3>
-                                امروز's revenue
-                                <div class="text-muted text-size-small">$37,578 avg</div>
+                                <h3 class="no-margin">12,247</h3>
+                                پرسنل
+                                <div class="text-muted text-size-small">3 نفر افزایش</div>
                             </div>
 
                             <div class="chart" id="today-revenue"></div>
@@ -719,546 +298,67 @@
                 <!-- /quick stats boxes -->
 
 
-                <!--پشتیبانی tickets -->
+                <!-- واریزی ها -->
                 <div class="panel panel-flat">
                     <div class="panel-heading">
-                        <h6 class="panel-title">تیکت پشتیبانی</h6>
+                        <h6 class="panel-title">آخرین واریزی ها </h6>
                         <div class="heading-elements">
-                            <button type="button" class="btn btn-link daterange-ranges heading-btn text-semibold">
+                            <a href="{{ route('admin.orders.index') }}"
+                                class="btn btn-link daterange-ranges heading-btn text-semibold">
                                 <i class="icon-calendar3 position-left"></i> <span></span> <b class="caret"></b>
-                            </button>
+                            </a>
                         </div>
-                    </div>
-
-                    <div class="table-responsive">
-                        <table class="table table-xlg text-nowrap">
-                            <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <div class="media-left media-middle">
-                                            <div class="chart" id="tickets-status"></div>
-                                        </div>
-
-                                        <div class="media-left">
-                                            <h5 class="text-semibold no-margin">14,327 <small
-                                                    class="text-success text-size-base"><i class="icon-arrow-up12"></i>
-                                                    (+2.9%)</small></h5>
-                                            <span class="text-muted"><span
-                                                    class="status-mark border-success position-left"></span>
-                                                Jun 16, 10:00 am</span>
-                                        </div>
-                                    </td>
-
-                                    <td class="col-md-3">
-                                        <div class="media-left media-middle">
-                                            <a href="#"
-                                                class="btn border-indigo-400 text-indigo-400 btn-flat btn-rounded btn-xs btn-icon"><i
-                                                    class="icon-alarm-add"></i></a>
-                                        </div>
-
-                                        <div class="media-left">
-                                            <h5 class="text-semibold no-margin">
-                                                1,132 <small class="display-block no-margin">total
-                                                    tickets</small>
-                                            </h5>
-                                        </div>
-                                    </td>
-
-                                    <td class="col-md-3">
-                                        <div class="media-left media-middle">
-                                            <a href="#"
-                                                class="btn border-indigo-400 text-indigo-400 btn-flat btn-rounded btn-xs btn-icon"><i
-                                                    class="icon-spinner11"></i></a>
-                                        </div>
-
-                                        <div class="media-left">
-                                            <h5 class="text-semibold no-margin">
-                                                06:25:00 <small class="display-block no-margin">response
-                                                    time</small>
-                                            </h5>
-                                        </div>
-                                    </td>
-
-                                    <td class="text-right col-md-2">
-                                        <a href="#" class="btn bg-teal-400"><i
-                                                class="icon-statistics position-left"></i> Report</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
 
                     <div class="table-responsive">
                         <table class="table text-nowrap">
                             <thead>
                                 <tr>
-                                    <th style="width: 50px">Due</th>
-                                    <th style="width: 300px;">User</th>
-                                    <th>Description</th>
-                                    <th class="text-center" style="width: 20px;"><i class="icon-arrow-down12"></i></th>
+                                    <th style="width: 100px">زمان</th>
+                                    <th style="width: 300px;">مبلغ</th>
+                                    <th>موضوع اهدا</th>
+                                    <th class="text-center" style="width: 300px;"><i class="icon-arrow-down12"></i></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="active border-double">
-                                    <td colspan="3">Active tickets</td>
-                                    <td class="text-right">
-                                        <span class="badge bg-blue">24</span>
-                                    </td>
-                                </tr>
+                                @foreach ($transactions as $transaction)
+                                    <tr>
+                                        <td class="text-center">
+                                            <h6 class="no-margin">{{ $transaction->created_at->format('H:i:s') }} <small
+                                                    class="display-block text-size-small no-margin">hours</small>
+                                            </h6>
+                                        </td>
+                                        <td>
+                                            <div class="media-left media-middle">
+                                                <a href="#" class="btn bg-teal-400 btn-rounded btn-icon btn-xs">
+                                                    <span class="letter-icon"></span>
+                                                </a>
+                                            </div>
 
-                                <tr>
-                                    <td class="text-center">
-                                        <h6 class="no-margin">12 <small
-                                                class="display-block text-size-small no-margin">hours</small>
-                                        </h6>
-                                    </td>
-                                    <td>
-                                        <div class="media-left media-middle">
-                                            <a href="#" class="btn bg-teal-400 btn-rounded btn-icon btn-xs">
-                                                <span class="letter-icon"></span>
+                                            <div class="media-body">
+                                                <a href="#"
+                                                    class="display-inline-block text-default text-semibold letter-icon-title">
+                                                    {{ $transaction->amount }}
+                                                </a>
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="#" class="text-default display-inline-block">
+                                                <span class="text-semibold"> {{ $transaction->category->name }}</span>
+                                                <span class="display-block text-muted">
+                                                    {{ $transaction->description }}</span>
                                             </a>
-                                        </div>
-
-                                        <div class="media-body">
-                                            <a href="#"
-                                                class="display-inline-block text-default text-semibold letter-icon-title">Annabelle
-                                                Doney</a>
-                                            <div class="text-muted text-size-small"><span
-                                                    class="status-mark border-blue position-left"></span>
-                                                Active</div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-default display-inline-block">
-                                            <span class="text-semibold">[#1183] Workaround for OS X
-                                                selects printing bug</span>
-                                            <span class="display-block text-muted">Chrome fixed the bug
-                                                several versions ago, thus rendering this...</span>
-                                        </a>
-                                    </td>
-                                    <td class="text-center">
-                                        <ul class="icons-list">
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                                        class="icon-menu7"></i></a>
-                                                <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li><a href="#"><i class="icon-undo"></i>
-                                                            Quick reply</a></li>
-                                                    <li><a href="#"><i class="icon-history"></i>
-                                                            Full history</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#"><i class="icon-checkmark3 text-success"></i>
-                                                            Resolve issue</a></li>
-                                                    <li><a href="#"><i class="icon-cross2 text-danger"></i> Close
-                                                            issue</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="text-center">
-                                        <h6 class="no-margin">16 <small
-                                                class="display-block text-size-small no-margin">hours</small>
-                                        </h6>
-                                    </td>
-                                    <td>
-                                        <div class="media-left media-middle">
-                                            <a href="#"><img src="assets/images/placeholder.jpg"
-                                                    class="img-circle img-xs" alt=""></a>
-                                        </div>
-
-                                        <div class="media-body">
-                                            <a href="#"
-                                                class="display-inline-block text-default text-semibold letter-icon-title">Chris
-                                                Macintyre</a>
-                                            <div class="text-muted text-size-small"><span
-                                                    class="status-mark border-blue position-left"></span>
-                                                Active</div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-default display-inline-block">
-                                            <span class="text-semibold">[#1249] Vertically center carousel
-                                                controls</span>
-                                            <span class="display-block text-muted">Try any carousel
-                                                control and reduce the screen width below...</span>
-                                        </a>
-                                    </td>
-                                    <td class="text-center">
-                                        <ul class="icons-list">
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                                        class="icon-menu7"></i></a>
-                                                <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li><a href="#"><i class="icon-undo"></i>
-                                                            Quick reply</a></li>
-                                                    <li><a href="#"><i class="icon-history"></i>
-                                                            Full history</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#"><i class="icon-checkmark3 text-success"></i>
-                                                            Resolve issue</a></li>
-                                                    <li><a href="#"><i class="icon-cross2 text-danger"></i> Close
-                                                            issue</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="text-center">
-                                        <h6 class="no-margin">20 <small
-                                                class="display-block text-size-small no-margin">hours</small>
-                                        </h6>
-                                    </td>
-                                    <td>
-                                        <div class="media-left media-middle">
-                                            <a href="#" class="btn bg-blue btn-rounded btn-icon btn-xs">
-                                                <span class="letter-icon"></span>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="{{ route('admin.orders.index') }}"
+                                                class="btn btn-link daterange-ranges heading-btn text-semibold">
+                                                <i class="icon-calendar3 position-left"></i> <span></span> <b
+                                                    class="caret"></b>
                                             </a>
-                                        </div>
-
-                                        <div class="media-body">
-                                            <a href="#"
-                                                class="display-inline-block text-default text-semibold letter-icon-title">Robert
-                                                Hauber</a>
-                                            <div class="text-muted text-size-small"><span
-                                                    class="status-mark border-blue position-left"></span>
-                                                Active</div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-default display-inline-block">
-                                            <span class="text-semibold">[#1254] Inaccurate small
-                                                pagination height</span>
-                                            <span class="display-block text-muted">The height of
-                                                pagination elements is not consistent with...</span>
-                                        </a>
-                                    </td>
-                                    <td class="text-center">
-                                        <ul class="icons-list">
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                                        class="icon-menu7"></i></a>
-                                                <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li><a href="#"><i class="icon-undo"></i>
-                                                            Quick reply</a></li>
-                                                    <li><a href="#"><i class="icon-history"></i>
-                                                            Full history</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#"><i class="icon-checkmark3 text-success"></i>
-                                                            Resolve issue</a></li>
-                                                    <li><a href="#"><i class="icon-cross2 text-danger"></i> Close
-                                                            issue</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="text-center">
-                                        <h6 class="no-margin">40 <small
-                                                class="display-block text-size-small no-margin">hours</small>
-                                        </h6>
-                                    </td>
-                                    <td>
-                                        <div class="media-left media-middle">
-                                            <a href="#" class="btn bg-warning-400 btn-rounded btn-icon btn-xs">
-                                                <span class="letter-icon"></span>
-                                            </a>
-                                        </div>
-
-                                        <div class="media-body">
-                                            <a href="#"
-                                                class="display-inline-block text-default text-semibold letter-icon-title">Dex
-                                                Sponheim</a>
-                                            <div class="text-muted text-size-small"><span
-                                                    class="status-mark border-blue position-left"></span>
-                                                Active</div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-default display-inline-block">
-                                            <span class="text-semibold">[#1184] Round grid column gutter
-                                                operations</span>
-                                            <span class="display-block text-muted">Left rounds up, right
-                                                rounds down. should keep everything...</span>
-                                        </a>
-                                    </td>
-                                    <td class="text-center">
-                                        <ul class="icons-list">
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                                        class="icon-menu7"></i></a>
-                                                <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li><a href="#"><i class="icon-undo"></i>
-                                                            Quick reply</a></li>
-                                                    <li><a href="#"><i class="icon-history"></i>
-                                                            Full history</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#"><i class="icon-checkmark3 text-success"></i>
-                                                            Resolve issue</a></li>
-                                                    <li><a href="#"><i class="icon-cross2 text-danger"></i> Close
-                                                            issue</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-
-                                <tr class="active border-double">
-                                    <td colspan="3">Resolved tickets</td>
-                                    <td class="text-right">
-                                        <span class="badge bg-success">42</span>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="text-center">
-                                        <i class="icon-checkmark3 text-success"></i>
-                                    </td>
-                                    <td>
-                                        <div class="media-left media-middle">
-                                            <a href="#" class="btn bg-success-400 btn-rounded btn-icon btn-xs">
-                                                <span class="letter-icon"></span>
-                                            </a>
-                                        </div>
-
-                                        <div class="media-body">
-                                            <a href="#"
-                                                class="display-inline-block text-default letter-icon-title">Alan
-                                                Macedo</a>
-                                            <div class="text-muted text-size-small"><span
-                                                    class="status-mark border-success position-left"></span>
-                                                Resolved</div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-default display-inline-block">
-                                            [#1046] Avoid some unnecessary HTML string
-                                            <span class="display-block text-muted">Rather than building a
-                                                string of HTML and then parsing it...</span>
-                                        </a>
-                                    </td>
-                                    <td class="text-center">
-                                        <ul class="icons-list">
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                                        class="icon-menu7"></i></a>
-                                                <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li><a href="#"><i class="icon-undo"></i>
-                                                            Quick reply</a></li>
-                                                    <li><a href="#"><i class="icon-history"></i>
-                                                            Full history</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#"><i class="icon-plus3 text-blue"></i>
-                                                            Unresolve issue</a></li>
-                                                    <li><a href="#"><i class="icon-cross2 text-danger"></i> Close
-                                                            issue</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="text-center">
-                                        <i class="icon-checkmark3 text-success"></i>
-                                    </td>
-                                    <td>
-                                        <div class="media-left media-middle">
-                                            <a href="#" class="btn bg-pink-400 btn-rounded btn-icon btn-xs">
-                                                <span class="letter-icon"></span>
-                                            </a>
-                                        </div>
-
-                                        <div class="media-body">
-                                            <a href="#"
-                                                class="display-inline-block text-default letter-icon-title">Brett
-                                                Castellano</a>
-                                            <div class="text-muted text-size-small"><span
-                                                    class="status-mark border-success position-left"></span>
-                                                Resolved</div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-default display-inline-block">
-                                            [#1038] Update json configuration
-                                            <span class="display-block text-muted">The <code>files</code>
-                                                property is necessary to override the files
-                                                property...</span>
-                                        </a>
-                                    </td>
-                                    <td class="text-center">
-                                        <ul class="icons-list">
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                                        class="icon-menu7"></i></a>
-                                                <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li><a href="#"><i class="icon-undo"></i>
-                                                            Quick reply</a></li>
-                                                    <li><a href="#"><i class="icon-history"></i>
-                                                            Full history</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#"><i class="icon-plus3 text-blue"></i>
-                                                            Unresolve issue</a></li>
-                                                    <li><a href="#"><i class="icon-cross2 text-danger"></i> Close
-                                                            issue</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="text-center">
-                                        <i class="icon-checkmark3 text-success"></i>
-                                    </td>
-                                    <td>
-                                        <div class="media-left media-middle">
-                                            <a href="#"><img src="assets/images/placeholder.jpg"
-                                                    class="img-circle img-xs" alt=""></a>
-                                        </div>
-
-                                        <div class="media-body">
-                                            <a href="#" class="display-inline-block text-default">Roxanne
-                                                Forbes</a>
-                                            <div class="text-muted text-size-small"><span
-                                                    class="status-mark border-success position-left"></span>
-                                                Resolved</div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-default display-inline-block">
-                                            [#1034] Tooltip multiple event
-                                            <span class="display-block text-muted">Fix behavior when using
-                                                tooltips and popovers that are...</span>
-                                        </a>
-                                    </td>
-                                    <td class="text-center">
-                                        <ul class="icons-list">
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                                        class="icon-menu7"></i></a>
-                                                <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li><a href="#"><i class="icon-undo"></i>
-                                                            Quick reply</a></li>
-                                                    <li><a href="#"><i class="icon-history"></i>
-                                                            Full history</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#"><i class="icon-plus3 text-blue"></i>
-                                                            Unresolve issue</a></li>
-                                                    <li><a href="#"><i class="icon-cross2 text-danger"></i> Close
-                                                            issue</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-
-                                <tr class="active border-double">
-                                    <td colspan="3">Closed tickets</td>
-                                    <td class="text-right">
-                                        <span class="badge bg-danger">37</span>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="text-center">
-                                        <i class="icon-cross2 text-danger-400"></i>
-                                    </td>
-                                    <td>
-                                        <div class="media-left media-middle">
-                                            <a href="#"><img src="assets/images/placeholder.jpg"
-                                                    class="img-circle img-xs" alt=""></a>
-                                        </div>
-
-                                        <div class="media-body">
-                                            <a href="#" class="display-inline-block text-default">Mitchell
-                                                Sitkin</a>
-                                            <div class="text-muted text-size-small"><span
-                                                    class="status-mark border-danger position-left"></span>
-                                                Closed</div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-default display-inline-block">
-                                            [#1040] Account for static form controls in form group
-                                            <span class="display-block text-muted">Resizes control label's
-                                                font-size and account for the standard...</span>
-                                        </a>
-                                    </td>
-                                    <td class="text-center">
-                                        <ul class="icons-list">
-                                            <li class="dropup">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                                        class="icon-menu7"></i></a>
-                                                <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li><a href="#"><i class="icon-undo"></i>
-                                                            Quick reply</a></li>
-                                                    <li><a href="#"><i class="icon-history"></i>
-                                                            Full history</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#"><i class="icon-reload-alt text-blue"></i>
-                                                            Reopen issue</a></li>
-                                                    <li><a href="#"><i class="icon-cross2 text-danger"></i> Close
-                                                            issue</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="text-center">
-                                        <i class="icon-cross2 text-danger"></i>
-                                    </td>
-                                    <td>
-                                        <div class="media-left media-middle">
-                                            <a href="#" class="btn bg-brown-400 btn-rounded btn-icon btn-xs">
-                                                <span class="letter-icon"></span>
-                                            </a>
-                                        </div>
-
-                                        <div class="media-body">
-                                            <a href="#"
-                                                class="display-inline-block text-default letter-icon-title">Katleen
-                                                Jensen</a>
-                                            <div class="text-muted text-size-small"><span
-                                                    class="status-mark border-danger position-left"></span>
-                                                Closed</div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-default display-inline-block">
-                                            [#1038] Proper sizing of form control feedback
-                                            <span class="display-block text-muted">Feedback icon sizing
-                                                inside a larger/smaller form-group...</span>
-                                        </a>
-                                    </td>
-                                    <td class="text-center">
-                                        <ul class="icons-list">
-                                            <li class="dropup">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                                        class="icon-menu7"></i></a>
-                                                <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li><a href="#"><i class="icon-undo"></i>
-                                                            Quick reply</a></li>
-                                                    <li><a href="#"><i class="icon-history"></i>
-                                                            Full history</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#"><i class="icon-plus3 text-blue"></i>
-                                                            Unresolve issue</a></li>
-                                                    <li><a href="#"><i class="icon-cross2 text-danger"></i> Close
-                                                            issue</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -1295,15 +395,16 @@
                                         </div>
 
                                         <div class="media-body">
-                                            <h6 class="media-heading"><a href="#">Up unpacked
-                                                    friendly</a></h6>
+                                            <h6 class="media-heading"><a href="#">جشن اهدا 313 جهیزیه تبریز با حضور
+                                                    مقامات دولتی و استانی</a></h6>
                                             <ul class="list-inline list-inline-separate text-muted mb-5">
                                                 <li><i class="icon-book-play position-left"></i> Video
                                                     tutorials</li>
-                                                <li>14 minutes ago</li>
+                                                <li>https://absharatefeha.ir/b343</li>
                                             </ul>
-                                            The him father parish looked has sooner. Attachment frequently
-                                            gay terminated son...
+                                            روز پنج‌شنبه 11 خرداد سال 1402 همزمان با دومین روز آغاز به کار نمایشگاه
+                                            توانمندی‌های بنیاد آبشار عاطفه‌ها در سالن اجتماعات مصلی اعظم امام خمینی تبریز،
+                                            جشن اهدا 313 سری جهیزیه ...
                                         </div>
                                     </li>
 
@@ -1319,15 +420,15 @@
                                         </div>
 
                                         <div class="media-body">
-                                            <h6 class="media-heading"><a href="#">It allowance
-                                                    prevailed</a></h6>
+                                            <h6 class="media-heading"><a href="#">افتتاح مرکز مشارکت‌ مردمی طفلان
+                                                    مسلم، دریچه سوم به سوی روشنای امید</a></h6>
                                             <ul class="list-inline list-inline-separate text-muted mb-5">
                                                 <li><i class="icon-book-play position-left"></i> Video
                                                     tutorials</li>
-                                                <li>12 days ago</li>
+                                                <li>https://absharatefeha.ir/d841</li>
                                             </ul>
-                                            Alteration literature to or an sympathize mr imprudence. Of is
-                                            ferrars subject as enjoyed...
+                                            سومین مرکز مشارکت‌ها و ارتباطات مردمی خیریه آبشار عاطفه ها در مشهد با نام «طفلان
+                                            مسلم» کار خود را در هجدهم خرداد ماه جاری در منطقه 6 شهر مشهد آغاز کرد.
                                         </div>
                                     </li>
                                 </ul>
@@ -1347,15 +448,16 @@
                                         </div>
 
                                         <div class="media-body">
-                                            <h6 class="media-heading"><a href="#">Case read they
-                                                    must</a></h6>
+                                            <h6 class="media-heading"><a href="#">سنندج و ایلام میزبان رزمایشات
+                                                    بهاری بنیاد آبشار عاطفه‌ها</a></h6>
                                             <ul class="list-inline list-inline-separate text-muted mb-5">
                                                 <li><i class="icon-book-play position-left"></i> Video
                                                     tutorials</li>
-                                                <li>20 hours ago</li>
+                                                <li>https://absharatefeha.ir/b99b</li>
                                             </ul>
-                                            On it differed repeated wandered required in. Then girl neat why
-                                            yet knew rose spot...
+                                            همزمان با واپسین روزهای گرم بهار در روز سه‌شنبه 23 خرداد سال 1402 دو نمایندگی‌
+                                            بنیاد بین‌المللی خیریه آبشار عاطفه‌ها یعنی امورشعب سنندج و شعبه موسی‌بن
+                                            جعفر(عام) ایلام رزمایش سبد غذایی را با تهیه 600 و 50 سبد برگزار کردند
                                         </div>
                                     </li>
 
@@ -1371,15 +473,16 @@
                                         </div>
 
                                         <div class="media-body">
-                                            <h6 class="media-heading"><a href="#">Too carriage
-                                                    attended</a></h6>
+                                            <h6 class="media-heading"><a href="#">همزمان با میلاد امام هشتم و برپایی
+                                                    نمایشگاه تبریز: برگزاری نشست خبری و جشن‌ شعب</a></h6>
                                             <ul class="list-inline list-inline-separate text-muted mb-5">
                                                 <li><i class="icon-book-play position-left"></i> FAQ
                                                     section</li>
-                                                <li>2 days ago</li>
+                                                <li>https://absharatefeha.ir/ffc4</li>
                                             </ul>
-                                            Marianne or husbands if at stronger ye. Considered is as
-                                            middletons uncommonly...
+                                            فولاد و مدیران بنیاد آبشار عاطفه‌ها در نشستی صمیمی با حضور برخی مسؤولین تبریز و
+                                            خبرنگاران کشور به معرفی خدمات و دستاوردهای برجسته این مجموعه در حوزه‌های مختلف
+                                            پرداختند.
                                         </div>
                                     </li>
                                 </ul>
@@ -1660,10 +763,10 @@
                 <!-- پیغام های من -->
                 <div class="panel panel-flat">
                     <div class="panel-heading">
-                        <h6 class="panel-title">پیغام های من</h6>
+                        <h6 class="panel-title">پیام های من</h6>
                         <div class="heading-elements">
-                            <span class="heading-text"><i class="icon-history text-warning position-left"></i> Jul 7,
-                                10:30</span>
+                            <span class="heading-text"><i class="icon-history text-warning position-left"></i> شنبه 3
+                                تیرماه </span>
                             <span class="label bg-success heading-text">آنلاین</span>
                         </div>
                     </div>
@@ -1674,27 +777,27 @@
                             <div class="col-md-4">
                                 <div class="content-group">
                                     <h6 class="text-semibold no-margin"><i
-                                            class="icon-clipboard3 position-left text-slate"></i> 2,345
+                                            class="icon-clipboard3 position-left text-slate"></i> 1
                                     </h6>
-                                    <span class="text-muted text-size-small">this week</span>
+                                    <span class="text-muted text-size-small">این هفته</span>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="content-group">
                                     <h6 class="text-semibold no-margin"><i
-                                            class="icon-calendar3 position-left text-slate"></i> 3,568
+                                            class="icon-calendar3 position-left text-slate"></i> 2
                                     </h6>
-                                    <span class="text-muted text-size-small">this month</span>
+                                    <span class="text-muted text-size-small"> این ماه</span>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="content-group">
                                     <h6 class="text-semibold no-margin"><i
-                                            class="icon-comments position-left text-slate"></i> 32,693
+                                            class="icon-comments position-left text-slate"></i>{{ $comments->count() }}
                                     </h6>
-                                    <span class="text-muted text-size-small">all messages</span>
+                                    <span class="text-muted text-size-small"> کل پیام ها</span>
                                 </div>
                             </div>
                         </div>
@@ -1735,92 +838,25 @@
                     <div class="tab-content">
                         <div class="tab-pane active fade in has-padding" id="messages-tue">
                             <ul class="media-list">
-                                <li class="media">
-                                    <div class="media-left">
-                                        <img src="assets/images/placeholder.jpg" class="img-circle img-xs"
-                                            alt="">
-                                        <span class="badge bg-danger-400 media-badge">8</span>
-                                    </div>
+                                @foreach ($comments as $comment)
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <img src="{{asset('/images/placeholder.jpg')}}" class="img-circle img-xs"
+                                                alt="">
+                                            <span class="badge bg-danger-400 media-badge"></span>
+                                        </div>
 
-                                    <div class="media-body">
-                                        <a href="#">
-                                            James Alexander
-                                            <span class="media-annotation pull-right">14:58</span>
-                                        </a>
+                                        <div class="media-body">
+                                            <a href="#">
+                                                {{$comment->name}}
+                                                <span class="media-annotation pull-right">{{ $comment->created_at->format('H:i:s') }} </span>
+                                            </a>
 
-                                        <span class="display-block text-muted">The constitutionally
-                                            inventoried precariously...</span>
-                                    </div>
-                                </li>
-
-                                <li class="media">
-                                    <div class="media-left">
-                                        <img src="assets/images/placeholder.jpg" class="img-circle img-xs"
-                                            alt="">
-                                        <span class="badge bg-danger-400 media-badge">6</span>
-                                    </div>
-
-                                    <div class="media-body">
-                                        <a href="#">
-                                            Margo Baker
-                                            <span class="media-annotation pull-right">12:16</span>
-                                        </a>
-
-                                        <span class="display-block text-muted">Pinched a well more moral
-                                            chose goodness...</span>
-                                    </div>
-                                </li>
-
-                                <li class="media">
-                                    <div class="media-left">
-                                        <img src="assets/images/placeholder.jpg" class="img-circle img-xs"
-                                            alt="">
-                                    </div>
-
-                                    <div class="media-body">
-                                        <a href="#">
-                                            Jeremy Victorino
-                                            <span class="media-annotation pull-right">09:48</span>
-                                        </a>
-
-                                        <span class="display-block text-muted">Pert thickly mischievous
-                                            clung frowned well...</span>
-                                    </div>
-                                </li>
-
-                                <li class="media">
-                                    <div class="media-left">
-                                        <img src="assets/images/placeholder.jpg" class="img-circle img-xs"
-                                            alt="">
-                                    </div>
-
-                                    <div class="media-body">
-                                        <a href="#">
-                                            Beatrix Diaz
-                                            <span class="media-annotation pull-right">05:54</span>
-                                        </a>
-
-                                        <span class="display-block text-muted">Nightingale taped hello
-                                            bucolic fussily cardinal...</span>
-                                    </div>
-                                </li>
-
-                                <li class="media">
-                                    <div class="media-left">
-                                        <img src="assets/images/placeholder.jpg" class="img-circle img-xs"
-                                            alt="">
-                                    </div>
-
-                                    <div class="media-body">
-                                        <a href="#">
-                                            Richard Vango
-                                            <span class="media-annotation pull-right">01:43</span>
-                                        </a>
-
-                                        <span class="display-block text-muted">Amidst roadrunner distantly
-                                            pompously where...</span>
-                                    </div>
-                                </li>
+                                            <span class="display-block text-muted">
+                                                {{$comment->text}}</span>
+                                        </div>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
 
@@ -2015,8 +1051,7 @@
                         <div class="heading-elements">
                             <form class="heading-form" action="#">
                                 <div class="form-group">
-                                    <label
-                                        class="checkbox checkbox-inline checkbox-switchery checkbox-right switchery-xs">
+                                    <label class="checkbox checkbox-inline checkbox-switchery checkbox-right switchery-xs">
                                         <input type="checkbox" class="switcher" id="realtime" checked="checked">
                                         Realtime
                                     </label>
@@ -2148,11 +1183,10 @@
 
         <!-- Footer -->
         <div class="footer text-muted">
-            &copy; 2015. <a href="#">Limitless Web App Kit</a> by <a
-                href="http://www.mellatweb.com/wordpress/templates/id/155/قالب-مدیریت-html-رسپانسیو-limitless"
-                target="_blank">ملت وب</a>
+            &copy; 2023. <a href="#">VistaWebb</a> by <a href="#" target="_blank">09336344816 </a>
         </div>
         <!-- /footer -->
+
 
     </div>
     <!-- /content area -->

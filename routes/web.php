@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\CharityController;
 use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DonationController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExpiationController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\TransactionController;
@@ -29,9 +30,10 @@ use App\Http\Controllers\Admin\TransactionController;
 */
 
 //DASHBOARD
-Route::get('/admin_panel/dashboard', function () {
-    return view('admin.dashboard');
-})->name('dashboard');
+// Route::get('/admin_panel/dashboard', function () {
+//     return view('admin.dashboard');
+// })->name('dashboard');
+Route::get('/admin_panel/dashboard' , [DashboardController::class , 'index'])->name('dashboard');
 
 // ADMIN_PANEL
 Route::prefix('admin_panel/management')->name('admin.')->group(function(){

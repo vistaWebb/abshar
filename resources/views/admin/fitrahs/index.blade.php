@@ -45,8 +45,11 @@
                         <div class="row text-center">
                             <div class="col-md-3">
                                 <div class="content-group">
-                                    <h5 class="text-semibold no-margin"><i
-                                            class="icon-calendar5 position-left text-slate"></i>{{number_format($sumWeek)}} تومان
+                                    <h5 class="text-semibold no-margin">
+                                        <a href="#"
+                                            class="btn border-warning text-warning btn-flat btn-rounded btn-icon btn-xs"><i
+                                                class="icon-calendar5"></i></a>
+                                        {{  number_format($sumWeek)}}
                                     </h5>
                                     <span class="text-muted text-size-small">کمک های هفته اخیر </span>
                                 </div>
@@ -54,17 +57,22 @@
 
                             <div class="col-md-3">
                                 <div class="content-group">
-                                    <h5 class="text-semibold no-margin"><i
-                                            class="icon-calendar52 position-left text-slate"></i> {{number_format($sumMonth)}} تومان
+                                    <h5 class="text-semibold no-margin">
+                                        <a href="#"
+                                            class="btn border-indigo text-indigo btn-flat btn-rounded btn-icon btn-xs"><i
+                                                class="icon-calendar52"></i></a>
+                                        {{  number_format($sumMonth)}}
                                     </h5>
                                     <span class="text-muted text-size-small"> کمک های ماه اخیر</span>
                                 </div>
                             </div>
-
                             <div class="col-md-3">
                                 <div class="content-group">
-                                    <h5 class="text-semibold no-margin"><i
-                                            class="icon-calendar3 position-left text-slate"></i>{{number_format($sumYear)}} تومان
+                                    <h5 class="text-semibold no-margin">
+                                        <a href="#"
+                                            class="btn border-danger-800 text-danger-800 btn-flat btn-rounded btn-icon btn-xs"><i
+                                                class="icon-calendar3"></i></a>
+                                        {{  number_format($sumYear)}}
                                     </h5>
                                     <span class="text-muted text-size-small"> کمک های سال اخیر</span>
                                 </div>
@@ -72,8 +80,11 @@
 
                             <div class="col-md-3">
                                 <div class="content-group">
-                                    <h5 class="text-semibold no-margin"><i
-                                            class="icon-cash3 position-left text-slate"></i> {{number_format($totalAmount)}} تومان
+                                    <h5 class="text-semibold no-margin">
+                                        <a href="#"
+                                            class="btn border-success text-success btn-flat btn-rounded btn-icon btn-xs"><i
+                                                class="icon-cash3"></i></a>
+                                        {{  number_format($totalAmount)}}
                                     </h5>
                                     <span class="text-muted text-size-small"> مبلغ کل</span>
                                 </div>
