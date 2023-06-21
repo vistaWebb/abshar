@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2023 at 10:43 AM
+-- Generation Time: Jun 21, 2023 at 01:16 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -106,7 +106,7 @@ CREATE TABLE `donations` (
 
 INSERT INTO `donations` (`id`, `name`, `total_amount`, `category_id`, `collected_amount`, `remaining_amount`, `start_date`, `end_date`, `is_active`, `description`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (1, 'لوازم التحریر', 500000, 5, 200000, 300000, '2023-06-09', '2024-06-09', 1, NULL, NULL, '2023-06-09 05:24:38', '2023-06-09 16:53:09'),
-(2, 'عینک', 2000000, 6, 100000, 1900000, '2023-06-18', '2024-06-18', 1, NULL, NULL, '2023-06-18 07:12:06', '2023-06-18 13:21:53'),
+(2, 'عینک', 2000000, 6, 2000000, 0, '2023-06-18', '2024-06-18', 1, NULL, NULL, '2023-06-18 07:12:06', '2023-06-18 13:21:53'),
 (3, 'صندلی چرخدار', 30000000, 5, 5000000, 25000000, '2023-06-01', NULL, 1, 'خریداری صندلی چرخدار', NULL, '2023-06-02 16:26:40', NULL);
 
 -- --------------------------------------------------------
@@ -266,13 +266,19 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `donation_id`, `category_id`, `token`, `f_name`, `l_name`, `phone`, `email`, `status`, `amount`, `gateway_name`, `payment_status`, `description`, `created_at`, `updated_at`) VALUES
-(1, NULL, 1, 'jAFvoVwk4rnYm9fQaCIRoTwkYuGjuCRfhX5HNdIg', 'zahra', 'abedizadeh', '09367021936', 'abedizadeh009@gmail.com', 1, 6000000, 'zarinpal', 1, 'پرداخت مسجد امام جواد به منظور فطریه', '2023-06-18 12:52:52', '2023-06-18 12:52:56'),
-(2, NULL, 1, 'jAFvoVwk4rnYm9fQaCIRoTwkYuGjuCRfhX5HNdIg', 'zahra', 'abedizadeh', '09367021936', 'abedizadeh009@gmail.com', 1, 270000, 'zarinpal', 1, 'پرداخت مسجد امام جواد به منظور فطریه', '2023-06-18 12:53:28', '2023-06-18 12:53:32'),
+(1, NULL, 1, 'jAFvoVwk4rnYm9fQaCIRoTwkYuGjuCRfhX5HNdIg', 'zahra', 'abedizadeh', '09367021936', 'abedizadeh009@gmail.com', 1, 6000000, 'parsian', 1, 'پرداخت مسجد امام جواد به منظور فطریه', '2023-06-18 12:52:52', '2023-06-18 12:52:56'),
+(2, NULL, 1, 'jAFvoVwk4rnYm9fQaCIRoTwkYuGjuCRfhX5HNdIg', 'zahra', 'abedizadeh', '09367021936', 'abedizadeh009@gmail.com', 1, 270000, 'mellat', 1, 'پرداخت مسجد امام جواد به منظور فطریه', '2023-06-18 12:53:28', '2023-06-18 12:53:32'),
 (3, NULL, 2, 'jAFvoVwk4rnYm9fQaCIRoTwkYuGjuCRfhX5HNdIg', 'zahra', 'abedizadeh', '09367021936', 'abedizadeh009@gmail.com', 1, 270000, 'zarinpal', 1, 'پرداخت مسجد امام جواد به منظور کفاره', '2023-06-18 12:54:59', '2023-06-18 12:55:03'),
 (4, NULL, 3, 'jAFvoVwk4rnYm9fQaCIRoTwkYuGjuCRfhX5HNdIg', NULL, NULL, '09336344816', NULL, 1, 6000000, 'zarinpal', 1, 'پرداخت مبلغ کمک جهت صدقه', '2023-06-18 12:55:26', '2023-06-18 12:55:29'),
-(5, 1, 6, 'wAppGUUlFWAesmn9IBsP6rO84ZvLacUYVutFbEei', NULL, NULL, '09336344816', NULL, 0, 50000, 'zarinpal', 0, 'پرداخت مبلغ کمک جهت تهیه لوازم التحریر', '2023-05-23 15:47:56', '2023-06-19 15:47:56'),
-(6, NULL, 5, '34567', 'ali', 'ali', '0976532457', 'ali@gmail.com', 1, 5600000, 'zarinpal', 1, 'پرداخت مبلغ کمک جهت خرید ویلچر', '2022-07-16 15:48:17', NULL),
-(7, 1, 4, '969056', 'mahdi', 'mahdi', '09772846975', 'mahdi@email.com', 1, 300000, 'zarinpal', 1, 'پرداخت برای کمک به ایتام ', '2023-04-11 15:55:35', NULL);
+(5, 1, 6, 'wAppGUUlFWAesmn9IBsP6rO84ZvLacUYVutFbEei', NULL, NULL, '09336344816', NULL, 0, 50000, 'parsian', 0, 'پرداخت مبلغ کمک جهت تهیه لوازم التحریر', '2023-05-23 15:47:56', '2023-06-19 15:47:56'),
+(6, NULL, 5, '34567', 'ali', 'ali', '0976532457', 'ali@gmail.com', 1, 5600000, 'mellat', 1, 'پرداخت مبلغ کمک جهت خرید ویلچر', '2022-07-16 15:48:17', NULL),
+(7, 1, 4, '969056', 'mahdi', 'mahdi', '09772846975', 'mahdi@email.com', 1, 300000, 'zarinpal', 1, 'پرداخت برای کمک به ایتام ', '2023-04-11 15:55:35', NULL),
+(8, NULL, 3, '45536', NULL, NULL, NULL, NULL, 1, 5600000, 'zarinpal', 1, NULL, '2023-05-29 09:34:24', NULL),
+(9, NULL, 1, NULL, NULL, NULL, '068934520', NULL, 1, 7890000, 'melli', 1, NULL, '2023-06-01 09:36:04', NULL),
+(10, NULL, 2, NULL, NULL, NULL, '09264065842', NULL, 1, 460000, 'melli', 1, NULL, '2023-06-09 09:36:47', NULL),
+(11, NULL, 3, NULL, NULL, NULL, NULL, NULL, 1, 7890000, 'parsian', 1, NULL, '2022-09-21 10:41:10', NULL),
+(12, NULL, 2, NULL, NULL, NULL, NULL, NULL, 1, 34600000, 'pay', 1, NULL, '2023-03-01 10:41:10', NULL),
+(13, NULL, 3, NULL, NULL, NULL, NULL, NULL, 1, 3450000, 'pay', 1, NULL, '2023-02-13 10:43:22', NULL);
 
 -- --------------------------------------------------------
 
@@ -430,12 +436,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `f_name`, `l_name`, `phone`, `city`, `postal_code`, `avatar`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'ali', NULL, NULL, NULL, NULL, NULL, NULL, 'ali@gmail.com', NULL, '1234', NULL, NULL, NULL, 1, NULL, NULL, NULL),
-(2, 'زهرا', NULL, NULL, NULL, NULL, NULL, NULL, 'zahraabedizadeh@yahoo.com', NULL, '$2y$10$2daEfF2qWki04xAjkkDhNO9gT6GsDtuhnBEdorURXihrY7h1qQUve', NULL, NULL, NULL, 1, NULL, '2023-06-10 06:50:34', '2023-06-10 06:50:34'),
-(3, 'zahra', NULL, NULL, NULL, NULL, NULL, NULL, 'zahra@yahoo.com', NULL, '$2y$10$YpmN6FGUzGP8UjvglI407.R/Khps4FrH6ODba/kpylOrMq5QxIS7e', NULL, NULL, NULL, 1, NULL, '2023-06-10 07:09:39', '2023-06-10 07:09:39'),
-(4, 'زهرا', NULL, NULL, NULL, NULL, NULL, NULL, 'zahraabedi@yahoo.com', NULL, '$2y$10$FfEZKV0pmYb92umzbq04p.IRRxEmgKJgx/J6Ylsd745uFwNUHba0q', NULL, NULL, NULL, 1, NULL, '2023-06-10 07:23:53', '2023-06-10 07:23:53'),
-(5, 'zahra', NULL, NULL, NULL, NULL, NULL, NULL, 'zahra@gmail.com', NULL, '$2y$10$lxWN9BabT1gUoW7kVrdSGukBKjON0litQiapI0P7frj6nd2rCmbGO', NULL, NULL, NULL, 1, NULL, '2023-06-10 07:35:04', '2023-06-10 07:35:04'),
-(6, 'زهرا', NULL, NULL, NULL, NULL, NULL, NULL, 'zahraa@yahoo.com', NULL, '$2y$10$VK8I3OdJyUq68o6VZWyX1.13pKheqzPEmHUC5IT5EZpgxKEd5CS/e', NULL, NULL, NULL, 1, NULL, '2023-06-19 06:25:27', '2023-06-19 06:25:27');
+(1, 'neda', 'ندا', 'شریفی', '0934653745', NULL, NULL, NULL, 'ali@gmail.com', NULL, '1234', NULL, NULL, NULL, 1, NULL, NULL, NULL),
+(2, 'زهرا', 'زهرا', 'عابدی زاده', '07429856290', NULL, NULL, NULL, 'zahraabedizadeh@yahoo.com', NULL, '$2y$10$2daEfF2qWki04xAjkkDhNO9gT6GsDtuhnBEdorURXihrY7h1qQUve', NULL, NULL, NULL, 1, NULL, '2023-06-10 06:50:34', '2023-06-10 06:50:34'),
+(3, 'مهدی', 'مهدی', 'حدادزاده', '0928357687', NULL, NULL, NULL, 'zahra@yahoo.com', NULL, '$2y$10$YpmN6FGUzGP8UjvglI407.R/Khps4FrH6ODba/kpylOrMq5QxIS7e', NULL, NULL, NULL, 1, NULL, '2023-06-10 07:09:39', '2023-06-10 07:09:39'),
+(4, 'مریم', 'مریم', 'بخشی', NULL, NULL, NULL, NULL, 'zahraabedi@yahoo.com', NULL, '$2y$10$FfEZKV0pmYb92umzbq04p.IRRxEmgKJgx/J6Ylsd745uFwNUHba0q', NULL, NULL, NULL, 1, NULL, '2023-06-10 07:23:53', '2023-06-10 07:23:53'),
+(5, 'zahra', 'زهرا', 'سمیعی', NULL, NULL, NULL, NULL, 'zahra@gmail.com', NULL, '$2y$10$lxWN9BabT1gUoW7kVrdSGukBKjON0litQiapI0P7frj6nd2rCmbGO', NULL, NULL, NULL, 0, NULL, '2023-06-10 07:35:04', '2023-06-10 07:35:04'),
+(6, 'یلدا', 'یلدا', 'مهدوی', NULL, NULL, NULL, NULL, 'zahraa@yahoo.com', NULL, '$2y$10$VK8I3OdJyUq68o6VZWyX1.13pKheqzPEmHUC5IT5EZpgxKEd5CS/e', NULL, NULL, NULL, 1, NULL, '2023-06-19 06:25:27', '2023-06-19 06:25:27'),
+(8, 'ali', NULL, NULL, '0893462', NULL, NULL, NULL, 'aliali@gmail.com', NULL, '', NULL, NULL, NULL, 0, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -596,7 +603,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -626,7 +633,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
