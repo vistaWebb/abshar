@@ -29,7 +29,7 @@
 @endsection
 
 @section('title')
-    show user
+    show donation
 @endsection
 
 @section('content')
@@ -38,8 +38,8 @@
         <div class="breadcrumb-line">
             <ul class="breadcrumb">
                 <li><a href="index-2.html"><i class="icon-home2 position-left"></i> خانه</a></li>
-                <li><a href="form_layout_vertical.html"> نمایش مشخصات کاربر </a></li>
-                <li class="active">show user</li>
+                <li><a href="form_layout_vertical.html"> نمایش دونیت </a></li>
+                <li class="active">show donation</li>
             </ul>
         </div>
     </div>
@@ -57,71 +57,84 @@
 
                 <div class="panel panel-flat">
                     <div class="panel-heading">
-                        <h5 class="panel-title"> نمایش مشخصات کاربر</h5>
+                        <h5 class="panel-title"> نمایش دونیت </h5>
                     </div>
 
                     <div class="panel-body">
-                        <div class="form-group col-md-4">
-                            <label>نام کاربر : </label>
-                            <input name="name" type="text" class="form-control" value="{{ $user->name }}">
+                        <div class="form-group col-md-3">
+                            <label>نام دونیت : </label>
+                            <input name="name" type="text" class="form-control" value="{{ $donation->name }}">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>دسته بندی : </label>
+                            <input name="email" type="email" class="form-control"
+                                value="{{ $donation->category->name }}">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label> تاریخ شروع : </label>
+                            <input name="email" type="email" class="form-control"
+                                value="{{ verta($donation->start_date) }}">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label> تاریخ اتمام : </label>
+                            <input name="email" type="email" class="form-control"
+                                value="{{ verta($donation->end_date) }}">
                         </div>
                         <div class="form-group col-md-4">
-                            <label>ایمیل کاربر : </label>
-                            <input name="email" type="email" class="form-control" value="{{ $user->email }}">
+                            <label> مبلغ کل : </label>
+                            <input name="email" type="email" class="form-control"
+                                value="{{ number_format($donation->total_amount) }}">
                         </div>
                         <div class="form-group col-md-4">
-                            <label>نقش کاربر : </label>
-                            @foreach ($user->roles as $role)
-                                <input name="role" type="role" class="form-control"
-                                    value="{{ $role->display_name }}">
-                            @endforeach
+                            <label> مبلغ جمع آوری شده : </label>
+                            <input name="email" type="email" class="form-control"
+                                value="{{ number_format($donation->collected_amount) }}">
                         </div>
-                        <div class="col-md-12">
-                            <button type="button" class="btn bg-success btn-labeled"><b><i class="icon-reading"></i></b>
-                                لیست مجوزهای اضافه</button>
-
-                            <div class="panel panel-body border-top-success text-center">
-                                @foreach ($user->permissions as $permission)
-                                    <div class="col-md-3">
-                                        <span>{{ $permission->display_name }}</span>
-                                    </div>
-                                @endforeach
-                            </div>
+                        <div class="form-group col-md-4">
+                            <label> مبلغ باقیمانده : </label>
+                            <input name="email" type="email" class="form-control"
+                                value="{{ number_format($donation->remaining_amount) }}">
                         </div>
-
                         <div class="form-group col-md-12">
                             <label class="display-block">وضعیت:</label>
 
                             <label class="radio-inline">
                                 <input type="radio" class="styled" name="is_active" value="1"
-                                    {{ $user->getRawOriginal('status') ? 'checked="checked"' : '' }}>
+                                    {{ $donation->getRawOriginal('is_active') ? 'checked="checked"' : '' }}>
                                 فعال
                             </label>
 
                             <label class="radio-inline">
                                 <input type="radio" class="styled" name="is_active" value="0"
-                                    {{ $user->getRawOriginal('status') ? '' : 'checked="checked"' }}>
+                                    {{ $donation->getRawOriginal('is_active') ? '' : 'checked="checked"' }}>
                                 غیر فعال
                             </label>
                         </div>
-
+                        <div class="form-group col-md-12">
+                            <label> {{ $donation->description }}</label>
+                        </div>
                         <div class="text-right ">
-                            <button type="submit" class="btn btn-success">بازگشت  <i
+                            <a href="{{route('admin.donations.index')}}"  class="btn btn-success">بازگشت <i
                                     class="icon-arrow-left13 position-right"></i>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- /vertical form options -->
+                <!-- /basic layout -->
 
-
-            <!-- Footer -->
-            <div class="footer text-muted">
-                &copy; 2023. <a href="#">VistaWebb</a> by <a href="#" target="_blank">09336344816 </a>
             </div>
-            <!-- /footer -->
+
 
         </div>
-        <!-- /content area -->
-    @endsection
+        <!-- /vertical form options -->
+
+
+        <!-- Footer -->
+        <div class="footer text-muted">
+            &copy; 2023. <a href="#">VistaWebb</a> by <a href="#" target="_blank">09336344816 </a>
+        </div>
+        <!-- /footer -->
+
+    </div>
+    <!-- /content area -->
+@endsection

@@ -68,7 +68,9 @@
                                     </li>
                                     <li class="text-left">
                                         <div class="text-semibold">فطریه </div>
-                                        <div class="text-muted">{{ number_format($fitrahs) }}</div>
+                                        <div class="text-muted"><span class="text-success-600"><i
+                                                    class="icon-stats-growth2 position-left"></i>
+                                                {{ number_format($fitrahs) }}</span></div>
                                     </li>
                                 </ul>
 
@@ -85,8 +87,10 @@
                                                 class=" icon-cash4"></i></a>
                                     </li>
                                     <li class="text-left">
-                                        <div class="text-semibold">کفاره </div>
-                                        <div class="text-muted">{{ number_format($charities) }}</div>
+                                        <div class="text-semibold">صندوق کفاره </div>
+                                        <div class="text-muted"><span class="text-success-600"><i
+                                                    class="icon-stats-growth2 position-left"></i>
+                                                {{ number_format($charities) }}</span></div>
                                     </li>
                                 </ul>
 
@@ -103,8 +107,10 @@
                                                 class="icon-umbrella"></i></a>
                                     </li>
                                     <li class="text-left">
-                                        <div class="text-semibold"> صدقه</div>
-                                        <div class="text-muted">{{ number_format($expiations) }} </div>
+                                        <div class="text-semibold"> صدقه صندوق</div>
+                                        <div class="text-muted"><span class="text-success-600"><i
+                                                    class="icon-stats-growth2 position-left"></i>
+                                                {{ number_format($expiations) }}</span></div>
                                     </li>
                                 </ul>
 
@@ -134,8 +140,8 @@
                                     <h5 class="text-semibold no-margin">
                                         <a href="#"
                                             class="btn border-success text-success btn-flat btn-rounded btn-icon btn-xs"><i
-                                                class="icon-calendar5 "></i></a>
-                                        {{ number_format($sumWeek) }}
+                                                class="icon-calendar5 "></i></a><span class="text-success-600">
+                                            {{ number_format($sumWeek) }}</span>
                                     </h5>
                                     <span class="text-muted text-size-small">هفته اخیر </span>
                                 </div>
@@ -146,7 +152,8 @@
                                     <h5 class="text-semibold no-margin"> <a href="#"
                                             class="btn border-danger text-danger btn-flat btn-rounded btn-icon btn-xs"><i
                                                 class="icon-calendar52 "></i></a>
-                                        {{ number_format($sumMonth) }}
+                                        <span class="text-success-600">
+                                            {{ number_format($sumMonth) }}</span>
                                     </h5>
                                     <span class="text-muted text-size-small">ماه اخیر </span>
                                 </div>
@@ -158,7 +165,8 @@
                                         <a href="#"
                                             class="btn border-indigo text-indigo btn-flat btn-rounded btn-icon btn-xs"><i
                                                 class="icon-cash3 "></i></a>
-                                        {{ number_format($sumYear) }}
+                                        <span class="text-success-600">
+                                            {{ number_format($sumYear) }}</span>
                                     </h5>
                                     <span class="text-muted text-size-small">سال اخیر </span>
                                 </div>
@@ -841,19 +849,21 @@
                                 @foreach ($comments as $comment)
                                     <li class="media">
                                         <div class="media-left">
-                                            <img src="{{asset('/images/placeholder.jpg')}}" class="img-circle img-xs"
+                                            <img src="{{ asset('/images/placeholder.jpg') }}" class="img-circle img-xs"
                                                 alt="">
                                             <span class="badge bg-danger-400 media-badge"></span>
                                         </div>
 
                                         <div class="media-body">
                                             <a href="#">
-                                                {{$comment->name}}
-                                                <span class="media-annotation pull-right">{{ $comment->created_at->format('H:i:s') }} </span>
+                                                {{ $comment->name }}
+                                                <span
+                                                    class="media-annotation pull-right">{{ $comment->created_at->format('H:i:s') }}
+                                                </span>
                                             </a>
 
                                             <span class="display-block text-muted">
-                                                {{$comment->text}}</span>
+                                                {{ $comment->text }}</span>
                                         </div>
                                     </li>
                                 @endforeach

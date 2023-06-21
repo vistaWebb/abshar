@@ -46,7 +46,7 @@
                                     <div class="media-body">
                                         <a href="#" class="media-heading">
                                             <span class="text-semibold">{{$comment->name}}</span>
-                                            <span class="media-annotation pull-right">{{$comment->created_at}}</span>
+                                            <span class="media-annotation pull-right">{{verta($comment->created_at)}}</span>
                                         </a>
 
                                         <span class="text-muted">{{$comment->subject}}</span>

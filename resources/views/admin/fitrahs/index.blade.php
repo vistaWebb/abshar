@@ -8,8 +8,8 @@
     <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/pages/form_layouts.js') }}"></script>
 
-	<script type="text/javascript" src="{{asset('/js/pages/animations_css3.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('/js/core/app.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('/js/pages/animations_css3.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <!-- /theme JS files -->
 @endsection
 
@@ -34,68 +34,72 @@
     <div class="content">
 
 
-                <!-- Sales stats -->
-                <div class="panel panel-flat">
-                    <div class="panel-heading">
-                        <h6 class="panel-title">وضعیت صندوق فطریه </h6>
+        <!-- Sales stats -->
+        <div class="panel panel-flat">
+            <div class="panel-heading">
+                <h6 class="panel-title">وضعیت صندوق فطریه </h6>
 
-                    </div>
+            </div>
 
-                    <div class="container-fluid">
-                        <div class="row text-center">
-                            <div class="col-md-3">
-                                <div class="content-group">
-                                    <h5 class="text-semibold no-margin">
-                                        <a href="#"
-                                            class="btn border-warning text-warning btn-flat btn-rounded btn-icon btn-xs"><i
-                                                class="icon-calendar5"></i></a>
-                                        {{  number_format($sumWeek)}}
-                                    </h5>
-                                    <span class="text-muted text-size-small">کمک های هفته اخیر </span>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="content-group">
-                                    <h5 class="text-semibold no-margin">
-                                        <a href="#"
-                                            class="btn border-indigo text-indigo btn-flat btn-rounded btn-icon btn-xs"><i
-                                                class="icon-calendar52"></i></a>
-                                        {{  number_format($sumMonth)}}
-                                    </h5>
-                                    <span class="text-muted text-size-small"> کمک های ماه اخیر</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="content-group">
-                                    <h5 class="text-semibold no-margin">
-                                        <a href="#"
-                                            class="btn border-danger-800 text-danger-800 btn-flat btn-rounded btn-icon btn-xs"><i
-                                                class="icon-calendar3"></i></a>
-                                        {{  number_format($sumYear)}}
-                                    </h5>
-                                    <span class="text-muted text-size-small"> کمک های سال اخیر</span>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="content-group">
-                                    <h5 class="text-semibold no-margin">
-                                        <a href="#"
-                                            class="btn border-success text-success btn-flat btn-rounded btn-icon btn-xs"><i
-                                                class="icon-cash3"></i></a>
-                                        {{  number_format($totalAmount)}}
-                                    </h5>
-                                    <span class="text-muted text-size-small"> مبلغ کل</span>
-                                </div>
-                            </div>
+            <div class="container-fluid">
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <div class="content-group">
+                            <h5 class="text-semibold no-margin">
+                                <a href="#"
+                                    class="btn border-warning text-warning btn-flat btn-rounded btn-icon btn-xs"><i
+                                        class="icon-calendar5"></i></a>
+                                <span class="text-success-600">
+                                    {{ number_format($sumWeek) }}</span>
+                            </h5>
+                            <span class="text-muted text-size-small">کمک های هفته اخیر </span>
                         </div>
                     </div>
 
-                    <div class="chart content-group-sm" id="app_sales"></div>
-                    <div class="chart" id="monthly-sales-stats"></div>
+                    <div class="col-md-3">
+                        <div class="content-group">
+                            <h5 class="text-semibold no-margin">
+                                <a href="#"
+                                    class="btn border-indigo text-indigo btn-flat btn-rounded btn-icon btn-xs"><i
+                                        class="icon-calendar52"></i></a>
+                                <span class="text-success-600">
+                                    {{ number_format($sumMonth) }}</span>
+                            </h5>
+                            <span class="text-muted text-size-small"> کمک های ماه اخیر</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="content-group">
+                            <h5 class="text-semibold no-margin">
+                                <a href="#"
+                                    class="btn border-danger-800 text-danger-800 btn-flat btn-rounded btn-icon btn-xs"><i
+                                        class="icon-calendar3"></i></a>
+                                <span class="text-success-600">
+                                    {{ number_format($sumYear) }}</span>
+                            </h5>
+                            <span class="text-muted text-size-small"> کمک های سال اخیر</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="content-group">
+                            <h5 class="text-semibold no-margin">
+                                <a href="#"
+                                    class="btn border-success text-success btn-flat btn-rounded btn-icon btn-xs"><i
+                                        class="icon-cash3"></i></a>
+                                <span class="text-success-600">
+                                    {{ number_format($totalAmount) }}</span>
+                            </h5>
+                            <span class="text-muted text-size-small"> مبلغ کل</span>
+                        </div>
+                    </div>
                 </div>
-                <!-- /sales stats -->
+            </div>
+
+            <div class="chart content-group-sm" id="app_sales"></div>
+            <div class="chart" id="monthly-sales-stats"></div>
+        </div>
+        <!-- /sales stats -->
 
         <!-- Basic responsive table -->
         <div class="panel panel-flat">
@@ -117,7 +121,10 @@
                         @foreach ($fitrahs as $fitrah)
                             <tr>
                                 <td>{{ $fitrah->f_name ? $fitrah->f_name : $fitrah->phone }}</td>
-                                <td>{{ number_format($fitrah->amount) }}</td>
+                                <td>
+                                    <span class="text-success-600">
+                                        {{ number_format($fitrah->amount) }}</span>
+                                </td>
                                 <td>{{ verta($fitrah->created_at) }}</td>
                                 <td>{{ $fitrah->description }}</td>
                             </tr>

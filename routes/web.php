@@ -16,7 +16,9 @@ use App\Http\Controllers\Admin\DonationController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExpiationController;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\SearchUserController;
 use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\Admin\SearchDonationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +50,9 @@ Route::prefix('admin_panel/management')->name('admin.')->group(function(){
     Route::resource('roles', RoleController::class);
     Route::resource('comments', CommentController::class);
     Route::resource('orders', OrderController::class);
+    Route::get('/search-user' , [SearchUserController::class , 'searchUser'])->name('search.user');
+    Route::get('/search-donation' , [SearchDonationController::class , 'searchDonation'])->name('search.donation');
+
 
 });
 

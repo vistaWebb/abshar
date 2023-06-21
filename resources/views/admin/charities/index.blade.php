@@ -8,10 +8,9 @@
     <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
 
     <script type="text/javascript" src="{{ asset('/js/pages/form_layouts.js') }}"></script>
-	<script type="text/javascript" src="{{asset('/js/pages/animations_css3.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('/js/core/app.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('/js/pages/animations_css3.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <!-- /theme JS files -->
-
 @endsection
 
 @section('title')
@@ -35,68 +34,72 @@
     <div class="content">
 
 
-                <!-- Sales stats -->
-                <div class="panel panel-flat">
-                    <div class="panel-heading">
-                        <h6 class="panel-title">وضعیت صندوق صدقه </h6>
+        <!-- Sales stats -->
+        <div class="panel panel-flat">
+            <div class="panel-heading">
+                <h6 class="panel-title">وضعیت صندوق صدقه </h6>
 
-                    </div>
+            </div>
 
-                    <div class="container-fluid">
-                        <div class="row text-center">
-                            <div class="col-md-3">
-                                <div class="content-group">
-                                    <h5 class="text-semibold no-margin">
-                                        <a href="#"
-                                            class="btn border-warning text-warning btn-flat btn-rounded btn-icon btn-xs"><i
-                                                class="icon-calendar5"></i></a>
-                                        {{  number_format($sumWeek)}}
-                                    </h5>
-                                    <span class="text-muted text-size-small">کمک های هفته اخیر </span>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="content-group">
-                                    <h5 class="text-semibold no-margin">
-                                        <a href="#"
-                                            class="btn border-indigo text-indigo btn-flat btn-rounded btn-icon btn-xs"><i
-                                                class="icon-calendar52"></i></a>
-                                        {{  number_format($sumMonth)}}
-                                    </h5>
-                                    <span class="text-muted text-size-small"> کمک های ماه اخیر</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="content-group">
-                                    <h5 class="text-semibold no-margin">
-                                        <a href="#"
-                                            class="btn border-danger-800 text-danger-800 btn-flat btn-rounded btn-icon btn-xs"><i
-                                                class="icon-calendar3"></i></a>
-                                        {{  number_format($sumYear)}}
-                                    </h5>
-                                    <span class="text-muted text-size-small"> کمک های سال اخیر</span>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="content-group">
-                                    <h5 class="text-semibold no-margin">
-                                        <a href="#"
-                                            class="btn border-success text-success btn-flat btn-rounded btn-icon btn-xs"><i
-                                                class="icon-cash3"></i></a>
-                                        {{  number_format($totalAmount)}}
-                                    </h5>
-                                    <span class="text-muted text-size-small"> مبلغ کل</span>
-                                </div>
-                            </div>
+            <div class="container-fluid">
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <div class="content-group">
+                            <h5 class="text-semibold no-margin">
+                                <a href="#"
+                                    class="btn border-warning text-warning btn-flat btn-rounded btn-icon btn-xs"><i
+                                        class="icon-calendar5"></i></a>
+                                <span class="text-success-600">
+                                    {{ number_format($sumWeek) }}</span>
+                            </h5>
+                            <span class="text-muted text-size-small">کمک های هفته اخیر </span>
                         </div>
                     </div>
 
-                    <div class="chart content-group-sm" id="app_sales"></div>
-                    <div class="chart" id="monthly-sales-stats"></div>
+                    <div class="col-md-3">
+                        <div class="content-group">
+                            <h5 class="text-semibold no-margin">
+                                <a href="#"
+                                    class="btn border-indigo text-indigo btn-flat btn-rounded btn-icon btn-xs"><i
+                                        class="icon-calendar52"></i></a>
+                                <span class="text-success-600">
+                                    {{ number_format($sumMonth) }}</span>
+                            </h5>
+                            <span class="text-muted text-size-small"> کمک های ماه اخیر</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="content-group">
+                            <h5 class="text-semibold no-margin">
+                                <a href="#"
+                                    class="btn border-danger-800 text-danger-800 btn-flat btn-rounded btn-icon btn-xs"><i
+                                        class="icon-calendar3"></i></a>
+                                <span class="text-success-600">
+                                    {{ number_format($sumYear) }}</span>
+                            </h5>
+                            <span class="text-muted text-size-small"> کمک های سال اخیر</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="content-group">
+                            <h5 class="text-semibold no-margin">
+                                <a href="#"
+                                    class="btn border-success text-success btn-flat btn-rounded btn-icon btn-xs"><i
+                                        class="icon-cash3"></i></a>
+                                        <span class="text-success-600">
+                                            {{ number_format($totalAmount) }}</span>
+                            </h5>
+                            <span class="text-muted text-size-small"> مبلغ کل</span>
+                        </div>
+                    </div>
                 </div>
-                <!-- /sales stats -->
+            </div>
+
+            <div class="chart content-group-sm" id="app_sales"></div>
+            <div class="chart" id="monthly-sales-stats"></div>
+        </div>
+        <!-- /sales stats -->
 
 
         <!-- Basic responsive table -->
@@ -117,8 +120,9 @@
                     <tbody>
                         @foreach ($charities as $charity)
                             <tr>
-                                <td>{{ $charity->f_name ? $charity->f_name : $charity->phone}}</td>
-                                <td>{{ number_format($charity->amount) }}</td>
+                                <td>{{ $charity->f_name ? $charity->f_name : $charity->phone }}</td>
+                                <td><span class="text-success-600">{{ number_format($charity->amount) }}</span>
+                                </td>
                                 <td>{{ verta($charity->created_at) }}</td>
                                 <td>{{ $charity->description }}</td>
                             </tr>

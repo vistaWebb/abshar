@@ -1809,6 +1809,12 @@ input[class*=bg-] + .form-control-feedback {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+.btn-outline-success{
+    background-color: #fff;
+    border-color: #4CAF50;
+    color: #4CAF50;
+    margin-right: 5px;
+  }
 .btn-success:focus,
 .btn-success.focus,
 .btn-success:hover {
@@ -6485,4 +6491,12 @@ h6.panel-title,
     color: #000000;
     text-align: center;
     width: 100%;
+  }
+
+  .btn-add{
+    background-color: #fff;
+    border-color: #4CAF50;
+    color: #4CAF50;
+    margin-top: 5px;
+    float: left;
   }

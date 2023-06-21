@@ -8,8 +8,8 @@
     <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/pages/form_layouts.js') }}"></script>
 
-	<script type="text/javascript" src="{{asset('/js/pages/animations_css3.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('/js/core/app.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('/js/pages/animations_css3.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <!-- /theme JS files -->
 @endsection
 
@@ -35,63 +35,84 @@
 
         <!-- Basic responsive table -->
         <div class="panel panel-flat">
-            <div class="panel-heading">
-                <h5 class="panel-title"> لیست کاربران</h5>
-            </div>
 
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th> ردیف</th>
-                            <th> نام</th>
-                            <th> ایمیل</th>
-                            <th>وضعیت</th>
-                            <th class="text-center" style="width: 30px;"><i class="icon-menu-open2"></i></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($users as $key => $user)
-                            <tr>
-                                <td>
-                                    {{ $users->firstItem() + $key }}
-                                </td>
-                                <td> {{ $user->name }}</td>
-                                <td> {{ $user->email }}</td>
-                                <td><span
-                                        class="{{ $user->getRawOriginal('status') ? 'label label-success' : 'label label-default' }}">{{ $user->status }}</span>
-                                </td>
-                                <td class="text-center">
-                                    <ul class="icons-list">
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                <i class="icon-menu9"></i>
-                                            </a>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h6 class="panel-title">لیست کاربران </h6>
+                    <div class="heading-elements ">
+                        <form class="heading-form" action="{{ route('admin.search.user') }}">
+                            <div class="form-group ">
+                                <div class="input-group">
+                                    <input type="text" name="search" class="form-control"
+                                        placeholder="دنبال کی میگردی؟">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-success btn-icon"><i
+                                                class=" icon-spinner3"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
 
-                                            <ul class="dropdown-menu dropdown-menu-right">
-                                                <li><a class="btn btn-sm btn-outline-info mr-3"
-                                                        href="{{ route('admin.users.edit', ['user' => $user->id]) }}">
-                                                        ویرایش </a></i>
-                                                <li><a class="btn btn-sm btn-outline-info mr-3"
-                                                        href="{{ route('admin.users.show', ['user' => $user->id]) }}">
-                                                        نمایش </a></i>
-                                            </ul>
+                <div class="panel-body">
+                    @foreach ($users as $user)
+                        <div class="col-md-4">
+                            <div class="panel {{ $user->getRawOriginal('status') ? 'panel-success' : 'panel-warning' }} panel-bordered ">
+                                <div class="panel-heading">
+                                    <h6 class="panel-title">
+                                        {{ $user->f_name . $user->l_name ? $user->f_name . ' ' . $user->l_name : $user->name }}
+                                    </h6>
+                                    <div class="heading-elements">
+                                        <ul class="icons-list">
+                                            <li><a data-action="collapse"></a></li>
+                                            <li><a data-action="close"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="panel-body">
+                                    <ul class="media-list">
+                                        <li class="media">
+                                            <div class="media-body">
+                                                <h6 class="media-heading">{{ $user->name }}</h6>
+                                                شماره تماس: {{ $user->phone }}
+                                            </div>
+
+                                            <div class="media-right">
+                                                <a href="{{ route('admin.users.show', ['user' => $user->id]) }}"
+                                                    type="button"
+                                                    class="btn {{$user->getRawOriginal('status') ? 'btn-success' : 'btn-warning'}} btn-icon heading-btn pull-right"><i
+                                                        class="icon-screen-full"></i></a>
+
+                                            </div>
+                                            <div class="media-right">
+                                                <a href="{{ route('admin.users.edit', ['user' => $user->id]) }}"
+                                                    type="button"
+                                                    class="btn {{$user->getRawOriginal('status') ? 'btn-success' : 'btn-warning'}} btn-icon heading-btn pull-right"><i
+                                                        class="icon-task"></i></a>
+                                            </div>
+
                                         </li>
-                                    </ul>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <!-- /basic responsive table -->
 
-        <!-- Footer -->
-        <div class="footer text-muted">
-            &copy; 2023. <a href="#">VistaWebb</a> by <a href="#" target="_blank">09336344816 </a>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
         </div>
-        <!-- /footer -->
+
+    </div>
+    <!-- /basic responsive table -->
+
+    <!-- Footer -->
+    <div class="footer text-muted">
+        &copy; 2023. <a href="#">VistaWebb</a> by <a href="#" target="_blank">09336344816 </a>
+    </div>
+    <!-- /footer -->
 
     </div>
     <!-- /content area -->

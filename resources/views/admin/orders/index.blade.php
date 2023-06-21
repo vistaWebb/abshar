@@ -58,8 +58,28 @@
                             <tr>
                                 <td>{{ $order->f_name ? $order->f_name : $order->phone}}</td>
                                 <td>{{ $order->category->name }}</td>
-                                <td>{{ number_format($order->amount) }}</td>
-                                <td>{{ $order->gateway_name }}</td>
+                                <td>
+                                <span class="text-success-600">
+                                    <i class="icon-stats-growth2 position-left"></i>
+                                    {{ number_format($order->amount) }}</span>
+                                </td>
+                                <td>
+                                    <span class="label
+                                        @if($order->gateway_name == 'pay')
+                                        label-success
+                                        @elseif($order->gateway_name == 'zarinpal')
+                                        label-warning
+                                        @elseif($order->gateway_name == 'mellat')
+                                        label-danger
+                                        @elseif($order->gateway_name == 'melli')
+                                        label-primary
+                                        @elseif($order->gateway_name == 'parsian')
+                                        label-default
+                                        @endif
+                                    ">
+                                        {{ $order->gateway_name }}
+                                    </span>
+                                </td>
                                 {{-- <td>{{ $order->transaction->id}}</td> --}}
                                 <td><span
                                     class="{{ $order->getRawOriginal('status') ? 'label label-success' : 'label label-default' }}">{{ $order->status }}</span>

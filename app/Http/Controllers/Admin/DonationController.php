@@ -56,9 +56,9 @@ class DonationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Donation $donation)
     {
-        //
+        return view('admin.donations.show' , compact('donation'));
     }
 
     /**
