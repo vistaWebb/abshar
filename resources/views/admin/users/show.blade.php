@@ -75,6 +75,9 @@
                                 <input name="role" type="role" class="form-control"
                                     value="{{ $role->display_name }}">
                             @endforeach
+                            {{-- @if ($user->roles == null) --}}
+                                {{-- <input name="role" type="role" class="form-control" placeholder="بدون نقش"> --}}
+                            {{-- @endif --}}
                         </div>
                         <div class="col-md-12">
                             <button type="button" class="btn bg-success btn-labeled"><b><i class="icon-reading"></i></b>
@@ -106,7 +109,7 @@
                         </div>
 
                         <div class="text-right ">
-                            <button type="submit" class="btn btn-success">بازگشت  <i
+                            <button type="submit" class="btn btn-success">بازگشت <i
                                     class="icon-arrow-left13 position-right"></i>
                             </button>
                         </div>

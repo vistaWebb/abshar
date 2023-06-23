@@ -7,8 +7,8 @@
     <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/pages/table_responsive.js') }}"></script>
 
-	<script type="text/javascript" src="{{asset('/js/pages/animations_css3.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('/js/core/app.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('/js/pages/animations_css3.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <!-- /theme JS files -->
     <!-- select input JS files -->
     <script type="text/javascript" src="{{ asset('/js/core/libraries/jquery_ui/interactions.min.js') }}"></script>
@@ -29,6 +29,13 @@
 
     <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/pages/picker_date.js') }}"></script>
+    <!-- /theme JS files -->
+
+    <!--choose file files -->
+    <script type="text/javascript" src="{{ asset('/js/plugins/forms/styling/uniform.min.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/pages/form_inputs.js') }}"></script>
     <!-- /theme JS files -->
 @endsection
 
@@ -58,12 +65,36 @@
             <div class="col-md-12">
 
                 <!-- Basic layout-->
-                <form action="{{ route('admin.donations.update', ['donation' => $donation->id]) }}" method="POST">
+                <form action="{{ route('admin.donations.update', ['donation' => $donation->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="panel panel-flat">
                         <div class="panel-heading">
                             <h5 class="panel-title"> ویرایش دونیت</h5>
+                        </div>
+                        <div class="panel panel-body">
+                            <ul class="media-list ">
+                                <li class="media stack-media-on-mobile">
+                                    <div class="media-left">
+                                        <div class="thumb ">
+                                            <a href="{{ url(env('PRODUCT_IMAGES_UPLOAD_PATH') . $donation->description) }}">
+                                                <img src="{{ url(env('PRODUCT_IMAGES_UPLOAD_PATH') . $donation->description) }}"
+                                                    class="img-responsive img-rounded media-preview" alt="">
+                                                <span class="zoom-image"><i class="icon-play3"></i></span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="form-group col-md-9">
+                                            <label>انتخاب تصویر <span class="text-danger">*</span> :</label>
+                                            <input name="description" type="file" class="file-styled">
+                                            <span class="help-block">فرمت مورد قبول: gif, png, jpg. حداکثر حجم فایل
+                                                2Mb</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
 
                         <div class="panel-body">
@@ -104,7 +135,7 @@
                             <div class="form-group col-md-6">
                                 <label> تاریخ اتمام:</label>
                                 <input name="end_date" type="text" class="form-control"
-                                    value="{{ verta($donation->end_date) ? 'دونیت در حال انجام' :  verta($donation->end_date)}}">
+                                    value="{{ verta($donation->end_date) ? 'دونیت در حال انجام' : verta($donation->end_date) }}">
                             </div>
                             <div class="form-group col-md-12">
                                 <label class="display-block">وضعیت:</label>
@@ -127,7 +158,7 @@
                             </div>
 
                             <div class="text-right ">
-                                <button type="submit" class="btn btn-primary">ارسال <i
+                                <button type="submit" class="btn btn-success">ارسال <i
                                         class="icon-arrow-left13 position-right"></i>
                                 </button>
                             </div>

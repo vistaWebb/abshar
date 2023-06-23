@@ -22,8 +22,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-
+        $categories = Category::where('parent_id' , 0) ->get();
         return view('admin.categories.create' , compact('categories'));
     }
 
@@ -46,7 +45,7 @@ class CategoryController extends Controller
             'description'=>$request->description
         ]);
 
-        // alert()->success('با موفقیت انجام شد','دسته بندی با موفقیت اضافه شد');
+        alert()->success('با تشکر','دسته بندی با موفقیت اضافه شد');
         return redirect()->route('admin.categories.index');
     }
 
@@ -85,8 +84,7 @@ class CategoryController extends Controller
             'description'=>$request->description
         ]);
 
-        // alert()->success('با تشکر','برند با موفقیت ویرایش شد');
-
+        alert()->success('با تشکر','دسته بندی با موفقیت ویرایش شد');
         return redirect()->route('admin.categories.index');
     }
 
@@ -96,7 +94,7 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        // alert()->success('با موفقیت انجام شد','بنر با موفقیت حذف شد');
+        alert()->success('با تشکر','دسته بندی با موفقیت حذف شد');
         return redirect()->route('admin.categories.index');
     }
 }

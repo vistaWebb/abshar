@@ -8,8 +8,8 @@
     <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/pages/form_layouts.js') }}"></script>
 
-	<script type="text/javascript" src="{{asset('/js/pages/animations_css3.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('/js/core/app.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('/js/pages/animations_css3.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <!-- /theme JS files -->
 @endsection
 
@@ -63,12 +63,13 @@
             </div>
 
             <div class="table-responsive">
-                <table class="table">
+                <table class="table ">
                     <thead>
                         <tr>
                             <th> نام </th>
                             <th> نام نمایشی </th>
-                            <th class="text-center" style="width: 30px;"><i class="icon-menu-open2"></i></th>
+                            <th class="text-center" style="width: 30px">نمایش</th>
+                            <th class="text-center" style="width: 30px">ویرایش</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -78,6 +79,24 @@
                                 <td>{{ $role->display_name }}</td>
                                 <td class="text-center">
                                     <ul class="icons-list">
+                                        <li>
+                                            <a href="{{ route('admin.roles.show', ['role' => $role->id]) }}" type="button"
+                                                class="btn border-info text-info btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i
+                                                    class="icon-screen-full text-info-600"></i></a>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td class="text-center">
+                                    <ul class="icons-list">
+                                        <li>
+                                            <a href="{{ route('admin.roles.edit', ['role' => $role->id]) }}" type="button"
+                                                class="btn border-success text-success btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i
+                                                    class="icon-task text-success-600"></i></a>
+                                        </li>
+                                    </ul>
+                                </td>
+
+                                {{-- <ul class="icons-list">
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                 <i class="icon-menu9"></i>
@@ -91,7 +110,7 @@
                                                         نمایش </a></i>
                                             </ul>
                                         </li>
-                                    </ul>
+                                    </ul> --}}
                                 </td>
                             </tr>
                         @endforeach

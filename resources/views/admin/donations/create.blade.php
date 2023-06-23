@@ -5,8 +5,8 @@
     <script type="text/javascript" src="{{ asset('/js/plugins/tables/footable/footable.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/pages/table_responsive.js') }}"></script>
 
-	<script type="text/javascript" src="{{asset('/js/pages/animations_css3.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('/js/core/app.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('/js/pages/animations_css3.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <!-- /theme JS files -->
 
     <!-- select input JS files -->
@@ -15,6 +15,13 @@
 
     <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/pages/form_select2.js') }}"></script>
+    <!-- /theme JS files -->
+
+    <!--choose file files -->
+    <script type="text/javascript" src="{{ asset('/js/plugins/forms/styling/uniform.min.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/pages/form_inputs.js') }}"></script>
     <!-- /theme JS files -->
 @endsection
 
@@ -44,7 +51,7 @@
             <div class="col-md-12">
 
                 <!-- Basic layout-->
-                <form action="{{ route('admin.donations.store') }}" method="POST">
+                <form action="{{ route('admin.donations.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="panel panel-flat">
                         <div class="panel-heading">
@@ -60,9 +67,18 @@
 
                             <div class="form-group col-md-6">
                                 <label>مبلغ <span class="text-danger">*</span> :</label>
-                                <input name="total_amount" type="text" class="form-control">
+                                <div class="input-group">
+                                    <input name="total_amount" type="text" class="form-control">
+                                    <span class="input-group-addon bg-success">ریال</span>
+                                </div>
                             </div>
-                            <div class="form-group col-md-12">
+
+                            <div class="form-group col-md-6">
+                                <label>انتخاب تصویر <span class="text-danger">*</span> :</label>
+                                <input name="image"  type="file" class="file-styled">
+                                <span class="help-block">فرمت مورد قبول: gif, png, jpg.  حداکثر حجم فایل 2Mb</span>
+                            </div>
+                            <div class="form-group col-md-6">
                                 <label> انتخاب دسته بندی <span class="text-danger">*</span> :</label>
                                 <select name="category_id" class="select-search">
                                     @foreach ($categories as $category)
@@ -76,7 +92,7 @@
                             </div>
 
                             <div class="text-right ">
-                                <button type="submit" class="btn btn-primary">ارسال <i
+                                <button type="submit" class="btn btn-success">ارسال <i
                                         class="icon-arrow-left13 position-right"></i>
                                 </button>
                             </div>

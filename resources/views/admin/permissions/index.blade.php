@@ -49,7 +49,7 @@
                         <tr>
                             <th> نام </th>
                             <th> نام نمایشی </th>
-                            <th class="text-center" style="width: 30px;"><i class="icon-menu-open2"></i></th>
+                            <th class="text-center" style="width: 10px;">ویرایش </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,15 +59,11 @@
                                 <td>{{ $permission->display_name }}</td>
                                 <td class="text-center">
                                     <ul class="icons-list">
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                <i class="icon-menu9"></i>
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-menu-right">
-                                                <li><a class="btn btn-sm btn-outline-info mr-3"
-                                                        href="{{ route('admin.permissions.edit', ['permission' => $permission->id]) }}">
-                                                        ویرایش </a></i>
-                                            </ul>
+                                        <li>
+                                            <a href="{{ route('admin.permissions.edit', ['permission' => $permission->id]) }}"
+                                                type="button"
+                                                class="btn border-success text-success btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i
+                                                    class="icon-task text-success-600"></i></a>
                                         </li>
                                     </ul>
                                 </td>

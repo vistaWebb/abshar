@@ -8,8 +8,8 @@
     <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/pages/form_layouts.js') }}"></script>
 
-	<script type="text/javascript" src="{{asset('/js/pages/animations_css3.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('/js/core/app.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('/js/pages/animations_css3.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <!-- /theme JS files -->
 @endsection
 
@@ -49,12 +49,12 @@
                         <tr>
                             <th> ردیف</th>
                             <th> نام</th>
-                            <th> نامک</th>
                             <th> دسته بندی</th>
                             <th> آیکن</th>
                             <th>وضعیت</th>
                             <th>توضیحات</th>
-                            <th class="text-center" style="width: 30px;"><i class="icon-menu-open2"></i></th>
+                            <th class="text-center" style="width: 10px;">نمایش </th>
+                            <th class="text-center" style="width: 10px;">حذف</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,40 +64,43 @@
                                     {{ $categories->firstItem() + $key }}
                                 </td>
                                 <td> {{ $category->name }}</td>
-                                <td>{{ $category->slug }}</td>
                                 <td>
-                                    @if ($category->parent_id==0)
-                                    بدون والد
-                                @else
-                                    {{$category->parent->name }}
-                                @endif</td>
+                                    @if ($category->parent_id == 0)
+                                        بدون والد
+                                    @else
+                                        {{ $category->parent->name }}
+                                    @endif
+                                </td>
                                 <td><a href="#"
-                                    class="btn border-teal text-teal btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i
-                                        class="{{ $category->icon }}"></i></a></td>
+                                        class="btn border-success text-success btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i
+                                            class="{{ $category->icon }}"></i></a></td>
                                 <td><span
                                         class="{{ $category->getRawOriginal('is_active') ? 'label label-success' : 'label label-default' }}">{{ $category->is_active }}</span>
                                 </td>
                                 <td>{{ $category->description }}</td>
+                                <td class="text-left">
+                                    <ul class="icons-list">
+                                        <li>
+                                            <a href="{{ route('admin.categories.edit', ['category' => $category->id]) }}"
+                                                type="button"
+                                                class="btn border-success text-success btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i
+                                                    class="icon-task text-success-600"></i></a>
+                                        </li>
+                                    </ul>
+                                </td>
                                 <td class="text-center">
                                     <ul class="icons-list">
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                <i class="icon-menu9"></i>
-                                            </a>
-
-                                            <ul class="dropdown-menu dropdown-menu-right">
-                                                <li><a class="btn btn-sm btn-outline-info mr-3"
-                                                        href="{{ route('admin.categories.edit', ['category' => $category->id]) }}">
-                                                        ویرایش </a></i>
-                                                    <form
-                                                        action="{{ route('admin.categories.destroy', ['category' => $category->id]) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <li class="w-100"><button class="btn btn-sm btn-custom text-center w-100">حذف </button> <li>
-                                                        </form>
-                                            </ul>
-                                        </li>
+                                        <form
+                                            action="{{ route('admin.categories.destroy', ['category' => $category->id]) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <li>
+                                                <button class="btn border-warning text-warning btn-flat btn-rounded btn-icon btn-xs valign-text-bottom">
+                                                    <i class="icon-cross text-warning-600"></i>
+                                                </button>
+                                            <li>
+                                        </form>
                                     </ul>
                                 </td>
                             </tr>
@@ -110,9 +113,7 @@
 
         <!-- Footer -->
         <div class="footer text-muted">
-            &copy; 2023. <a href="#">VistaWebb</a> by <a
-                href="#"
-                target="_blank">09336344816 </a>
+            &copy; 2023. <a href="#">VistaWebb</a> by <a href="#" target="_blank">09336344816 </a>
         </div>
         <!-- /footer -->
 

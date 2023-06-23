@@ -6500,3 +6500,24 @@ h6.panel-title,
     margin-top: 5px;
     float: left;
   }
+
+
+  .progress-bar-color-1 {
+    background-color: #13f82e;
+}
+
+.progress-bar-color-2 {
+    background-color: #a7ccec;
+}
+
+.progress-bar-color-3 {
+    background-color: #FF4136;
+}
+
+.progress-bar-color-4 {
+    background-color: #f4f803;
+}
+
+.progress-bar-color-5 {
+    background-color: #B10DC9;
+}

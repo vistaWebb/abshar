@@ -60,63 +60,67 @@
                         <h5 class="panel-title"> نمایش دونیت </h5>
                     </div>
 
+
                     <div class="panel-body">
-                        <div class="form-group col-md-3">
-                            <label>نام دونیت : </label>
-                            <input name="name" type="text" class="form-control" value="{{ $donation->name }}">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label>دسته بندی : </label>
-                            <input name="email" type="email" class="form-control"
-                                value="{{ $donation->category->name }}">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label> تاریخ شروع : </label>
-                            <input name="email" type="email" class="form-control"
-                                value="{{ verta($donation->start_date) }}">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label> تاریخ اتمام : </label>
-                            <input name="email" type="email" class="form-control"
-                                value="{{ verta($donation->end_date) }}">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label> مبلغ کل : </label>
-                            <input name="email" type="email" class="form-control"
-                                value="{{ number_format($donation->total_amount) }}">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label> مبلغ جمع آوری شده : </label>
-                            <input name="email" type="email" class="form-control"
-                                value="{{ number_format($donation->collected_amount) }}">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label> مبلغ باقیمانده : </label>
-                            <input name="email" type="email" class="form-control"
-                                value="{{ number_format($donation->remaining_amount) }}">
-                        </div>
-                        <div class="form-group col-md-12">
-                            <label class="display-block">وضعیت:</label>
+                        <div class="col-md-12">
+                            <div
+                                class="thumbnail p-100 panel {{ $donation->remaining_amount ? 'panel-success' : 'panel-warning' }} panel-bordered ">
+                                <div class="thumb">
+                                    <img src="{{ url(env('PRODUCT_IMAGES_UPLOAD_PATH') . $donation->description) }}"
+                                        alt="">
+                                    <div class="caption-overflow">
+                                        <span>
+                                            <a href="{{ url(env('PRODUCT_IMAGES_UPLOAD_PATH') . $donation->description) }}"
+                                                class="btn bg-success-400 btn-icon btn-xs" data-popup="lightbox"><i
+                                                    class="icon-plus2"></i></a>
+                                            <a href="{{ route('admin.donations.show', ['donation' => $donation->id]) }}"
+                                                class="btn bg-success-400 btn-icon btn-xs"><i class="icon-link"></i></a>
+                                        </span>
+                                    </div>
+                                </div>
 
-                            <label class="radio-inline">
-                                <input type="radio" class="styled" name="is_active" value="1"
-                                    {{ $donation->getRawOriginal('is_active') ? 'checked="checked"' : '' }}>
-                                فعال
-                            </label>
+                                <div class="caption text-center">
+                                    <h2 class="text-semibold no-margin">
+                                        نام دونیت : {{ $donation->name }}
+                                    </h2>
+                                    <h5>
+                                          دسته بندی : {{$donation->category->name}}
+                                    </h5>
+                                    <h5>
+                                        کل مبلغ : {{ number_format($donation->total_amount) }}
+                                    </h5>
+                                    <h5>
+                                         کی شروع شده؟  {{ verta($donation->start_date) }}
+                                    </h5>
+                                    <h5>
+                                        تا کی وقت داره؟  {{ verta($donation->end_date) }}
+                                    </h5>
+                                    <h5>
+                                        چقدر جمع شده؟ : {{ number_format($donation->collected_amount) }}
+                                    </h5>
+                                    <h5>
+                                        چقدر کم داره؟ : {{ number_format($donation->remaining_amount) }}
+                                    </h5>
+                                    <h5>
+                                          وضعیت : {{ $donation->is_active }}
+                                    </h5>
+                                    {{-- <h5>
+                                          توضیحات : {{ $donation->description }}
+                                    </h5> --}}
+                                    {{-- <h5>
+                                        چقدر کم داره؟ : {{ number_format($donation->remaining_amount) }}
+                                    </h5> --}}
 
-                            <label class="radio-inline">
-                                <input type="radio" class="styled" name="is_active" value="0"
-                                    {{ $donation->getRawOriginal('is_active') ? '' : 'checked="checked"' }}>
-                                غیر فعال
-                            </label>
-                        </div>
-                        <div class="form-group col-md-12">
-                            <label> {{ $donation->description }}</label>
-                        </div>
-                        <div class="text-right ">
-                            <a href="{{route('admin.donations.index')}}"  class="btn btn-success">بازگشت <i
-                                    class="icon-arrow-left13 position-right"></i>
-                            </a>
+                                    <ul class="icons-list mt-20">
+                                        <li> <a href="{{ route('admin.donations.index') }}"
+                                                type="button"
+                                                class="btn {{ $donation->remaining_amount ? 'text-success-600 border-success-600' : 'text-warning-600 border-warning-600' }}  btn-flat btn-rounded btn-icon btn-xs"><span
+                                                    class="{{ $donation->remaining_amount ? 'text-success-600' : 'text-warning-600' }}">بازگشت</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

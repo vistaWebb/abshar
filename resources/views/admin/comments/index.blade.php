@@ -8,8 +8,8 @@
     <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/js/pages/form_layouts.js') }}"></script>
 
-	<script type="text/javascript" src="{{asset('/js/pages/animations_css3.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('/js/core/app.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('/js/pages/animations_css3.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/core/app.js') }}"></script>
     <!-- /theme JS files -->
 @endsection
 
@@ -23,7 +23,7 @@
         <div class="breadcrumb-line">
             <ul class="breadcrumb">
                 <li><a href="index-2.html"><i class="icon-home2 position-left"></i> خانه</a></li>
-                <li><a href="form_layout_vertical.html"> لیست کامنت  ها </a></li>
+                <li><a href="form_layout_vertical.html"> لیست کامنت ها </a></li>
                 <li class="active">list of comments</li>
             </ul>
         </div>
@@ -36,33 +36,39 @@
         <!-- Basic responsive table -->
         <div class="panel panel-flat">
             <div class="panel-heading">
-                <h5 class="panel-title"> لیست کامنت  ها</h5>
+                <h5 class="panel-title"> لیست کامنت ها</h5>
             </div>
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th> نام </th>
-                            <th> ایمیل   </th>
-                            <th>عنوان پیام  </th>
-                            <th>متن پیام </th>
-                            <th>زمان ارسال  </th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
+            <!-- Tabs content -->
+            <div class="tab-content panel-body">
+                <div class="tab-pane active fade in">
+                    <ul class="media-list">
                         @foreach ($comments as $comment)
-                            <tr>
-                                <td>{{ $comment->name ? $comment->name : ''}}</td>
-                                <td>{{ $comment->email ? $comment->email : ''}}</td>
-                                <td>{{ $comment->subject }}</td>
-                                <td>{{ $comment->text }}</td>
-                                <td>{{ $comment->created_at }}</td>
-                            </tr>
+                            <li class="media">
+                                <div class="media-left">
+                                    <img src="{{ asset('/images/placeholder.jpg') }}" class="img-circle img-xs"
+                                        alt="">
+                                    <span class="badge bg-danger-400 media-badge">2</span>
+                                </div>
+
+                                <div class="media-body">
+                                    <a href="#">
+                                        {{ $comment->subject }}
+                                        <span class="media-annotation pull-right">{{ verta($comment->created_at) }}</span>
+                                    </a>
+
+                                    <span class="display-block text-muted">{{ $comment->text }}</span>
+                                    <span class="display-block text-muted">{{ $comment->name }}</span>
+
+                                </div>
+                            </li>
                         @endforeach
-                    </tbody>
-                </table>
+                    </ul>
+                </div>
+
             </div>
+            <!-- /tabs content -->
+
         </div>
         <!-- /basic responsive table -->
         <!-- Footer -->

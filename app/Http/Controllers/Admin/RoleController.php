@@ -52,11 +52,11 @@ class RoleController extends Controller
         }catch(\Exception $ex)
         {
             DB::rollBack();
-            // alert()->error('  مشکل در ایجاد  نقش ', $ex->getMessage())->persistent('حله');
+            alert()->error('  مشکل در ایجاد  نقش ', $ex->getMessage())->persistent('حله');
             return redirect()->back();
         }
 
-        // alert()->success('با موفقیت انجام شد','نقش با موفقیت اضافه شد');
+        alert()->success('با تشکر','نقش با موفقیت اضافه شد');
         return redirect()->route('admin.roles.index');
     }
 
@@ -100,10 +100,10 @@ class RoleController extends Controller
             DB::commit();
         } catch (\Exception $ex) {
             DB::rollBack();
-            // alert()->error('مشکل در ویرایش نقش', $ex->getMessage())->persistent('حله');
+            alert()->error('مشکل در ویرایش نقش', $ex->getMessage())->persistent('حله');
             return redirect()->back();
         }
-        // alert()->success('نقش مورد نظر ویرایش شد', 'باتشکر');
+        alert()->success('نقش مورد نظر ویرایش شد', 'باتشکر');
         return redirect()->route('admin.roles.index');
     }
 

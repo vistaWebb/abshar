@@ -41,7 +41,7 @@ class PermissionController extends Controller
             'guard_name' => 'web',
         ]);
 
-        // alert()->success('با موفقیت انجام شد','دسته بندی با موفقیت اضافه شد');
+        alert()->success('با تشکر  ','مجوز با موفقیت اضافه شد');
         return redirect()->route('admin.permissions.index');
     }
 
@@ -77,7 +77,7 @@ class PermissionController extends Controller
             'guard_name' => 'web',
         ]);
 
-        // alert()->success('با موفقیت انجام شد', 'پرمیژن با موفقیت ویرایش شد');
+        alert()->success('با تشکر ', 'مجوز با موفقیت ویرایش شد');
         return redirect()->route('admin.permissions.index');
     }
 

@@ -586,7 +586,7 @@
                 </div>
                 <!-- /progress counters -->
 
-
+                {{--
                 <!-- Daily sales -->
                 <div class="panel panel-flat">
                     <div class="panel-heading">
@@ -765,7 +765,85 @@
                         </table>
                     </div>
                 </div>
-                <!-- /daily sales -->
+                <!-- /daily sales --> --}}
+                <!-- Application status -->
+                <div class="panel panel-flat">
+                    <div class="panel-heading">
+                        <h6 class="panel-title"> دونیت ها </h6>
+
+                        <div class="heading-elements">
+                            <div class="heading-text">
+                                <span class="status-mark border-success position-left"></span>
+                                فعال
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+                        <ul class="progress-list">
+                            {{-- @foreach ($donations as $donation)
+                                @php
+                                    $percentage = ($donation->collected_amount / $donation->total_amount) * 100;
+                                @endphp
+
+                                <li>
+                                    <label>{{ $donation->name }} <span>{{ $percentage }}%</span></label>
+                                    <div class="progress progress-xxs">
+                                        <div class="progress-bar
+
+                    progress-bar-info
+                    "
+                                            style="width: {{ $percentage }}%">
+                                            <span class="sr-only">{{ $percentage }}% کامل شده</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            @endforeach --}}
+                            @foreach ($donations as $key => $donation)
+                            @php
+                                $percentage = (($donation->collected_amount / $donation->total_amount) *  100);
+                                $colorClass = 'progress-bar-color-' . ($key % 5 + 1); // یک کلاس منحصر به فرد بر اساس شمارنده حلقه ایجاد می‌شود
+                            @endphp
+
+                            <li>
+                                <label>{{ $donation->name }}  <span>{{$percentage}}%</span></label>
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar {{ $colorClass }}" style="width: {{$percentage}}%">
+                                        <span class="sr-only">{{$percentage}}% کامل شده</span>
+                                    </div>
+                                </div>
+                            </li>
+                        @endforeach
+                            {{-- <li>
+                <label>RAM usage <span>70%</span></label>
+                <div class="progress progress-xxs">
+                    <div class="progress-bar progress-bar-danger" style="width: 70%">
+                        <span class="sr-only">70% Complete</span>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <label>Disc space <span>80%</span></label>
+                <div class="progress progress-xxs">
+                    <div class="progress-bar progress-bar-success" style="width: 80%">
+                        <span class="sr-only">80% Complete</span>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <label>Bandwidth <span>60%</span></label>
+                <div class="progress progress-xxs">
+                    <div class="progress-bar progress-bar-primary" style="width: 60%">
+                        <span class="sr-only">60% Complete</span>
+                    </div>
+                </div>
+            </li> --}}
+                        </ul>
+                    </div>
+                </div>
+                <!-- /application status -->
 
 
                 <!-- پیغام های من -->
