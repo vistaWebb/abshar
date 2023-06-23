@@ -45,6 +45,8 @@ class DashboardController extends Controller
         $transactions = Order::all();
         $comments = Comment::all();
 
+       
+
         return view('admin.dashboard', compact('fitrahs', 'expiations', 'charities', 'sumWeek', 'sumMonth', 'sumYear' , 'donations' , 'transactions' , 'comments'));
     }
 

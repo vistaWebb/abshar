@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2023 at 01:16 PM
+-- Generation Time: Jun 23, 2023 at 09:11 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -50,7 +50,12 @@ INSERT INTO `categories` (`id`, `parent_id`, `name`, `slug`, `description`, `is_
 (3, 0, 'صدقه', 'صدقه', NULL, 1, 'icon-cash3', NULL, '2023-06-09 05:22:29', '2023-06-09 05:22:29'),
 (4, 0, 'دونیت', 'دونیت', NULL, 1, 'icon-cash3', NULL, '2023-06-09 05:22:44', '2023-06-09 05:22:44'),
 (5, 4, 'درمان', 'درمان', NULL, 1, 'icon-gift', NULL, '2023-06-09 05:23:05', '2023-06-09 05:23:05'),
-(6, 4, 'ایتام', 'ایتام', NULL, 1, 'icon-man-woman', NULL, '2023-06-09 05:23:31', '2023-06-09 05:23:31');
+(6, 4, 'ایتام', 'ایتام', NULL, 1, 'icon-man-woman', NULL, '2023-06-09 05:23:31', '2023-06-09 05:23:31'),
+(7, 4, 'جهیزیه', 'جهیزیه', NULL, 1, 'icon-cash3', '2023-06-21 12:35:45', '2023-06-21 12:25:39', '2023-06-21 12:35:45'),
+(8, 4, 'جهیزیه', 'جهیزیه-2', NULL, 1, 'icon-tv', NULL, '2023-06-21 12:35:28', '2023-06-21 12:35:28'),
+(9, 4, 'سبد کالا', 'سبد-کالا', NULL, 1, 'icon-basket', NULL, '2023-06-21 12:37:31', '2023-06-21 12:37:31'),
+(10, 4, 'لوازم التحریر', 'لوازم-التحریر', 'تحصیل برای همه', 1, 'icon-pencil6', NULL, '2023-06-21 12:38:21', '2023-06-21 12:38:21'),
+(11, 4, 'متفرقه', 'متفرقه', NULL, 1, 'icon-gift', NULL, '2023-06-21 12:39:17', '2023-06-22 13:32:27');
 
 -- --------------------------------------------------------
 
@@ -105,9 +110,12 @@ CREATE TABLE `donations` (
 --
 
 INSERT INTO `donations` (`id`, `name`, `total_amount`, `category_id`, `collected_amount`, `remaining_amount`, `start_date`, `end_date`, `is_active`, `description`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'لوازم التحریر', 500000, 5, 200000, 300000, '2023-06-09', '2024-06-09', 1, NULL, NULL, '2023-06-09 05:24:38', '2023-06-09 16:53:09'),
-(2, 'عینک', 2000000, 6, 2000000, 0, '2023-06-18', '2024-06-18', 1, NULL, NULL, '2023-06-18 07:12:06', '2023-06-18 13:21:53'),
-(3, 'صندلی چرخدار', 30000000, 5, 5000000, 25000000, '2023-06-01', NULL, 1, 'خریداری صندلی چرخدار', NULL, '2023-06-02 16:26:40', NULL);
+(2, 'خرید لوازم التحریر', 20000000, 10, 20000000, 0, '2023-06-22', NULL, 1, '2023-6-22-14-54-23-503880img_3.jpg', NULL, '2023-06-22 10:24:23', '2023-06-22 10:24:23'),
+(3, 'خرید عینک', 2000000, 5, 0, 2000000, '2023-06-22', NULL, 1, '2023-6-22-14-55-53-260621img_1.jpg', NULL, '2023-06-22 10:25:53', '2023-06-22 10:25:53'),
+(4, 'بسته معیشتی رمضان', 500000000, 9, 200000000, 300000000, '2023-06-22', NULL, 1, '2023-6-22-14-57-34-533500img_4.jpg', NULL, '2023-06-22 10:27:34', '2023-06-22 10:27:34'),
+(5, 'خرید صندلی چرخ دار', 50000000, 5, 0, 50000000, '2023-06-23', '2024-06-23', 1, '2023-6-23-10-38-50-333585img_3.jpg', NULL, '2023-06-22 10:28:21', '2023-06-23 06:10:11'),
+(6, 'درمان آقای اکبری', 200000000, 5, 0, 200000000, '2023-06-23', '2024-06-23', 1, '2023-6-23-10-10-0-994883img_2.jpg', NULL, '2023-06-22 10:29:08', '2023-06-23 05:40:00'),
+(7, 'جهیزیه خانم مهدوی', 45000000, 8, 45000000, 0, '2023-06-22', NULL, 1, '2023-6-22-15-0-36-229868img_3.jpg', NULL, '2023-06-22 10:30:36', '2023-06-22 10:30:36');
 
 -- --------------------------------------------------------
 
@@ -195,9 +203,7 @@ INSERT INTO `model_has_permissions` (`permission_id`, `model_type`, `model_id`) 
 (9, 'App\\Models\\User', 5),
 (9, 'App\\Models\\Role', 14),
 (9, 'App\\Models\\Role', 16),
-(10, 'App\\Models\\Role', 14),
-(10, 'App\\Models\\Role', 15),
-(10, 'App\\Models\\Role', 16);
+(10, 'App\\Models\\Role', 14);
 
 -- --------------------------------------------------------
 
@@ -218,8 +224,11 @@ CREATE TABLE `model_has_roles` (
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (14, 'App\\Models\\User', 1),
 (14, 'App\\Models\\User', 4),
+(14, 'App\\Models\\User', 6),
 (15, 'App\\Models\\User', 2),
-(15, 'App\\Models\\User', 5);
+(15, 'App\\Models\\User', 5),
+(15, 'App\\Models\\User', 8),
+(16, 'App\\Models\\User', 3);
 
 -- --------------------------------------------------------
 
@@ -270,9 +279,7 @@ INSERT INTO `orders` (`id`, `donation_id`, `category_id`, `token`, `f_name`, `l_
 (2, NULL, 1, 'jAFvoVwk4rnYm9fQaCIRoTwkYuGjuCRfhX5HNdIg', 'zahra', 'abedizadeh', '09367021936', 'abedizadeh009@gmail.com', 1, 270000, 'mellat', 1, 'پرداخت مسجد امام جواد به منظور فطریه', '2023-06-18 12:53:28', '2023-06-18 12:53:32'),
 (3, NULL, 2, 'jAFvoVwk4rnYm9fQaCIRoTwkYuGjuCRfhX5HNdIg', 'zahra', 'abedizadeh', '09367021936', 'abedizadeh009@gmail.com', 1, 270000, 'zarinpal', 1, 'پرداخت مسجد امام جواد به منظور کفاره', '2023-06-18 12:54:59', '2023-06-18 12:55:03'),
 (4, NULL, 3, 'jAFvoVwk4rnYm9fQaCIRoTwkYuGjuCRfhX5HNdIg', NULL, NULL, '09336344816', NULL, 1, 6000000, 'zarinpal', 1, 'پرداخت مبلغ کمک جهت صدقه', '2023-06-18 12:55:26', '2023-06-18 12:55:29'),
-(5, 1, 6, 'wAppGUUlFWAesmn9IBsP6rO84ZvLacUYVutFbEei', NULL, NULL, '09336344816', NULL, 0, 50000, 'parsian', 0, 'پرداخت مبلغ کمک جهت تهیه لوازم التحریر', '2023-05-23 15:47:56', '2023-06-19 15:47:56'),
 (6, NULL, 5, '34567', 'ali', 'ali', '0976532457', 'ali@gmail.com', 1, 5600000, 'mellat', 1, 'پرداخت مبلغ کمک جهت خرید ویلچر', '2022-07-16 15:48:17', NULL),
-(7, 1, 4, '969056', 'mahdi', 'mahdi', '09772846975', 'mahdi@email.com', 1, 300000, 'zarinpal', 1, 'پرداخت برای کمک به ایتام ', '2023-04-11 15:55:35', NULL),
 (8, NULL, 3, '45536', NULL, NULL, NULL, NULL, 1, 5600000, 'zarinpal', 1, NULL, '2023-05-29 09:34:24', NULL),
 (9, NULL, 1, NULL, NULL, NULL, '068934520', NULL, 1, 7890000, 'melli', 1, NULL, '2023-06-01 09:36:04', NULL),
 (10, NULL, 2, NULL, NULL, NULL, '09264065842', NULL, 1, 460000, 'melli', 1, NULL, '2023-06-09 09:36:47', NULL),
@@ -567,7 +574,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -579,7 +586,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `donations`
 --
 ALTER TABLE `donations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
