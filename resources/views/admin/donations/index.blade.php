@@ -99,12 +99,12 @@
                                     <li> <a href="{{ route('admin.donations.show', ['donation' => $donation->id]) }}"
                                             type="button"
                                             class="btn {{ $donation->remaining_amount ? 'text-success-600 border-success-600' : 'text-warning-600 border-warning-600' }}  btn-flat btn-rounded btn-icon btn-xs"><span class="{{ $donation->remaining_amount ? 'text-success-600' : 'text-warning-600' }}"><i
-                                                class="icon-screen-full"></i></a>
+                                                class="icon-display4"></i></a>
                                     </li>
                                     <li> <a href="{{ route('admin.donations.edit', ['donation' => $donation->id]) }}"
                                             type="button"
                                             class="btn {{ $donation->remaining_amount ? 'text-success-600 border-success-600' : 'text-warning-600 border-warning-600' }}  btn-flat btn-rounded btn-icon btn-xs"><span class=" {{ $donation->remaining_amount ? 'text-success-600' : 'text-warning-600' }}"><i
-                                                class="icon-task"></i></a>
+                                                class="icon-pencil5"></i></a>
                                     </li>
                                 </ul>
                             </div>

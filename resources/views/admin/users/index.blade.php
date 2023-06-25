@@ -90,7 +90,7 @@
                                                 <a href="{{ route('admin.users.edit', ['user' => $user->id]) }}"
                                                     type="button"
                                                     class="btn {{$user->getRawOriginal('status') ? 'btn-success' : 'btn-warning'}} btn-icon heading-btn pull-right"><i
-                                                        class="icon-task"></i></a>
+                                                        class=" icon-pencil5"></i></a>
                                             </div>
 
                                         </li>

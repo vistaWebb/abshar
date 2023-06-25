@@ -108,7 +108,7 @@
                             </div>
 
                             <div class="text-right ">
-                                <button type="submit" class="btn btn-primary">ارسال <i
+                                <button type="submit" class="btn btn-success">ارسال <i
                                         class="icon-arrow-left13 position-right"></i>
                                 </button>
                             </div>

@@ -59,17 +59,18 @@
 
                     <div class="container-fluid">
                         <div class="row">
+
                             <div class="col-lg-4">
                                 <ul class="list-inline text-center">
                                     <li>
-                                        <a href="#"
-                                            class="btn border-teal text-teal btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i
-                                                class=" icon-coin-dollar"></i></a>
+                                        <div class="stats-icon bg-red-2">
+                                            <i class="stats-icon-i icon-coin-dollar lh-0"></i>
+                                        </div>
                                     </li>
                                     <li class="text-left">
                                         <div class="text-semibold">فطریه </div>
-                                        <div class="text-muted"><span class="text-success-600"><i
-                                                    class="icon-stats-growth2 position-left"></i>
+                                        <div class="text-muted"><span class="text-success-600">
+                                                <i class="icon-stats-growth2 position-left"></i>
                                                 {{ number_format($fitrahs) }}</span></div>
                                     </li>
                                 </ul>
@@ -79,12 +80,12 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-4">
+                            <div class="col-lg-4 ">
                                 <ul class="list-inline text-center">
                                     <li>
-                                        <a href="#"
-                                            class="btn border-warning-400 text-warning-400 btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i
-                                                class=" icon-cash4"></i></a>
+                                        <div class="stats-icon bg-green-2">
+                                            <i class="stats-icon-i icon-cash4 lh-0"></i>
+                                        </div>
                                     </li>
                                     <li class="text-left">
                                         <div class="text-semibold">صندوق کفاره </div>
@@ -102,15 +103,16 @@
                             <div class="col-lg-4">
                                 <ul class="list-inline text-center">
                                     <li>
-                                        <a href="#"
-                                            class="btn border-indigo-400 text-indigo-400 btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i
-                                                class="icon-umbrella"></i></a>
+                                        <div class="stats-icon bg-blue-2">
+                                            <i class="stats-icon-i icon-umbrella lh-0"></i>
+                                        </div>
                                     </li>
                                     <li class="text-left">
                                         <div class="text-semibold"> صدقه صندوق</div>
                                         <div class="text-muted"><span class="text-success-600"><i
                                                     class="icon-stats-growth2 position-left"></i>
-                                                {{ number_format($expiations) }}</span></div>
+                                                {{ number_format($expiations) }}</span>
+                                        </div>
                                     </li>
                                 </ul>
 
@@ -120,8 +122,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="chart position-relative" id="traffic-sources"></div>
                 </div>
                 <!-- /traffic sources -->
             </div>
@@ -135,47 +135,36 @@
 
                     <div class="container-fluid">
                         <div class="row text-center">
-                            <div class="col-md-4">
-                                <div class="content-group">
-                                    <h5 class="text-semibold no-margin">
-                                        <a href="#"
-                                            class="btn border-success text-success btn-flat btn-rounded btn-icon btn-xs"><i
-                                                class="icon-calendar5 "></i></a><span class="text-success-600">
-                                            {{ number_format($sumWeek) }}</span>
-                                    </h5>
-                                    <span class="text-muted text-size-small">هفته اخیر </span>
-                                </div>
+                            <div class="col-lg-6">
+                                <ul class="list-inline text-center">
+                                    <li class="mb-2">
+                                        <div class="stats-icon-round bg-green-3">
+                                            <i class="stats-icon-round-i icon-calendar5 lh-0"></i>
+                                        </div>
+                                    </li>
+                                    <li class="text-left lh-15 mb-2">
+                                        <div class="text-semibold text-size-base">{{ number_format($sumMonth) }} </div>
+                                        <div class="text-muted"><span class="text-success-600 text-size-small">
+                                                ماه اخیر</span></div>
+                                    </li>
+                                </ul>
                             </div>
-
-                            <div class="col-md-4">
-                                <div class="content-group">
-                                    <h5 class="text-semibold no-margin"> <a href="#"
-                                            class="btn border-danger text-danger btn-flat btn-rounded btn-icon btn-xs"><i
-                                                class="icon-calendar52 "></i></a>
-                                        <span class="text-success-600">
-                                            {{ number_format($sumMonth) }}</span>
-                                    </h5>
-                                    <span class="text-muted text-size-small">ماه اخیر </span>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="content-group">
-                                    <h5 class="text-semibold no-margin">
-                                        <a href="#"
-                                            class="btn border-indigo text-indigo btn-flat btn-rounded btn-icon btn-xs"><i
-                                                class="icon-cash3 "></i></a>
-                                        <span class="text-success-600">
-                                            {{ number_format($sumYear) }}</span>
-                                    </h5>
-                                    <span class="text-muted text-size-small">سال اخیر </span>
-                                </div>
+                            <div class="col-lg-6">
+                                <ul class="list-inline text-center">
+                                    <li class="mb-2">
+                                        <div class="stats-icon-round bg-orange ">
+                                            <i class="stats-icon-round-i icon-cash3 lh-0"></i>
+                                        </div>
+                                    </li>
+                                    <li class="text-left lh-15">
+                                        <div class="text-semibold text-size-base">{{ number_format($sumYear) }} </div>
+                                        <div class="text-muted"><span class="text-success-600 text-size-small">
+                                                سال اخیر</span></div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-
-                    <div class="chart content-group-sm" id="app_sales"></div>
-                    <div class="chart" id="monthly-sales-stats"></div>
                 </div>
                 <!-- /sales stats -->
             </div>
@@ -220,8 +209,7 @@
                                             </div>
                                         </td>
                                         <td><span class="text-muted">{{ $donation->category->name }}</span></td>
-                                        <td><span class="text-success-600"><i
-                                                    class="icon-stats-growth2 position-left"></i>
+                                        <td><span class="text-success-600"><i class="icon-stats-growth2 position-left"></i>
                                                 {{ number_format($donation->collected_amount) }}</span>
                                         </td>
                                         <td>
@@ -245,15 +233,15 @@
                     <div class="col-lg-4">
 
                         <!-- Members online -->
-                        <div class="panel bg-teal-400">
+                        <div class="panel bg-blue-2">
                             <div class="panel-body">
                                 <div class="heading-elements">
-                                    <span class="heading-text badge bg-teal-800">+6%</span>
+                                    <span class="heading-text badge bg-blue-3">+6%</span>
                                 </div>
 
-                                <h3 class="no-margin">5320225</h3>
+                                <h3 class="no-margin mt-5">5320225</h3>
                                 افراد تحت سرپرستی
-                                <div class="text-muted text-size-small"> 25 نفر در این ماه </div>
+                                <div class="text-muted text-size-mini mt-5"> 25 نفر در این ماه </div>
                             </div>
 
                             <div class="container-fluid">
@@ -267,15 +255,15 @@
                     <div class="col-lg-4">
 
                         <!-- Current server load -->
-                        <div class="panel bg-pink-400">
+                        <div class="panel bg-red-2">
                             <div class="panel-body">
                                 <div class="heading-elements">
-                                    <span class="heading-text badge bg-danger-800">+8%</span>
+                                    <span class="heading-text badge bg-red-3">+8%</span>
                                 </div>
 
-                                <h3 class="no-margin">546,545,000</h3>
+                                <h3 class="no-margin mt-5">546,545,000</h3>
                                 موجودی صندوق
-                                <div class="text-muted text-size-small">32,847,000 افزایش موجودی</div>
+                                <div class="text-muted text-size-mini mt-5">32,800,000 افزایش موجودی</div>
                             </div>
 
                             <div class="chart" id="server-load"></div>
@@ -287,14 +275,14 @@
                     <div class="col-lg-4">
 
                         <!-- امروز's revenue -->
-                        <div class="panel bg-blue-400">
+                        <div class="panel bg-green-2">
                             <div class="panel-body">
                                 <div class="heading-elements">
-                                    <span class="heading-text badge bg-indigo-800">+2/8%</span>
+                                    <span class="heading-text badge bg-green-4">+2/8%</span>
                                 </div>
-                                <h3 class="no-margin">12,247</h3>
+                                <h3 class="no-margin mt-5">12,247</h3>
                                 پرسنل
-                                <div class="text-muted text-size-small">3 نفر افزایش</div>
+                                <div class="text-muted text-size-mini mt-5">3 نفر افزایش</div>
                             </div>
 
                             <div class="chart" id="today-revenue"></div>
@@ -332,8 +320,9 @@
                                 @foreach ($transactions as $transaction)
                                     <tr>
                                         <td class="text-center">
-                                            <h6 class="no-margin">{{ $transaction->created_at->format('H:i:s') }} <small
-                                                    class="display-block text-size-small no-margin">hours</small>
+                                            <h6 class="no-margin text-size-small">
+                                                {{ $transaction->created_at->format('H:i:s') }} <small
+                                                    class="display-block text-size-mono no-margin">hours</small>
                                             </h6>
                                         </td>
                                         <td>

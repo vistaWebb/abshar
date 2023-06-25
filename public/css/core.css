@@ -6493,6 +6493,8 @@ h6.panel-title,
     width: 100%;
   }
 
+  /* utility */
+
   .btn-add{
     background-color: #fff;
     border-color: #4CAF50;
@@ -6503,11 +6505,11 @@ h6.panel-title,
 
 
   .progress-bar-color-1 {
-    background-color: #13f82e;
+    background-color: #3cd64e;
 }
 
 .progress-bar-color-2 {
-    background-color: #a7ccec;
+    background-color: #91badd;
 }
 
 .progress-bar-color-3 {
@@ -6515,9 +6517,91 @@ h6.panel-title,
 }
 
 .progress-bar-color-4 {
-    background-color: #f4f803;
+    background-color: #eff168;
 }
 
 .progress-bar-color-5 {
     background-color: #B10DC9;
+}
+
+/* margin */
+.mb-2 {
+    margin-bottom: 22px ;
+}
+
+.mt-2 {
+    margin-top: 20px ;
+}
+.m-3 {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+.ml-0 {
+    margin-right: 0px;
+}
+
+.stats-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stats-icon-i  {
+    color: #fff;
+    font-size: 2rem;
+}
+.lh-0 {
+    line-height: 0;
+}
+.bg-red-2 {
+    background-color: #ff7976;
+}
+.bg-red-3 {
+    background-color: #f35a57;
+}
+.bg-purple-2 {
+    background-color: #9694ff;
+}
+
+.bg-blue-2 {
+    background-color: #57caeb;
+}
+.bg-blue-3 {
+    background-color: #0abbec;
+}
+.bg-green-2 {
+    background-color: #5ddab4;
+}
+
+.bg-green-3 {
+    background-color: #5dda8d;
+}
+
+.bg-green-4 {
+    background-color: #25d87f;
+}
+.bg-orange {
+    background-color: #faa662;
+}
+
+.stats-icon-round {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.stats-icon-round-i  {
+    color: #fff;
+    font-size: 2rem;
+
+}
+.lh-15 {
+    line-height:18px;
 }

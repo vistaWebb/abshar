@@ -53,7 +53,7 @@
                             <th> آیکن</th>
                             <th>وضعیت</th>
                             <th>توضیحات</th>
-                            <th class="text-center" style="width: 10px;">نمایش </th>
+                            <th class="text-center" style="width: 10px;">ویرایش </th>
                             <th class="text-center" style="width: 10px;">حذف</th>
                         </tr>
                     </thead>
@@ -84,7 +84,7 @@
                                             <a href="{{ route('admin.categories.edit', ['category' => $category->id]) }}"
                                                 type="button"
                                                 class="btn border-success text-success btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i
-                                                    class="icon-task text-success-600"></i></a>
+                                                    class=" icon-pencil5 text-success-600"></i></a>
                                         </li>
                                     </ul>
                                 </td>
@@ -97,7 +97,7 @@
                                             @method('DELETE')
                                             <li>
                                                 <button class="btn border-warning text-warning btn-flat btn-rounded btn-icon btn-xs valign-text-bottom">
-                                                    <i class="icon-cross text-warning-600"></i>
+                                                    <i class=" icon-cross2 text-warning-600"></i>
                                                 </button>
                                             <li>
                                         </form>

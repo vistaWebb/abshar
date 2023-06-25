@@ -63,7 +63,7 @@
                                             <a href="{{ route('admin.permissions.edit', ['permission' => $permission->id]) }}"
                                                 type="button"
                                                 class="btn border-success text-success btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i
-                                                    class="icon-task text-success-600"></i></a>
+                                                    class="icon-pencil7 text-success-600"></i></a>
                                         </li>
                                     </ul>
                                 </td>

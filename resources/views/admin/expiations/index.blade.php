@@ -33,72 +33,94 @@
     <!-- Content area -->
     <div class="content">
 
+   <!-- Sales stats -->
+   <div class="panel panel-flat">
+    <div class="panel-heading">
+        <h6 class="panel-title">وضعیت صندوق کفاره </h6>
 
-        <!-- Sales stats -->
-        <div class="panel panel-flat">
-            <div class="panel-heading">
-                <h6 class="panel-title">وضعیت صندوق کفاره </h6>
+    </div>
 
-            </div>
-            <div class="container-fluid">
-                <div class="row text-center">
-                    <div class="col-md-3">
-                        <div class="content-group">
-                            <h5 class="text-semibold no-margin">
-                                <a href="#"
-                                    class="btn border-warning text-warning btn-flat btn-rounded btn-icon btn-xs"><i
-                                        class="icon-calendar5"></i></a>
-                                <span class="text-success-600">
-                                    {{ number_format($sumWeek) }}</span>
-                            </h5>
-                            <span class="text-muted text-size-small">کمک های هفته اخیر </span>
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col-lg-3 ">
+                <ul class="list-inline text-center">
+                    <li>
+                        <div class="stats-icon bg-red-2">
+                            <i class="stats-icon-i icon-cash lh-0"></i>
                         </div>
-                    </div>
+                    </li>
+                    <li class="text-left">
+                        <div class="text-semibold">هفته اخیر  </div>
+                        <div class="text-muted"><span class="text-success-600">
+                                    {{ number_format($sumWeek) }}</span></div>
+                    </li>
+                </ul>
 
-                    <div class="col-md-3">
-                        <div class="content-group">
-                            <h5 class="text-semibold no-margin">
-                                <a href="#"
-                                    class="btn border-indigo text-indigo btn-flat btn-rounded btn-icon btn-xs"><i
-                                        class="icon-calendar52"></i></a>
-                                <span class="text-success-600">
-                                    {{ number_format($sumMonth) }}</span>
-                            </h5>
-                            <span class="text-muted text-size-small"> کمک های ماه اخیر</span>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="content-group">
-                            <h5 class="text-semibold no-margin">
-                                <a href="#"
-                                    class="btn border-danger-800 text-danger-800 btn-flat btn-rounded btn-icon btn-xs"><i
-                                        class="icon-calendar3"></i></a>
-                                <span class="text-success-600">
-                                    {{ number_format($sumYear) }}</span>
-                            </h5>
-                            <span class="text-muted text-size-small"> کمک های سال اخیر</span>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="content-group">
-                            <h5 class="text-semibold no-margin">
-                                <a href="#"
-                                    class="btn border-success text-success btn-flat btn-rounded btn-icon btn-xs"><i
-                                        class="icon-cash3"></i></a>
-                                <span class="text-success-600">
-                                    {{ number_format($totalAmount) }}</span>
-                            </h5>
-                            <span class="text-muted text-size-small"> مبلغ کل</span>
-                        </div>
-                    </div>
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="chart content-group" id="new-sessions"></div>
                 </div>
             </div>
+            <div class="col-lg-3 ">
+                <ul class="list-inline text-center">
+                    <li>
+                        <div class="stats-icon bg-blue-2">
+                            <i class="stats-icon-i icon-calendar52 lh-0"></i>
+                        </div>
+                    </li>
+                    <li class="text-left">
+                        <div class="text-semibold">ماه اخیر  </div>
+                        <div class="text-muted"><span class="text-success-600">
+                                    {{ number_format($sumMonth) }}</span></div>
+                    </li>
+                </ul>
 
-            <div class="chart content-group-sm" id="app_sales"></div>
-            <div class="chart" id="monthly-sales-stats"></div>
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="chart content-group" id="new-sessions"></div>
+                </div>
+            </div>
+            <div class="col-lg-3 ">
+                <ul class="list-inline text-center">
+                    <li>
+                        <div class="stats-icon bg-orange">
+                            <i class="stats-icon-i icon-calendar3 lh-0"></i>
+                        </div>
+                    </li>
+                    <li class="text-left">
+                        <div class="text-semibold">سال اخیر  </div>
+                        <div class="text-muted"><span class="text-success-600">
+                                    {{ number_format($sumYear) }}</span></div>
+                    </li>
+                </ul>
+
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="chart content-group" id="new-sessions"></div>
+                </div>
+            </div>
+            <div class="col-lg-3 ">
+                <ul class="list-inline text-center">
+                    <li>
+                        <div class="stats-icon bg-green-2">
+                            <i class="stats-icon-i icon-cash4 lh-0"></i>
+                        </div>
+                    </li>
+                    <li class="text-left">
+                        <div class="text-semibold"> موجودی صندوق  </div>
+                        <div class="text-muted"><span class="text-success-600">
+                                    {{ number_format($totalAmount) }}</span></div>
+                    </li>
+                </ul>
+
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="chart content-group" id="new-sessions"></div>
+                </div>
+            </div>
         </div>
-        <!-- /sales stats -->
+    </div>
+
+    <div class="chart content-group-sm" id="app_sales"></div>
+    <div class="chart" id="monthly-sales-stats"></div>
+</div>
+<!-- /sales stats -->
 
 
         <!-- Basic responsive table -->

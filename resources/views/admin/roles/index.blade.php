@@ -82,7 +82,8 @@
                                         <li>
                                             <a href="{{ route('admin.roles.show', ['role' => $role->id]) }}" type="button"
                                                 class="btn border-info text-info btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i
-                                                    class="icon-screen-full text-info-600"></i></a>
+                                                    class=" icon-display4 text-info-600"></i></a>
+
                                         </li>
                                     </ul>
                                 </td>
@@ -91,7 +92,7 @@
                                         <li>
                                             <a href="{{ route('admin.roles.edit', ['role' => $role->id]) }}" type="button"
                                                 class="btn border-success text-success btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i
-                                                    class="icon-task text-success-600"></i></a>
+                                                    class=" icon-pencil5 text-success-600"></i></a>
                                         </li>
                                     </ul>
                                 </td>
