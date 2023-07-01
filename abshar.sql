@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 25, 2023 at 10:01 AM
+-- Generation Time: Jul 01, 2023 at 01:54 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -345,6 +345,15 @@ CREATE TABLE `personal_access_tokens` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `personal_access_tokens`
+--
+
+INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+(1, 'App\\Models\\User', 9, 'myApp', '03b7e73ce48858f71bab6cf3a8b38bf7935e49773dae1aa0032bdca375d9062f', '[\"*\"]', NULL, NULL, '2023-07-01 09:23:33', '2023-07-01 09:23:33'),
+(2, 'App\\Models\\User', 10, 'myApp', 'ba49d6933744a69c1a420c10287c6deb1ebe33c7731acbccc1fd3c86aa9fcde7', '[\"*\"]', NULL, NULL, '2023-07-01 09:33:09', '2023-07-01 09:33:09'),
+(7, 'App\\Models\\User', 12, 'myApp', 'a04bbadd4552eabc8e27f3f56a7c02e67a693914a59d06949001c619397f890e', '[\"*\"]', NULL, NULL, '2023-07-01 09:55:37', '2023-07-01 09:55:37');
+
 -- --------------------------------------------------------
 
 --
@@ -449,7 +458,11 @@ INSERT INTO `users` (`id`, `name`, `f_name`, `l_name`, `phone`, `city`, `postal_
 (4, 'مریم', 'مریم', 'بخشی', NULL, NULL, NULL, NULL, 'zahraabedi@yahoo.com', NULL, '$2y$10$FfEZKV0pmYb92umzbq04p.IRRxEmgKJgx/J6Ylsd745uFwNUHba0q', NULL, NULL, NULL, 1, NULL, '2023-06-10 07:23:53', '2023-06-10 07:23:53'),
 (5, 'zahra', 'زهرا', 'سمیعی', NULL, NULL, NULL, NULL, 'zahra@gmail.com', NULL, '$2y$10$lxWN9BabT1gUoW7kVrdSGukBKjON0litQiapI0P7frj6nd2rCmbGO', NULL, NULL, NULL, 0, NULL, '2023-06-10 07:35:04', '2023-06-10 07:35:04'),
 (6, 'یلدا', 'یلدا', 'مهدوی', NULL, NULL, NULL, NULL, 'zahraa@yahoo.com', NULL, '$2y$10$VK8I3OdJyUq68o6VZWyX1.13pKheqzPEmHUC5IT5EZpgxKEd5CS/e', NULL, NULL, NULL, 1, NULL, '2023-06-19 06:25:27', '2023-06-19 06:25:27'),
-(8, 'ali', NULL, NULL, '0893462', NULL, NULL, NULL, 'aliali@gmail.com', NULL, '', NULL, NULL, NULL, 0, NULL, NULL, NULL);
+(8, 'ali', NULL, NULL, '0893462', NULL, NULL, NULL, 'aliali@gmail.com', NULL, '', NULL, NULL, NULL, 0, NULL, NULL, NULL),
+(9, 'feed', NULL, NULL, NULL, NULL, NULL, NULL, 'Colleen_DAmore90@hotmail.com', NULL, '$2y$10$K9.0OhSugCRyw68lotFKde7qH4WWrVyKtqnnqFbmOcTGLRYvuv7ay', NULL, NULL, NULL, 1, NULL, '2023-07-01 09:23:33', '2023-07-01 09:23:33'),
+(10, 'sensor', NULL, NULL, NULL, NULL, NULL, NULL, 'Kiara.Beer@yahoo.com', NULL, '$2y$10$ix51pwifYkZU6qjGty4KeezAF7ONXZN/EyVDb7PJJsWcEfgCMhBti', NULL, NULL, NULL, 1, NULL, '2023-07-01 09:33:09', '2023-07-01 09:33:09'),
+(11, 'card', NULL, NULL, NULL, NULL, NULL, NULL, 'Kaylah.Becker@hotmail.com', NULL, '$2y$10$2FT/JRXv.NpX7GQcqyWMwOZav.biBhc9xfryb6/a3V5IYbCCU7P.q', NULL, NULL, NULL, 1, NULL, '2023-07-01 09:33:47', '2023-07-01 09:33:47'),
+(12, 'bus', NULL, NULL, NULL, NULL, NULL, NULL, 'Brant.Welch10@yahoo.com', NULL, '$2y$10$7OcXIoQ31cx6BmkR3YVRAOh4XeAc65AgIkZDEELZZdhVS2RyxNhn6', NULL, NULL, NULL, 1, NULL, '2023-07-01 09:55:37', '2023-07-01 09:55:37');
 
 --
 -- Indexes for dumped tables
@@ -622,7 +635,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -640,7 +653,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
