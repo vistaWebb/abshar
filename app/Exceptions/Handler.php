@@ -27,4 +27,29 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    public function render($request , Throwable $e)
+    {
+        if($e instanceof ModelNotFoundException)
+        {
+            return $this->errorResponse($e->getMessage() , 404);
+        }
+
+        if($e instanceof NotFoundHttpException)
+        {
+            return $this->errorResponse($e->getMessage()  , 404);
+        }
+
+        if($e instanceof MethodNotAllowedHttpException)
+        {
+            return $this->errorResponse($e->getMessage()  , 500);
+        }
+
+        if(config('app.debug'))
+        {
+            return parent::render($request , $e);
+        }
+
+        return $this->errorResponse($e->getMessage()  , 500);
+    }
 }

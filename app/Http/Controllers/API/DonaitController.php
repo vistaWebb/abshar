@@ -7,8 +7,9 @@ use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\DonaitionResourcee;
+use App\Http\Controllers\API\ApiController;
 
-class DonaitController extends Controller
+class DonaitController extends ApiController
 {
     use ApiResponser;
     /**
@@ -17,7 +18,7 @@ class DonaitController extends Controller
     public function index()
     {
         $donations = Donation::all();
-        return DonaitionResourcee::collection($donations);
+        return $this->successResponse(DonaitionResourcee::collection($donations) , 200);
     }
 
     /**
